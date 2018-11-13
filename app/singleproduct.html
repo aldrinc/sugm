@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Hello, world!</title>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<!-- Font Awesome JS -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="css/style.css" >
+<link rel="stylesheet" href="css/animate.css" >
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/slick.js" defer></script>
+<link rel="stylesheet" href="css/slick.css">
+ 
+<script>
+$(document).ready(function(){
+    $(".close_search").click(function(){
+        $("p").hide();
+    });
+    $(".light_search_box").click(function(){
+        $("p").show();
+    });
+});
+</script>
+ 
+
+</head>
+<body>
+<div class="light_search_box_cnt">
+<div class="light_search_box">
+	<i class="fas fa-search"></i><input type="text"><i class="fas fa-times close_search"></i>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row headder">
+    <div class="col-4 header_left">
+      <div class="nav-side-menu"> <i class="toggle-btn" data-toggle="collapse" data-target="#menu-content"><img src="images/menu.png" alt=""></i>
+        <div class="menu-list">
+          <ul id="menu-content" class=" animate bounceOutleft menu-content collapse out">
+            <li> <a href="#"> Sale </a> </li>
+            <li  data-toggle="collapse" data-target="#products" class="collapsed active"> <a href="artandmore.html">Art & More <span class="arrow"></span></a> </li>
+            <ul class="sub-menu collapse" id="products">
+              <li class="active"><a href="#">CSS3 Animation</a></li>
+              <li><a href="#">General</a></li>
+              <li><a href="#">Buttons</a></li>
+              <li><a href="#">Tabs & Accordions</a></li>
+              <li><a href="#">Typography</a></li>
+              <li><a href="#">FontAwesome</a></li>
+              <li><a href="#">Slider</a></li>
+              <li><a href="#">Panels</a></li>
+              <li><a href="#">Widgets</a></li>
+              <li><a href="#">Bootstrap Model</a></li>
+            </ul>
+            <li data-toggle="collapse" data-target="#service" class="collapsed"> <a href="#">Best Selling <span class="arrow"></span></a> </li>
+            <ul class="sub-menu collapse" id="service">
+              <li>New Service 1</li>
+              <li>New Service 2</li>
+              <li>New Service 3</li>
+            </ul>
+            <li data-toggle="collapse" data-target="#new" class="collapsed"> <a href="#">All Products <span class="arrow"></span></a> </li>
+            <ul class="sub-menu collapse" id="new">
+              <li>New New 1</li>
+              <li>New New 2</li>
+              <li>New New 3</li>
+            </ul>
+            <ul class="page_nave">
+            <li> <a href="#"> About Us</a> </li>
+            <li> <a href="#"> Find my Order</a> </li>
+            <li> <a href="#"> Our Policies</a> </li>
+          </ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 header_center"> <img src="images/logo.png" alt=""> </div>
+    <div class="col-4 header_right">
+      <ul>
+	  <li><i class="fas fa-search"></i></li>
+        <li><img src="images/cart_icon.png" alt="" /></li>
+      </ul>
+    </div>
+  </div>
+  </div>
+  
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-2">
+		<div class="tumnail_cnt">
+			<ul>
+				<li><img src="images/product/product-image-1.jpg" alt="" /></li>
+				<li><img src="images/product/product-image-1.jpg" alt="" /></li>
+				<li><img src="images/product/product-image-1.jpg" alt="" /></li>
+				<li><img src="images/product/product-image-1.jpg" alt="" /></li>
+			</ul>
+			</div>
+		</div>
+		<div class="col-sm-5">
+			<div class="full_img">
+			<ul>
+				<li><img src="images/product/product-image-1.jpg" alt="" /></li>
+				<li><img src="images/product/product-image-1.jpg" alt="" /></li>
+				<li><img src="images/product/product-image-1.jpg" alt="" /></li>
+				<li><img src="images/product/product-image-1.jpg" alt="" /></li>
+			</ul>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="pro_right_box">
+				<h2>100g Wax Beads - Choose Your Scent!</h2>
+				<div class="pro_review">
+				<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><p>4.8 stars. 4169 Orders</p>
+				</div>
+				<div class="price_cnt">
+					<p><del>$62.97</del><span>$26.95(50%off)</span></p>
+				</div>
+				<div class="pro_type">
+				<label>Type</label>
+				<select>
+					<option>Set of 12 colors</option>
+					<option>Set of 16 colors</option>
+					<option>Set of 18 colors</option>								
+					<option>Set of 24 colors</option>
+				</select>				
+				</div>
+				<div class="pro_qyt">
+				<label>Quantity</label>			
+				</div>
+				<div class="addbuttonbox">
+					<button>Add to Bag<button>
+				</div>
+				<div class="fr_bog_tgh_cnt">
+					<ul>
+						<li>
+							<div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a>
+							 
+							<div class="p_price">$215</div> </div>
+						</li>
+						<li>
+							<div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a>
+							 
+							<div class="p_price">$215</div> </div>
+						</li>
+						<li>
+							<div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a>
+							<div class="setof_pro_type">
+									<select>
+										<option>Set of 12 colors</option>
+										<option>Set of 16 colors</option>
+										<option>Set of 18 colors</option>								
+										<option>Set of 24 colors</option>
+									</select>				
+									</div>
+							<div class="p_price">$215</div> </div>
+						</li>
+					</ul>
+					<div class="buyallcnt">
+						<button>Buy All and Save <i class="fas fa-check-circle"></i></button>
+					</div>
+					</div>
+					<div class="frewidebox">
+							 <ul>
+							  <li>
+							  <img src="images/icon_1.jpg" alt="" />
+								<p>Free Worldwide Shipping</p>
+							  </li>
+							  <li>
+								<img src="images/icon_2.jpg" alt="" />
+								<p>Easy Returns</p>
+							  </li>
+							  <li>
+								<img src="images/icon_3.jpg" alt="" />
+								<p>Human Helpdesk</p>
+							  </li>
+							  <li>
+								<img src="images/icon_4.jpg" alt="" />
+								<p>Secure Checkout</p>
+							  </li>
+							</ul>
+					</div>
+					<div class="product_detail_cnt">
+						<h3>Product Details</h3>
+						<p>#1 Best Selling Product <br/>
+						Free Worldwide Shipping - No surprises at checkout!<br/>
+						90% of Reviewers Recommend this product</p>	
+							<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+							<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+							<p><strong>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</strong> </p>
+							<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+							<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+							<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+							<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+							<p><strong>UPDATE:</strong> Due to hug demand we are officially running low on this product , please place your order order while supplies shipping Estimates are 2-3 weeks as a result of unexpected demand. </p>
+							<p class="sep_content">Free worldwide shipping & 57% Off Today!</p>
+							<p>Hesitant? Ask our many customers form all around the world.</p>
+							<p>Don’t like it ? we’ll be sad, but we’ll take it back</p>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+</div>  
+  
+  
+  
+  
+  
+  <footer class="footer_mobile">
+<div class="container">
+	<div class="row">
+      <div class="col-sm-12">
+		<div class="footer_logo">
+			<img src="images/footer_logo.jpg" alt="">
+	  </div>
+	  </div>
+	  </div>
+	<div class="row">
+      <div class="col-sm-12">
+		<div class="footer_menu">
+			<ul>
+				<li><a href="#">Help</a></li>
+				<li><a href="#">About us</a></li>
+				<li><a href="#">Returns</a></li>
+				<li><a href="#">Students</a></li>
+				<li><a href="#">Guideshop locations</a></li>
+				<li><a href="#">Teachers</a></li>
+				<li><a href="#"> Wholesale</a></li>
+				<li><a href="#">Military</a></li>
+				<li><a href="#">Bonobos</a></li>
+				<li><a href="#">App</a></li>
+				<li><a href="#">About Our Ads</a></li>
+				<li><a href="#">Jobs</a></li>
+				<li><a href="#">Privacy Policy</a></li>
+				<li><a href="#">Give Us Feedback</a></li>
+				<li><a href="#">Terms</a></li>
+				<li><a href="#">Email Us</a></li>
+			</ul>
+	  </div>
+	  <div class="emailsubscribe">
+		<h2>Be First</h2>
+		<p>Want exclusive offers and first and access to products? Sign up for email alerts.</p>
+		<div class="emailsubscrivebox">
+			<input type="text" placeholder="Your email address">
+			<input type="submit" value="+">
+		</div>
+		<div class="">
+			<p>By entering your email,you agree to our</p>
+			<p><a href="#">Terms of Service</a>+<a href="#">Privacy Policy</a>,including receipt of emails and promotions. You can unsubscribe at any time. </p>
+		</div>
+	  </div>
+	  </div>
+	  </div>
+	  </div>		  
+</footer>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="footer-title">
+          <h5>Customer Service</h5>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Pay Bill Online</a></li>
+            <li><a href="#">Order Status</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns & Exchanges</a></li>
+            <li><a href="#">Product Recalls</a></li>
+            <li><a href="#">Give Us Feedback</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="footer-title">
+          <h5>About Us</h5>
+          <ul>
+            <li><a href="#">Stores & Events</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Nordstrom Cares</a></li>
+            <li><a href="#">Site Map</a></li>
+            <li><a href="#">Get Email Updates</a></li>
+            <li><a href="#">Blogs + More</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="footer-title">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#">The Nordy Club</a></li>
+            <li><a href="#">Apply for a Nordstrom Card</a></li>
+            <li><a href="#">Stylists</a></li>
+            <li><a href="#">Alterations & Tailoring</a></li>
+            <li><a href="#">Spa Nordstrom</a></li>
+            <li><a href="#">Nordstrom Restaurants</a></li>
+            <li><a href="#">Gift Cards</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="footer-title">
+          <h5>Nordstrom, Inc.</h5>
+          <ul>
+            <li><a href="#">Nordstrom Rack</a></li>
+            <li><a href="#">Nordstrom Canada</a></li>
+            <li><a href="#">HauteLook</a></li>
+            <li><a href="#">Trunk Club</a></li>
+            <li><a href="#">Investor Relations</a></li>
+            <li><a href="#">Press Releases</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="footer-title">
+          <h6>Get our apps</h6>
+          <ul class="social-icon-ft">
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-9 col-lg-6">
+        <div class="footer-btm">
+          <ul>
+            <li><a href="#">Your Privacy Rights</a></li>
+            <li><a href="#">Term & Conditions</a></li>
+            <li><a href="#">Interest-Based Ads</a></li>
+            <li><a href="#">California Supply Chains Act</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3 col-lg-6">
+        <div class="footer-btm">
+          <p class="copy">© 2018 Nordstrom, Inc.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">
+      $(document).on('ready', function() {
+        $('.bestseller').slick({
+          dots: false,
+          centerMode: true,
+          centerPadding: '10px',
+          slidesToShow: 5,
+          autoplay: true,
+          autoplaySpeed: 2000,
+
+          responsive: [
+            {
+              breakpoint: 980,
+              settings: {
+                arrows: true,
+                centerMode: true,
+                centerPadding: '0px',
+                slidesToShow: 3
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                arrows: true,
+                centerMode: true,
+                centerPadding: '0px',
+                slidesToShow: 2
+              }
+            },
+            {
+              breakpoint: 500,
+              settings: {
+                arrows: true,
+                centerMode: true,
+                centerPadding: '0px',
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
+      });
+
+    </script> 
+
+<!-- Optional JavaScript --> 
+<!-- jQuery first, then Popper.js, then Bootstrap JS --> 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

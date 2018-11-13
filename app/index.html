@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Hello, world!</title>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<!-- Font Awesome JS -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="css/style.css" >
+<link rel="stylesheet" href="css/animate.css" >
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/slick.js" defer></script>
+<link rel="stylesheet" href="css/slick.css">
+ 
+ 
+
+
+<script>
+$(document).ready(function(){
+    $(".toggle-button").click(function(){
+        $(".menu-list").show();
+    });
+	$(".close_menu").click(function(){
+        $(".menu-list").hide();
+    });
+	$(".search_c").click(function(){
+        $(".light_search_box_cnt").show();
+    });
+	$(".close_search").click(function(){
+        $(".light_search_box_cnt").hide();
+    });
+	$(".cart_icon").click(function(){
+        $(".Cart_sidebar").addClass("Cart--open");
+    });
+	$(".Cart__close").click(function(){
+        $(".Cart_sidebar").removeClass("Cart--open");
+    });
+});
+</script>
+ 
+ 
+ 
+
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row headder">
+    <div class="col-4 header_left">
+      <div class="nav-side-menu"> <i class="toggle-button"><img src="images/menu.png" alt=""></i>
+        <div class="menu-list">
+        <div class="menu_list_cnt">
+			<div class="close_menu"><i class="fas fa-times"></i></div>
+          <ul class="menu-content">
+            <li> <a href="#"> Sale </a> </li>
+            <li  data-toggle="collapse" data-target="#products" class="collapsed active"> <a href="artandmore.html">Art & More <span class="fas fa-plus"></span></a>  </li>
+            <ul class="sub-menu collapse" id="products">
+              <li class="active"><a href="#">CSS3 Animation</a></li>
+              <li><a href="#">General</a></li>
+              <li><a href="#">Buttons</a></li>
+              <li><a href="#">Tabs & Accordions</a></li>
+              <li><a href="#">Typography</a></li>
+              <li><a href="#">FontAwesome</a></li>
+              <li><a href="#">Slider</a></li>
+              <li><a href="#">Panels</a></li>
+              <li><a href="#">Widgets</a></li>
+              <li><a href="#">Bootstrap Model</a></li>
+            </ul>
+            <li data-toggle="collapse" data-target="#service" class="collapsed"> <a href="#">Best Selling <span class="fas fa-plus"></span></a> </li>
+            <ul class="sub-menu collapse" id="service">
+              <li>New Service 1</li>
+              <li>New Service 2</li>
+              <li>New Service 3</li>
+            </ul>
+            <li data-toggle="collapse" data-target="#new" class="collapsed"> <a href="#">All Products <span class="fas fa-plus"></span></a> </li>
+            <ul class="sub-menu collapse" id="new">
+              <li>New New 1</li>
+              <li>New New 2</li>
+              <li>New New 3</li>
+            </ul>
+            <ul class="page_nave">
+            <li> <a href="#"> About Us</a> </li>
+            <li> <a href="#"> Find my Order</a> </li>
+            <li> <a href="#"> Our Policies</a> </li>
+          </ul>
+          </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 header_center"> <img src="images/logo.png" alt=""> </div>
+    <div class="col-4 header_right">
+      <ul>
+	  <li><div class="search_c"><img src="images/seacrch_icon.jpg" alt=""></div>
+	  <div class="light_search_box_cnt">
+<div class="light_search_box">
+	<i class="fas fa-search"></i><input type="text" placeholder="What can we help you find?"><div class="close_search"><i class="fas fa-times"></i></div>
+</div>
+</div>
+	  </li>
+        <li><div class="cart_icon"><img src="images/cart_icon.png" alt="" /></div>
+		<div class="Cart_sidebar"><header class="Cart__header"><h2>Your cart</h2><button class="Cart__close">Close</button></header><ul class="Cart__line-items"><li class="Line-item"><div class="Line-item__img"><img src="https://cdn.shopify.com/s/files/1/0040/9780/2329/products/product-image-686591998.jpg?v=1536454646" alt="GoPaint™️- Portable Watercolor Kit product shot"></div><div class="Line-item__content"><div class="Line-item__content-row"><div class="Line-item__variant-title">Set of 18 Colors</div><span class="Line-item__title">GoPaint™️- Portable Watercolor Kit</span></div><div class="Line-item__content-row"><div class="Line-item__quantity-container"><button class="Line-item__quantity-update">-</button><span class="Line-item__quantity">1</span><button class="Line-item__quantity-update">+</button></div><span class="Line-item__price"><!-- react-text: 524 -->$ <!-- /react-text --><!-- react-text: 525 -->26.95<!-- /react-text --></span><button class="Line-item__remove">×</button></div></div></li></ul><footer class="Cart__footer"><div class="Cart-info clearfix"><div class="Cart-info__total Cart-info__small">Subtotal</div><div class="Cart-info__pricing"><span class="pricing"><!-- react-text: 48 -->$ <!-- /react-text --><!-- react-text: 163 -->26.95<!-- /react-text --></span></div></div><div class="Cart-info clearfix"><div class="Cart-info__total Cart-info__small">Taxes</div><div class="Cart-info__pricing"><span class="pricing"><!-- react-text: 53 -->$ <!-- /react-text --><!-- react-text: 164 -->0.00<!-- /react-text --></span></div></div><div class="Cart-info clearfix"><div class="Cart-info__total Cart-info__small">Total</div><div class="Cart-info__pricing"><span class="pricing"><!-- react-text: 58 -->$ <!-- /react-text --><!-- react-text: 165 -->26.95<!-- /react-text --></span></div></div><button class="Cart__checkout button">Checkout <i class="fas fa-lock"></i></button></footer></div>
+		</li>
+      </ul>
+    </div>
+  </div>
+  </div>
+<div class="container-fluid">
+<div class="row">
+<div class="col-12">
+  <div class="app_banner_cnt">
+    <div class="app_banner_text">
+      <h1>The thrill of living is in the joy of giving.</h1>
+      <a href="#">Shop our best seller and more here</a></div>
+  </div>
+</div>
+</div>
+<div class="container">
+<div class="row content">
+  <div class="col-12">
+    <div class="title">
+      <h2>Our Bestseller</h2>
+	  <a href="#" class="see_all">See all <i class="fas fa-angle-double-right right_d_arrow"></i></a>
+    </div>
+  </div>
+<div class="col-12">
+  <div class="bestseller">
+   <div class="slide_item"><div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><div class="color_varient"><ul><li class="green active varient"></li><li class="yellow varient"></li></ul></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a><div class="p_price">$215</div><div class="pro_buy"><button class="quick_view"><i class="fas fa-plus"></i> Quick view</button></div></div> </div>
+<div class="slide_item"><div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><div class="color_varient"><ul><li class="green active varient"></li><li class="yellow varient"></li></ul></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a><div class="p_price">$215</div><div class="pro_buy"><button class="quick_view"><i class="fas fa-plus"></i> Quick view</button></div></div> </div><div class="slide_item"><div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><div class="color_varient"><ul><li class="green active varient"></li><li class="yellow varient"></li></ul></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a><div class="p_price">$215</div><div class="pro_buy"><button class="quick_view"><i class="fas fa-plus"></i> Quick view</button></div></div> </div><div class="slide_item"><div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><div class="color_varient"><ul><li class="green active varient"></li><li class="yellow varient"></li></ul></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a><div class="p_price">$215</div><div class="pro_buy"><button class="quick_view"><i class="fas fa-plus"></i> Quick view</button></div></div> </div><div class="slide_item"><div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><div class="color_varient"><ul><li class="green active varient"></li><li class="yellow varient"></li></ul></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a><div class="p_price">$215</div><div class="pro_buy"><button class="quick_view"><i class="fas fa-plus"></i> Quick view</button></div></div> </div><div class="slide_item"><div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><div class="color_varient"><ul><li class="green active varient"></li><li class="yellow varient"></li></ul></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a><div class="p_price">$215</div><div class="pro_buy"><button class="quick_view"><i class="fas fa-plus"></i> Quick view</button></div></div> </div><div class="slide_item"><div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><div class="color_varient"><ul><li class="green active varient"></li><li class="yellow varient"></li></ul></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a><div class="p_price">$215</div><div class="pro_buy"><button class="quick_view"><i class="fas fa-plus"></i> Quick view</button></div></div> </div><div class="slide_item"><div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><div class="color_varient"><ul><li class="green active varient"></li><li class="yellow varient"></li></ul></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a><div class="p_price">$215</div><div class="pro_buy"><button class="quick_view"><i class="fas fa-plus"></i> Quick view</button></div></div> </div>   
+
+    
+  </div>
+  <div class="seeallcnt">
+ <a href="#" class="see_all">See All <i class="fas fa-long-arrow-alt-right"></i></a>
+</div>
+</div>
+</div>
+<div class="row content morefrom">
+  <div class="col-12">
+    <div class="title">
+      <h2>More from our art collection</h2>
+    </div>
+  </div>
+<div class="col-12">
+  <div class="bestseller">
+   <div class="slide_item"><div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><div class="color_varient"><ul><li class="green active varient"></li><li class="yellow varient"></li></ul></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a><div class="p_price">$215</div><div class="pro_buy"><button class="quick_view"><i class="fas fa-plus"></i> Quick view</button></div></div> </div>
+<div class="slide_item"><div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><div class="color_varient"><ul><li class="green active varient"></li><li class="yellow varient"></li></ul></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a><div class="p_price">$215</div><div class="pro_buy"><button class="quick_view"><i class="fas fa-plus"></i> Quick view</button></div></div> </div><div class="slide_item"><div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><div class="color_varient"><ul><li class="green active varient"></li><li class="yellow varient"></li></ul></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a><div class="p_price">$215</div><div class="pro_buy"><button class="quick_view"><i class="fas fa-plus"></i> Quick view</button></div></div> </div><div class="slide_item"><div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><div class="color_varient"><ul><li class="green active varient"></li><li class="yellow varient"></li></ul></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a><div class="p_price">$215</div><div class="pro_buy"><button class="quick_view"><i class="fas fa-plus"></i> Quick view</button></div></div> </div><div class="slide_item"><div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><div class="color_varient"><ul><li class="green active varient"></li><li class="yellow varient"></li></ul></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a><div class="p_price">$215</div><div class="pro_buy"><button class="quick_view"><i class="fas fa-plus"></i> Quick view</button></div></div> </div><div class="slide_item"><div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><div class="color_varient"><ul><li class="green active varient"></li><li class="yellow varient"></li></ul></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a><div class="p_price">$215</div><div class="pro_buy"><button class="quick_view"><i class="fas fa-plus"></i> Quick view</button></div></div> </div><div class="slide_item"><div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><div class="color_varient"><ul><li class="green active varient"></li><li class="yellow varient"></li></ul></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a><div class="p_price">$215</div><div class="pro_buy"><button class="quick_view"><i class="fas fa-plus"></i> Quick view</button></div></div> </div><div class="slide_item"><div class="pro_item"><div class="pro_img"><img src="images/product/product-image-1.jpg" alt="" /></div><div class="color_varient"><ul><li class="green active varient"></li><li class="yellow varient"></li></ul></div><a href="singleproduct.html">100g Wax Beads - Choose Your Scent!</a><div class="p_price">$215</div><div class="pro_buy"><button class="quick_view"><i class="fas fa-plus"></i> Quick view</button></div></div> </div>   
+
+    
+  </div>
+  <div class="seeallcnt">
+ <a href="#" class="see_all">See All <i class="fas fa-long-arrow-alt-right"></i></a>
+</div>
+</div>
+</div>
+<div class="text_cnt">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 over_story_cnt">
+        <h2>Our Story and promise</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <ul>
+          <li>
+		  <img src="images/icon_1.jpg" alt="" />
+            <p>Free Worldwide Shipping</p>
+          </li>
+          <li>
+		    <img src="images/icon_2.jpg" alt="" />
+            <p>Easy Returns</p>
+          </li>
+          <li>
+		    <img src="images/icon_3.jpg" alt="" />
+            <p>Human Helpdesk</p>
+          </li>
+          <li>
+		    <img src="images/icon_4.jpg" alt="" />
+            <p>Secure Checkout</p>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-7 hide_mob">
+        <div class="holyday_cnt">
+          <div class="holyday_text_cnt">
+            <h3>Happy Holidays!</h3>
+            <p>In the spirit of the holidays here's 15% OFF our 
+              art collection! Use code ARTSY at checkout</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<footer class="footer_mobile">
+<div class="container">
+	<div class="row">
+      <div class="col-sm-12">
+		<div class="footer_logo">
+			<img src="images/footer_logo.jpg" alt="">
+	  </div>
+	  </div>
+	  </div>
+	<div class="row">
+      <div class="col-sm-12">
+		<div class="footer_menu">
+			<ul>
+				<li><a href="#">Help</a></li>
+				<li><a href="#">About us</a></li>
+				<li><a href="#">Returns</a></li>
+				<li><a href="#">Students</a></li>
+				<li><a href="#">Guideshop locations</a></li>
+				<li><a href="#">Teachers</a></li>
+				<li><a href="#"> Wholesale</a></li>
+				<li><a href="#">Military</a></li>
+				<li><a href="#">Bonobos</a></li>
+				<li><a href="#">App</a></li>
+				<li><a href="#">About Our Ads</a></li>
+				<li><a href="#">Jobs</a></li>
+				<li><a href="#">Privacy Policy</a></li>
+				<li><a href="#">Give Us Feedback</a></li>
+				<li><a href="#">Terms</a></li>
+				<li><a href="#">Email Us</a></li>
+			</ul>
+	  </div>
+	  <div class="emailsubscribe">
+		<h2>Be First</h2>
+		<p>Want exclusive offers and first and access to products? Sign up for email alerts.</p>
+		<div class="emailsubscrivebox">
+			<input type="text" placeholder="Your email address">
+			<input type="submit" value="+">
+		</div>
+		<div class="">
+			<p>By entering your email,you agree to our</p>
+			<p><a href="#">Terms of Service</a>+<a href="#">Privacy Policy</a>,including receipt of emails and promotions. You can unsubscribe at any time. </p>
+		</div>
+	  </div>
+	  </div>
+	  </div>
+	  </div>		  
+</footer>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="footer-title">
+          <h5>Customer Service</h5>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Pay Bill Online</a></li>
+            <li><a href="#">Order Status</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns & Exchanges</a></li>
+            <li><a href="#">Product Recalls</a></li>
+            <li><a href="#">Give Us Feedback</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="footer-title">
+          <h5>About Us</h5>
+          <ul>
+            <li><a href="#">Stores & Events</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Nordstrom Cares</a></li>
+            <li><a href="#">Site Map</a></li>
+            <li><a href="#">Get Email Updates</a></li>
+            <li><a href="#">Blogs + More</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="footer-title">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#">The Nordy Club</a></li>
+            <li><a href="#">Apply for a Nordstrom Card</a></li>
+            <li><a href="#">Stylists</a></li>
+            <li><a href="#">Alterations & Tailoring</a></li>
+            <li><a href="#">Spa Nordstrom</a></li>
+            <li><a href="#">Nordstrom Restaurants</a></li>
+            <li><a href="#">Gift Cards</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="footer-title">
+          <h5>Nordstrom, Inc.</h5>
+          <ul>
+            <li><a href="#">Nordstrom Rack</a></li>
+            <li><a href="#">Nordstrom Canada</a></li>
+            <li><a href="#">HauteLook</a></li>
+            <li><a href="#">Trunk Club</a></li>
+            <li><a href="#">Investor Relations</a></li>
+            <li><a href="#">Press Releases</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="footer-title">
+          <h6>Get our apps</h6>
+          <ul class="social-icon-ft">
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-9 col-lg-6">
+        <div class="footer-btm">
+          <ul>
+            <li><a href="#">Your Privacy Rights</a></li>
+            <li><a href="#">Term & Conditions</a></li>
+            <li><a href="#">Interest-Based Ads</a></li>
+            <li><a href="#">California Supply Chains Act</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3 col-lg-6">
+        <div class="footer-btm">
+          <p class="copy">© 2018 Nordstrom, Inc.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">
+      $(document).on('ready', function() {
+        $('.bestseller').slick({
+          dots: false,
+          centerMode: true,
+          centerPadding: '10px',
+          slidesToShow: 5,
+          autoplay: true,
+          autoplaySpeed: 2000,
+
+          responsive: [
+            {
+              breakpoint: 980,
+              settings: {
+                arrows: true,
+                centerMode: true,
+                centerPadding: '0px',
+                slidesToShow: 3
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                arrows: true,
+                centerMode: true,
+                centerPadding: '0px',
+                slidesToShow: 2
+              }
+            },
+            {
+              breakpoint: 500,
+              settings: {
+                arrows: true,
+                centerMode: true,
+                centerPadding: '0px',
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
+      });
+
+    </script> 
+
+<!-- Optional JavaScript --> 
+<!-- jQuery first, then Popper.js, then Bootstrap JS --> 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
