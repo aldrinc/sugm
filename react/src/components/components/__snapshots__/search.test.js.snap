@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`search renders correctly 1`] = `
+<div
+  className="light_search_box_cnt"
+>
+  <div
+    className="light_search_box"
+  >
+    <i
+      className="fas fa-search"
+    />
+    <input
+      placeholder="What can we help you find?"
+      type="text"
+    />
+    <div
+      className="close_search"
+    >
+      <i
+        className="fas fa-times"
+      />
+    </div>
+  </div>
+</div>
+`;

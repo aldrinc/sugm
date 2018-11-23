@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="text_cnt"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-5 over_story_cnt"
+      >
+        <h2>
+          Our Story and promise
+        </h2>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+        <ul>
+          <li>
+            <img
+              alt=""
+              src="icon_1.jpg"
+            />
+            <p>
+              Free Worldwide Shipping
+            </p>
+          </li>
+          <li>
+            <img
+              alt=""
+              src="icon_2.jpg"
+            />
+            <p>
+              Easy Returns
+            </p>
+          </li>
+          <li>
+            <img
+              alt=""
+              src="icon_3.jpg"
+            />
+            <p>
+              Human Helpdesk
+            </p>
+          </li>
+          <li>
+            <img
+              alt=""
+              src="icon_4.jpg"
+            />
+            <p>
+              Secure Checkout
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div
+        className="col-md-7 hide_mob"
+      >
+        <div
+          className="holyday_cnt"
+        >
+          <div
+            className="holyday_text_cnt"
+          >
+            <h3>
+              Happy Holidays!
+            </h3>
+            <p>
+              In the spirit of the holidays here's 15% OFF our art collection! Use code ARTSY at checkout
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
