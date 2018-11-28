@@ -50,7 +50,7 @@ class Cart extends Component {
               <span className="pricing">$ {this.props.checkout.totalPrice}</span>
             </div>
           </div>
-          <button className="Cart__checkout button" onClick={this.openCheckout}>Checkout</button>
+         <div className="chk_button"><button className="Cart__checkout button" onClick={this.openCheckout}>Checkout</button></div>
         </footer>
       </div>
     )

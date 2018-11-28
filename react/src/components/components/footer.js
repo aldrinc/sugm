@@ -1,5 +1,6 @@
 import React from 'react';
 import footer_logo from '../../images/footer_logo.jpg';
+import {Link} from "react-router-dom";
 
 class  Footer extends React.Component {
   render() {
@@ -18,14 +19,22 @@ class  Footer extends React.Component {
       <div className="col-sm-12">
 		<div className="footer_menu">
 			<ul>
-				<li><a href="#">Help</a></li>
-				<li><a href="#">About us</a></li>
-				<li><a href="#">Returns</a></li>
-				<li><a href="#"> Wholesale</a></li>
-				<li><a href="#">Privacy Policy</a></li>
-				<li><a href="#">Give Us Feedback</a></li>
-				<li><a href="#">Terms</a></li>
-				<li><a href="#">Email Us</a></li>
+				<li><Link to="#">Help</Link></li>
+				<li><Link to="#">About us</Link></li>
+				<li><Link to="#">Returns</Link></li>
+				<li><Link to="#">Students</Link></li>
+				<li><Link to="#">Guideshop locations</Link></li>
+				<li><Link to="#">Teachers</Link></li>
+				<li><Link to="#"> Wholesale</Link></li>
+				<li><Link to="#">Military</Link></li>
+				<li><Link to="#">Bonobos</Link></li>
+				<li><Link to="#">App</Link></li>
+				<li><Link to="#">About Our Ads</Link></li>
+				<li><Link to="#">Jobs</Link></li>
+				<li><Link to="#">Privacy Policy</Link></li>
+				<li><Link to="#">Give Us Feedback</Link></li>
+				<li><Link to="#">Terms</Link></li>
+				<li><Link to="#">Email Us</Link></li>
 			</ul>
 	  </div>
 	  <div className="emailsubscribe">
@@ -37,7 +46,7 @@ class  Footer extends React.Component {
 		</div>
 		<div className="kjkj">
 			<p>By entering your email,you agree to our</p>
-			<p><a href="#">Terms of Service</a>+<a href="#">Privacy Policy</a>,including receipt of emails and promotions. You can unsubscribe at any time. </p>
+			<p><Link to="#">Terms of Service</Link>+<Link to="#">Privacy Policy</Link>,including receipt of emails and promotions. You can unsubscribe at any time. </p>
 		</div>
 	  </div>
 	  </div>
@@ -51,11 +60,13 @@ class  Footer extends React.Component {
             <div className="footer-title">
             <h5>Customer Service</h5>
             <ul>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Order Status</a></li>
-              <li><a href="#">Shipping</a></li>
-              <li><a href="#">Returns & Exchanges</a></li>
-              <li><a href="#">Give Us Feedback</a></li>
+              <li><Link to="#">Contact Us</Link></li>
+              <li><Link to="#">Pay Bill Online</Link></li>
+              <li><Link to="#">Order Status</Link></li>
+              <li><Link to="#">Shipping</Link></li>
+              <li><Link to="#">Returns & Exchanges</Link></li>
+              <li><Link to="#">Product Recalls</Link></li>
+              <li><Link to="#">Give Us Feedback</Link></li>
             </ul>
           </div>
           </div>
@@ -63,10 +74,12 @@ class  Footer extends React.Component {
             <div className="footer-title">
             <h5>About Us</h5>
             <ul>
-              <li><a href="#">Shutupandgiftme Cares</a></li>
-              <li><a href="#">Site Map</a></li>
-              <li><a href="#">Get Email Updates</a></li>
-              <li><a href="#">Blogs + More</a></li>
+              <li><Link to="#">Stores & Events</Link></li>
+              <li><Link to="#">Careers</Link></li>
+              <li><Link to="#">Nordstrom Cares</Link></li>
+              <li><Link to="#">Site Map</Link></li>
+              <li><Link to="#">Get Email Updates</Link></li>
+              <li><Link to="#">Blogs + More</Link></li>
             </ul>
           </div>
           </div>
@@ -74,28 +87,37 @@ class  Footer extends React.Component {
             <div className="footer-title">
             <h5>Services</h5>
             <ul>
-              <li><a href="#">Bulk Ordering</a></li>
-              <li><a href="#">Gift Cards</a></li>
+              <li><Link to="#">The Nordy Club</Link></li>
+              <li><Link to="#">Apply for a Nordstrom Card</Link></li>
+              <li><Link to="#">Stylists</Link></li>
+              <li><Link to="#">Alterations & Tailoring</Link></li>
+              <li><Link to="#">Spa Nordstrom</Link></li>
+              <li><Link to="#">Nordstrom Restaurants</Link></li>
+              <li><Link to="#">Gift Cards</Link></li>
             </ul>
           </div>
           </div>
           <div className="col-md-2">
             <div className="footer-title">
-            <h5>Shutupandgiftme, Inc.</h5>
+            <h5>Nordstrom, Inc.</h5>
             <ul>
-              <li><a href="#">Investor Relations</a></li>
-              <li><a href="#">Press Releases</a></li>
+              <li><Link to="#">Nordstrom Rack</Link></li>
+              <li><Link to="#">Nordstrom Canada</Link></li>
+              <li><Link to="#">HauteLook</Link></li>
+              <li><Link to="#">Trunk Club</Link></li>
+              <li><Link to="#">Investor Relations</Link></li>
+              <li><Link to="#">Press Releases</Link></li>
             </ul>
           </div>
           </div>
           <div className="col-md-4">
             <div className="footer-title">
-            <h6>Connect with us!</h6>
+            <h6>Get our apps</h6>
             <ul className="social-icon-ft">
-              <li><a href="#"><i className="fab fa-instagram"></i></a></li>
-              <li><a href="#"><i className="fab fa-pinterest-p"></i></a></li>
-              <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-              <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
+              <li><Link to="#"><i className="fab fa-instagram"></i></Link></li>
+              <li><Link to="#"><i className="fab fa-pinterest-p"></i></Link></li>
+              <li><Link to="#"><i className="fab fa-twitter"></i></Link></li>
+              <li><Link to="#"><i className="fab fa-facebook-f"></i></Link></li>
             </ul>
           </div>
           </div>
@@ -103,15 +125,17 @@ class  Footer extends React.Component {
           <div className="col-md-6">
             <div className="footer-btm">
               <ul>
-                <li><a href="#">Your Privacy Rights</a></li>
-                <li><a href="#">Term & Conditions</a></li>
+                <li><Link to="#">Your Privacy Rights</Link></li>
+                <li><Link to="#">Term & Conditions</Link></li>
+                <li><Link to="#">Interest-Based Ads</Link></li>
+                <li><Link to="#">California Supply Chains Act</Link></li>
             
               </ul>
             </div>
           </div>
 		   <div className="col-md-6">
             <div className="footer-btm">
-           <p className="copy">© 2018 Shutupandgiftme, Inc.</p>
+           <p className="copy">© 2018 Nordstrom, Inc.</p>
         </div>
         </div>
         </div>

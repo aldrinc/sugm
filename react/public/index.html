@@ -15,36 +15,6 @@
 <!-- Font Awesome JS -->
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-   
- 
-
-<script>
-$(document).ready(function(){
-    $(".toggle-button").click(function(){
-        $(".menu-list").show();
-    });
-	$(".close_menu").click(function(){
-        $(".menu-list").hide();
-    });
-	$(".search_c").click(function(){
-        $(".light_search_box_cnt").show();
-    });
-	$(".close_search").click(function(){
-        $(".light_search_box_cnt").hide();
-    });
-	$(".cart_icon").click(function(){
-        $(".Cart").addClass("Cart--open");
-    });
-	$(".Cart__close").click(function(){
-        $(".Cart").removeClass("Cart--open");
-    });
-	$(".filter_nav ul li").click(function (e) {
-     e.stopPropagation();
-     $(this).children('ul').toggle();
- }); 
-
-});
-</script>
     <!--
       Notice the use of %PUBLIC_URL% in the tag above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -75,51 +45,6 @@ $(document).ready(function(){
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-<script type="text/javascript">
-      $(document).on('ready', function() {
 	   
-	    $('.bestseller').slick({
-          dots: false,
-          centerMode: true,
-          centerPadding: '10px',
-          slidesToShow: 5,
-          autoplay: true,
-          autoplaySpeed: 2000,
-
-          responsive: [
-            {
-              breakpoint: 980,
-              settings: {
-                arrows: true,
-                centerMode: true,
-                centerPadding: '0px',
-                slidesToShow: 3
-              }
-            },
-            {
-              breakpoint: 768,
-              settings: {
-                arrows: true,
-                centerMode: true,
-                centerPadding: '0px',
-                slidesToShow: 2
-              }
-            },
-            {
-              breakpoint: 500,
-              settings: {
-                arrows: true,
-                centerMode: true,
-                centerPadding: '0px',
-                slidesToShow: 1
-              }
-            }
-          ]
-        });
-	   
-      });
-
-    </script> 
 </body>
 </html>

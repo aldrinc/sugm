@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
-import Main from './components/components/main'; 
+import Products from './../Products';
+import Cart from './../Cart'; 
+import Client from 'shopify-buy';
  
-class App extends Component {
+import Story from './Story'; 
+import Banner from './banner';  
+
+const client = Client.buildClient({
+  storefrontAccessToken: '5214ca32a041092d1b0992370ee045ad',
+  domain: 'shutupandgiftmedev.myshopify.com'
+});
+
+class Index extends Component {
   constructor() {
     super();
 
@@ -19,19 +29,19 @@ class App extends Component {
   }
 
   componentWillMount() {
-    this.props.client.checkout.create().then((res) => {
+    client.checkout.create().then((res) => {
       this.setState({
         checkout: res,
       });
     });
 
-    this.props.client.product.fetchAll().then((res) => {
+    client.product.fetchAll().then((res) => {
       this.setState({
         products: res,
       });
     });
 
-    this.props.client.shop.fetchInfo().then((res) => {
+    client.shop.fetchInfo().then((res) => {
       this.setState({
         shop: res,
       });
@@ -46,7 +56,7 @@ class App extends Component {
     const lineItemsToAdd = [{variantId, quantity: parseInt(quantity, 10)}]
     const checkoutId = this.state.checkout.id
 
-    return this.props.client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
+    return client.checkout.addLineItems(checkoutId, lineItemsToAdd).then(res => {
       this.setState({
         checkout: res,
       });
@@ -57,7 +67,7 @@ class App extends Component {
     const checkoutId = this.state.checkout.id
     const lineItemsToUpdate = [{id: lineItemId, quantity: parseInt(quantity, 10)}]
 
-    return this.props.client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then(res => {
+    return client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then(res => {
       this.setState({
         checkout: res,
       });
@@ -67,7 +77,7 @@ class App extends Component {
   removeLineItemInCart(lineItemId) {
     const checkoutId = this.state.checkout.id
 
-    return this.props.client.checkout.removeLineItems(checkoutId, [lineItemId]).then(res => {
+    return client.checkout.removeLineItems(checkoutId, [lineItemId]).then(res => {
       this.setState({
         checkout: res,
       });
@@ -82,11 +92,28 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">	
-		<Main/> 
+      <div className="App">
+	  
+	  
+        <Banner/>
+         <Products
+          products={this.state.products}
+          client={this.props.client}
+          addVariantToCart={this.addVariantToCart}
+        />       
+		<Story/>
+		 <Cart
+          checkout={this.state.checkout}
+          isCartOpen={this.state.isCartOpen}
+          handleCartClose={this.handleCartClose}
+          updateQuantityInCart={this.updateQuantityInCart}
+          removeLineItemInCart={this.removeLineItemInCart}
+        />
+		 
+		 
       </div>
     );
   }
 }
- 
-export default App;
+
+export default  Index;

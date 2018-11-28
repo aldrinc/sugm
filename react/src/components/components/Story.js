@@ -1,22 +1,23 @@
 import React from 'react';
- 
+
 import icon_1 from '../../images/icon_1.jpg'; 
 import icon_2 from '../../images/icon_2.jpg'; 
 import icon_3 from '../../images/icon_3.jpg'; 
-import icon_4 from '../../images/icon_4.jpg'; 
-import locale_en from 'react-intl/locale-data/en';
-
+import icon_4 from '../../images/icon_4.jpg';  
+ 
+ 
+ 
 class  Story extends React.Component {
  
   render() {
     return (
 	
-
     <div className="text_cnt">
  
   <div className="container">
     <div className="row">
       <div className="col-md-5 over_story_cnt">
+	  
         <h2>Our Story and promise</h2>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
         <ul>
@@ -53,5 +54,4 @@ class  Story extends React.Component {
     );
   }
 }
-export default (Story);
-// Example usage: <ShoppingList name="Mark" />
+export default (Story); 

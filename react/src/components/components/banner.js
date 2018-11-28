@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 class Banner extends React.Component {
 render() {
@@ -10,7 +11,7 @@ render() {
 			  <div className="app_banner_cnt">
 				<div className="app_banner_text">
 				  <h1>The thrill of living is in the joy of giving.</h1>
-				  <a href="#">Shop our best seller and more here</a></div>
+				  <Link to="#">Shop our best seller and more here</Link></div>
 			  </div>
 			</div>
 			</div>
