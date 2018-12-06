@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Product from './Product';
+import {Link} from "react-router-dom";
+import Icon from "../images/arrow";
 
 class Products extends Component {
   render() {
@@ -16,12 +18,12 @@ class Products extends Component {
 
     return (
 	<div className="fullwidth">
-       <div className="container">
+       <div className="container-fluid">
 	  		<div className="row content">
 			  <div className="col-12">
 				<div className="title">
-				  <h2>Our Bestseller</h2>
-				  <a href="#" className="see_all">See all <i className="fas fa-angle-double-right right_d_arrow"></i></a>
+				  <h2>Our Bestsellers</h2>
+				   <Link to="/SaleArt"  className="see_all"><span>See All</span> <Icon width={35} /></Link>
 				</div>
 			  </div>
 			  </div> 
@@ -29,20 +31,20 @@ class Products extends Component {
 				{products}
         </div>
 	  <div className="seeallcnt">
-				<a href="#" className="see_all">See All <i className="fas fa-long-arrow-alt-right"></i></a>
+				 <Link to="/SaleArt"  className="see_all"><span>See All</span> <Icon width={35} /></Link>
 			</div>
 			<div className="row content morefrom">
 			  <div className="col-12">
 				<div className="title">
 				   <h2>More from our art collection</h2>
-				  <a href="#" className="see_all">See all <i className="fas fa-angle-double-right right_d_arrow"></i></a>
+				   <Link to="/SaleArt"  className="see_all"><span>See All</span> <Icon width={35} /></Link>
 				</div>
 			  </div>
 			   <div className="bestseller">
 				{products}
         </div>
 		<div className="seeallcnt">
-				<a href="#" className="see_all">See All <i className="fas fa-long-arrow-alt-right"></i></a>
+				 <Link to="/SaleArt"  className="see_all"><span>See All</span> <Icon width={35} /></Link>
 			</div>
 		 </div>  
 		</div>

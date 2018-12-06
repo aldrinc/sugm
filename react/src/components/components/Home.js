@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
-import Products from './../Products';
-import Cart from './../Cart'; 
-import Client from 'shopify-buy';
+import Products from '../Products';
+import Cart from '../Cart'; 
+import client from '../../helpers/ShopifyClient';
+import { LocalStorage } from '../../helpers/LocalStorage';
  
 import Story from './Story'; 
 import Banner from './banner';  
 
-const client = Client.buildClient({
-  storefrontAccessToken: '5214ca32a041092d1b0992370ee045ad',
-  domain: 'shutupandgiftmedev.myshopify.com'
-});
-
 class Index extends Component {
+
   constructor() {
     super();
+    this.lc = new LocalStorage();
 
     this.state = {
       isCartOpen: false,
@@ -30,18 +28,22 @@ class Index extends Component {
 
   componentWillMount() {
     client.checkout.create().then((res) => {
+      this.lc.putObject('checkout', res);
       this.setState({
         checkout: res,
       });
     });
 
     client.product.fetchAll().then((res) => {
+      this.lc.putObject('products', res);
+      console.info('products: ', this.lc.getObject('products'))
       this.setState({
         products: res,
       });
     });
 
     client.shop.fetchInfo().then((res) => {
+      this.lc.putObject('shop', res);
       this.setState({
         shop: res,
       });
@@ -93,8 +95,6 @@ class Index extends Component {
   render() {
     return (
       <div className="App">
-	  
-	  
         <Banner/>
          <Products
           products={this.state.products}

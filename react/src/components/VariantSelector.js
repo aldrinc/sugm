@@ -6,12 +6,12 @@ class VariantSelector extends Component {
       <select
         className="Product__option"
         name={this.props.option.name}
-        key={this.props.option.name}
+        key={this.props.option.key}
         onChange={this.props.handleOptionChange}
       >
         {this.props.option.values.map((value) => {
           return (
-            <option value={value} key={`${this.props.option.name}-${value}`}>{`${value}`}</option>
+            <option value={value.value} key={`${this.props.option.name}-${value.value}`}>{`${value.value}`}</option>
           )
         })}
       </select>

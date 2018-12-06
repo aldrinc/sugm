@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
-import VariantSelector from './VariantSelector'; 
- 
- import {Link} from "react-router-dom";
-
-
- 
+import VariantSelector from './VariantSelector';  
+import {Link} from "react-router-dom";
 
 class Product extends Component {
   constructor(props) {
@@ -66,18 +62,18 @@ class Product extends Component {
     });
     return (
  
-      <div className="Product_item col-3">
+      <div className="Product_item col-6 col-sm-3 col-md-3 col-lg-2">
 	  <div className="img_cnt">
         {this.props.product.images.length ? <img src={variantImage.src} alt={`${this.props.product.title} product shot`}/> : null}
 		</div>
-        <h5 className="Product__title"> <Link to="/Product">{this.props.product.title}</Link></h5>
+        <h5 className="Product__title"> <Link to={`/product/${this.props.product.handle}`}>{this.props.product.title}</Link></h5>
         <span className="Product__price">${variant.price}</span>
         {variantSelectors}
         <label className="Product__quntity">
           Quantity
           <input min="1" type="number" defaultValue={variantQuantity} onChange={this.handleQuantityChange}></input>
         </label>
-        <button className="Product__buy button" onClick={() => this.props.addVariantToCart(variant.id, variantQuantity)}>Quick Shop</button>
+        <button className="Product__buy button" onClick={() => this.props.addVariantToCart(variant.id, variantQuantity)}>Add to Bag</button>
       </div>
       
     );

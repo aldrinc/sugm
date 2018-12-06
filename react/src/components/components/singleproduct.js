@@ -1,12 +1,11 @@
 import React from "react";
 import Slider from "react-slick";
-import ProductImg1 from '../../images/product/product-image-1.jpg';
  
-
 class SimpleSlider extends React.Component {
 	
   render() {
-	 
+   console.info('props data: ', this.props)
+
     var settings = {
      dots: true, 
 	 dotsClass: "slick-dots slick-thumb",
@@ -46,31 +45,21 @@ class SimpleSlider extends React.Component {
         }
       ]
     };
-	
+
+    let productImages = (this.props && this.props.product) ? this.props.product.images.map((image) => {
+      return (
+        <div key={image.id}>
+          <img src={image.src} alt="" />
+        </div>
+      );
+    }) : '';
     return (
 	 <div className="container">
 	  
 	<div className="row">
 	<div className="col-sm-12">
       <Slider {...settings}>
-        <div>
-          <img src={ProductImg1} alt="" />
-        </div>
-        <div>
-          <img src={ProductImg1} alt="" />
-        </div>
-        <div>
-          <img src={ProductImg1} alt="" />
-        </div>
-        <div>
-         <img src={ProductImg1} alt="" />
-        </div>
-        <div>
-         <img src={ProductImg1} alt="" />
-        </div>
-        <div>
-         <img src={ProductImg1} alt="" />
-        </div>
+        {productImages}
       </Slider>
 	  </div>
 	  </div>
