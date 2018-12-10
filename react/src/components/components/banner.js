@@ -10,7 +10,7 @@ render() {
      	
 		<div className="container-fluid m_nopadding">
 			<div className="row">
-			<div className="col-12">
+			<div className="">
 			  <div className="app_banner_cnt">
 			   <img src={Banner_img} alt="Banner_img" /> 
 			   <img src={Mobile_banner} className="mob_img" alt="Banner_img" /> 

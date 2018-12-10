@@ -11,34 +11,37 @@ import client from '../../helpers/ShopifyClient';
 
 import SingleProduct from './singleproduct'; 
  
- 
+const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 class Product extends React.Component {
 
 	constructor(props) {
 		super(props);
 		this.lc = new LocalStorage();
 		this.state = { project: undefined, selectedOptions: {} };
-		
-	  }
-
-	componentWillMount() {
-		const { match: { params } } = this.props;
-		console.info('---------', params)
-		const lcProducts = this.lc.getObject('products');
-
-		const product = lcProducts.find( product => product.handle === params.productId );
+    }
+    
+	async componentWillMount() {
+    window.scrollTo(0, 0)
+    const lcProducts = this.lc.getObject('products');
+    if(!lcProducts) {
+    setTimeout(() => {
+      window.location.replace(`/product/${this.props.productId}`)
+    },10000)
+    } else {
+		const product = lcProducts.find( product => product.handle === this.props.productId );
 		this.setState({product: product})
 		
-		let defaultOptionValues = {};
-    product.options.forEach((selector) => {
-      defaultOptionValues[selector.name] = selector.values[0].value;
-    });
+    let defaultOptionValues = {};
+    if(product) {
+      product.options.forEach((selector) => {
+        defaultOptionValues[selector.name] = selector.values[0].value;
+      });
+    }
     this.setState({ selectedOptions: defaultOptionValues });
-
+  }
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
     this.findImage = this.findImage.bind(this);
-
 	}
 
 	findImage(images, variantId) {
@@ -57,10 +60,9 @@ class Product extends React.Component {
     selectedOptions[target.name] = target.value;
 
     const selectedVariant = client.product.helpers.variantForOptions(this.state.product, selectedOptions)
-
     this.setState({
       selectedVariant: selectedVariant,
-      selectedVariantImage: selectedVariant.attrs.image
+      selectedVariantImage: selectedVariant.image
     });
   }
 
@@ -71,26 +73,27 @@ class Product extends React.Component {
 	}
 	
   render () {
-	let variantImage = this.state.selectedVariantImage || this.state.product.images[0]
+    if(this.state.product) {
+	let variantImage = this.state.selectedVariantImage || this.state.product.images[0] || null
     let variant = this.state.selectedVariant || this.state.product.variants[0]
     let variantQuantity = this.state.selectedVariantQuantity || 1
     let variantSelectors = this.state.product.options.map((option) => {
       return (
-    <VariantSelector
+      <VariantSelector
           handleOptionChange={this.handleOptionChange}
           key={option.id.toString()}
           option={option}
         />
-);
+      );
     });
     return (
-<div >
+<div>
   <div className="container-fluid">
     <div className="row">
-      <div className="col-sm-7">
+      <div className="col-sm-6 col-md-7">
         <SingleProduct product={this.state.product}/>
       </div>
-      <div className="col-sm-4">
+      <div className="col-sm-6 col-md-5">
         <div className="pro_right_box">
           <h2>{this.state.product.title}</h2>
           <div className="pro_review"> <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>
@@ -171,13 +174,20 @@ class Product extends React.Component {
           </div>
           <div className="product_detail_cnt">
             <h3>Product Details</h3>
-            <p>{this.state.product.description}</p> </div>
+            {renderHTML(this.state.product.descriptionHtml)} </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 );
+    } else {
+      return (
+        <div>
+          <h2 className="text-center" style={{minHeight: '200px'}}>Loading...</h2>
+        </div>
+      )
+    }
   }
 }
 
