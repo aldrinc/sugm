@@ -1,31 +1,61 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-// Each logical "route" has two components, one for
-// the sidebar and one for the main area. We want to
-// render both of them in different places when the
-// path matches the current URL.
+import React from 'react';
+import {NavLink} from "react-router-dom";
+import { LocalStorage } from '../../helpers/LocalStorage';
+import Icon from "../../images/arrow";
+import {Link} from "react-router-dom"; 
  
-function SidebarExample() {
-  return (
-    <Router>
-      <div>
-        <div>
-          <ul style={{ listStyleType: "none", padding: 0 }}>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/bubblegum">Bubblegum</Link>
-            </li>
-            <li>
-              <Link to="/shoelaces">Shoelaces</Link>
-            </li>
-          </ul>  
-        </div> 
-      </div>
-    </Router>
-  );
-}
+class SidebarMenu extends React.Component {
+	constructor() {
+    super();
+    this.lc = new LocalStorage();
+  }
 
-export default SidebarExample;
+  render() { 
+    let collect = null;
+    const collections = this.lc.getObject('collections');
+    if(collections) {
+      collect = collections.map((collection) => {
+        return (
+          <li key={collection.id} onClick={() => this.props.sidebarOpen(false)}>
+            <NavLink exact activeClassName="current" to={`/${collection.handle}`} ><span>{collection.title}</span><Icon width={30} /></NavLink>
+          </li>
+        );
+      });
+    }
+    return (
+        <div className="side_bar_cnt">
+        <div className="side_box">
+          <ul className="menu-content">
+            {collect}
+          </ul>
+          <ul className="menu-page-content">
+            <li onClick={() => this.props.sidebarOpen(false)}>
+              <Link to="/AboutUs" >
+              About Us
+              </Link>
+            </li>
+                <li onClick={() => this.props.sidebarOpen(false)}>
+              <Link to="/FindmyOrder" >
+              Find my Order
+              </Link>
+            </li>
+                <li onClick={() => this.props.sidebarOpen(false)}>
+              <Link to="/OurPolicies" >
+              Our Policies
+              </Link>
+            </li> 
+          </ul>
+		   </div>
+          <div className="cruncy_option">
+            <select>
+              <option>United States (USD) </option>
+              <option>India (INR) </option>
+            </select>
+          </div>
+       
+        </div>
+      );
+  }
+}
+ 
+export default SidebarMenu; 

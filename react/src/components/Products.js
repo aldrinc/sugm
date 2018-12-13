@@ -6,7 +6,7 @@ import client from '../helpers/ShopifyClient';
 
 class Products extends Component {
   render() {
-    let products = this.props.bestProducts.slice(0, 4).map((bestproduct) => {
+    let products = this.props.bestProducts.slice(0, 6).map((bestproduct) => {
       return (
         <Product
           addVariantToCart={this.props.addVariantToCart}
@@ -16,7 +16,7 @@ class Products extends Component {
         />
       );
 		});
-		let artProducts = this.props.artProducts.slice(0, 4).map((artproduct) => {
+		let artProducts = this.props.artProducts.slice(0, 6).map((artproduct) => {
       return (
         <Product
           addVariantToCart={this.props.addVariantToCart}

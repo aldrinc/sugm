@@ -1,9 +1,9 @@
 import React from 'react' 
 import ProductImg1 from '../../images/product/product-image-1.jpg';
-import icon_1 from '../../images/icon_1.jpg'; 
-import icon_2 from '../../images/icon_2.jpg'; 
-import icon_3 from '../../images/icon_3.jpg'; 
-import icon_4 from '../../images/icon_4.jpg';  
+import icon_1 from '../../images/fwc.png'; 
+import icon_2 from '../../images/er.png'; 
+import icon_3 from '../../images/hh.png'; 
+import icon_4 from '../../images/sc.png';  
 import {Link} from "react-router-dom";
 import { LocalStorage } from '../../helpers/LocalStorage';
 import VariantSelector from '../VariantSelector';
@@ -17,32 +17,49 @@ class Product extends React.Component {
 	constructor(props) {
 		super(props);
 		this.lc = new LocalStorage();
-		this.state = { project: undefined, selectedOptions: {} };
-    }
+    this.state = { 
+      project: undefined, 
+      selectedOptions: {}, 
+      selectedVariantQuantity: 1
+    };
     
-	async componentWillMount() {
-    window.scrollTo(0, 0)
-    const lcProducts = this.lc.getObject('products');
-    if(!lcProducts) {
-    setTimeout(() => {
-      window.location.replace(`/product/${this.props.productId}`)
-    },10000)
-    } else {
-		const product = lcProducts.find( product => product.handle === this.props.productId );
-		this.setState({product: product})
-		
-    let defaultOptionValues = {};
-    if(product) {
-      product.options.forEach((selector) => {
-        defaultOptionValues[selector.name] = selector.values[0].value;
-      });
-    }
-    this.setState({ selectedOptions: defaultOptionValues });
-  }
+    this.minusQty = this.minusQty.bind(this)
+    this.plusQty = this.plusQty.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
     this.findImage = this.findImage.bind(this);
-	}
+    }
+
+    componentWillReceiveProps(nextProps) {
+      const productId = nextProps.match.params.productId;
+      this.setItems(productId)
+    }
+
+    componentWillMount() {
+      window.scrollTo(0, 0)
+      this.setItems(this.props.productId)
+    }
+
+    setItems(productId) {
+        const lcProducts = this.lc.getObject('products');
+        if(!lcProducts) {
+        setTimeout(() => {
+          window.location.replace(`/product/${productId}`)
+        },10000)
+        } else {
+        const product = lcProducts.find( product => product.handle === productId );
+        this.setState({product: product})
+        
+        let defaultOptionValues = {};
+        if(product) {
+          product.options.forEach((selector) => {
+            defaultOptionValues[selector.name] = selector.values[0].value;
+          });
+        }
+        this.setState({ selectedOptions: defaultOptionValues });
+      }
+   
+	  }
 
 	findImage(images, variantId) {
     const primary = images[0];
@@ -56,8 +73,9 @@ class Product extends React.Component {
 
   handleOptionChange(event) {
     const target = event.target
+    const nameSplit = target.name.split('--')
     let selectedOptions = this.state.selectedOptions;
-    selectedOptions[target.name] = target.value;
+    selectedOptions[nameSplit[0]] = target.value;
 
     const selectedVariant = client.product.helpers.variantForOptions(this.state.product, selectedOptions)
     this.setState({
@@ -70,7 +88,17 @@ class Product extends React.Component {
     this.setState({
       selectedVariantQuantity: event.target.value
     });
-	}
+  }
+  minusQty() {
+    this.setState({
+      selectedVariantQuantity: (this.state.selectedVariantQuantity) ? Number(this.state.selectedVariantQuantity)-1 : 1
+    })
+  }
+  plusQty() {
+    this.setState({
+      selectedVariantQuantity: (this.state.selectedVariantQuantity ) ? Number(this.state.selectedVariantQuantity) + 1 : 1
+    })
+  }
 	
   render () {
     if(this.state.product) {
@@ -79,11 +107,14 @@ class Product extends React.Component {
     let variantQuantity = this.state.selectedVariantQuantity || 1
     let variantSelectors = this.state.product.options.map((option) => {
       return (
-      <VariantSelector
-          handleOptionChange={this.handleOptionChange}
-          key={option.id.toString()}
-          option={option}
-        />
+        <span className={`variant_txt ${option.name}Variant`} key={option.id.toString()}>
+          <VariantSelector
+              handleOptionChange={this.handleOptionChange}
+              key={option.id.toString()}
+              option={option}
+            />
+          <br/>
+        </span>
       );
     });
     return (
@@ -106,19 +137,25 @@ class Product extends React.Component {
             <label>Type</label>
             {variantSelectors} </div>
           <div className="pro_qyt">
-            <label className="Product__quntity"> Quantity
-              <input min="1" type="number" defaultValue={variantQuantity} onChange={this.handleQuantityChange}>
-              </input>
-            </label>
+            <label className="Product__quntity"> <span>Quantity</span> </label>
+			<div className="pro_qyt_box">
+              <button className="minus_qut" onClick={this.minusQty}>-</button>
+              <input min="1" type="text" value={variantQuantity} onChange={this.handleQuantityChange} />
+              <button className="plus_qut" onClick={this.plusQty}>+</button>
+			  </div>
+           
           </div>
           <div className="addbuttonbox">
             <button onClick={() => this.props.addVariantToCart(variant.id, variantQuantity)}>Add to Bag</button>
           </div>
           <div className="fr_bog_tgh_cnt">
+		  
+		  <h3>Frequently Bought Togther</h3>
+		  <p>Select the items you like and press Add to Bag above or buy all with the button below !</p>
             <ul>
-              <li>
+              <li className="active">
                 <div className="pro_item">
-                  <div className="pro_img"><img src={ProductImg1} alt="" /></div>
+                  <div className="pro_img"> <i className="fas fa-check-circle"></i><img src={ProductImg1} alt="" /></div>
                   <Link to="/Product">
                   100g Wax Beads - Choose Your Scent!
                   </Link>
@@ -127,7 +164,7 @@ class Product extends React.Component {
               </li>
               <li>
                 <div className="pro_item">
-                  <div className="pro_img"><img src={ProductImg1} alt="" /></div>
+                  <div className="pro_img"><i className="fas fa-check-circle"></i><img src={ProductImg1} alt="" /></div>
                   <Link to="/Product">
                   100g Wax Beads - Choose Your Scent!
                   </Link>
@@ -136,7 +173,7 @@ class Product extends React.Component {
               </li>
               <li>
                 <div className="pro_item">
-                  <div className="pro_img"><img src={ProductImg1} alt="" /></div>
+                  <div className="pro_img"><i className="fas fa-check-circle"></i><img src={ProductImg1} alt="" /></div>
                   <Link to="/Product">
                   100g Wax Beads - Choose Your Scent!
                   </Link>
@@ -172,9 +209,13 @@ class Product extends React.Component {
               </li>
             </ul>
           </div>
+          {(this.state.product.descriptionHtml.trim() !== '') ?
           <div className="product_detail_cnt">
             <h3>Product Details</h3>
-            {renderHTML(this.state.product.descriptionHtml)} </div>
+            {renderHTML(this.state.product.descriptionHtml)} 
+          </div>
+          : null
+          }
         </div>
       </div>
     </div>

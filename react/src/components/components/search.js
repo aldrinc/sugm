@@ -1,10 +1,86 @@
-import React from 'react';
  
+import React, { Component } from 'react'
+import { LocalStorage } from '../../helpers/LocalStorage';
+import {Link} from "react-router-dom";
 
-export default class Search extends React.Component {
-    render(){
-      return (
-        <div className="light_search_box_cnt"><div className="light_search_box"><i className="fas fa-search"></i><input type="text" placeholder="What can we help you find?"/><div className="close_search"><i className="fas fa-times"></i></div></div></div>
-      );
+class Search extends Component {
+  constructor(){
+    super();
+    this.lc = new LocalStorage();
+    this.state = {
+      query: '',
+      isHidden: true,
+      products: []
     }
+    this.handleInputChange = this.handleInputChange.bind(this)
+  }
+
+  componentWillMount() {
+    const product = this.lc.getObject('products')
+    if(product)
+      this.setState({products: product})
+  }
+
+ handleInputChange = () => {
+   if(!this.state.products || this.state.products.length === 0) {
+    console.info('------sssssss', this.state)
+      const product = this.lc.getObject('products')
+      if(product)
+        this.setState({products: product})
+   }
+
+    if(this.state.products && this.state.products.length > 0 && this.search.value.length > 2) {
+      const searchProduct = this.state.products.filter( product => product.title.toLowerCase().includes(this.search.value.toLowerCase()) );
+      console.info('---Product', searchProduct)
+      if(searchProduct.length > 0) {
+        let showProduct = searchProduct.map((pro) => {
+          return (
+            <div className="searchProduct"> 
+            <div className="row"> 
+              <div className="col-4">
+              <img src={(pro.images && pro.images[0]) ? pro.images[0].src : ''} className="searchProjectImage"/>
+              </div>
+             <div className="col-8">
+              <Link to={`/product/${pro.handle}`} onClick={this.props.hideSearch}>{pro.title.substring(0,50)} {(pro.title.length > 50) ? '...' : ''}</Link>
+              
+              </div>
+              </div>
+            </div>
+          );
+        })
+        this.setState({
+          query: showProduct
+        }) 
+      } else {
+        this.setState({
+          query: ''
+        }) 
+      }
+    } else {
+      this.setState({
+        query: ''
+      }) 
+    }
+ } 
+ toggleHidden () {
+    this.setState({
+      isHidden: !this.state.isHidden
+    })
+  }
+ render() {
+   return (
+     <form>
+       <input
+         placeholder="What can we help you find?"
+		 type="text"
+         ref={input => this.search = input}
+         onChange={this.handleInputChange}
+		 onClick={this.toggleHidden.bind(this)}
+       />
+	   {!this.state.isHidden && <div className="form_cnt_box">{this.state.query}</div> } 
+     </form>
+   )
+ }
 }
+
+export default Search

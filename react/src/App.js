@@ -7,6 +7,9 @@ import Pro  from './components/components/product';
 import client from './helpers/ShopifyClient';
 import { LocalStorage } from './helpers/LocalStorage';
 import Cart from './components/Cart';
+import Sidebar from "react-sidebar";
+import SidebarMenu from './components/components/sidebar';
+ 
 import {
   BrowserRouter as Router,
   Route, 
@@ -42,12 +45,14 @@ class Main extends React.Component {
       collections: [],
       artProducts: [],
       bestProducts: [],
+      sidebarOpen: false
     };
 
     this.handleCartClose = this.handleCartClose.bind(this);
     this.addVariantToCart = this.addVariantToCart.bind(this);
     this.updateQuantityInCart = this.updateQuantityInCart.bind(this);
     this.removeLineItemInCart = this.removeLineItemInCart.bind(this);
+    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
   }
 
   componentWillMount() {
@@ -118,6 +123,10 @@ class Main extends React.Component {
     });
   }
 
+  onSetSidebarOpen(open) {
+    this.setState({ sidebarOpen: open });
+  }
+  
   addVariantToCart(variantId, quantity){
     this.setState({
       isCartOpen: true,
@@ -182,6 +191,7 @@ class Main extends React.Component {
     <Pro 
     addVariantToCart={this.addVariantToCart}
     productId={params.productId}
+    {...path}
     />
     )
   }
@@ -201,6 +211,7 @@ class Main extends React.Component {
           openCartSlide={this.openCartSlide.bind(this)} 
           cartCount={this.state.checkout.lineItems.length}
           collections={this.state.collections}
+          sidebarOpen={this.onSetSidebarOpen}
         />
         <Cart
           checkout={this.state.checkout}
@@ -218,6 +229,12 @@ class Main extends React.Component {
   return (
     <Router>
 	<div className="fullwidth"> 
+  <Sidebar
+    sidebar={<SidebarMenu sidebarOpen={this.onSetSidebarOpen}/>}
+    open={this.state.sidebarOpen}
+    onSetOpen={this.onSetSidebarOpen}
+    styles={{ sidebar: { background: "white" } }}
+  >
   <this.Head />
 	<Switch>
 	  <Route path="/" exact component={this.home} />
@@ -229,6 +246,7 @@ class Main extends React.Component {
 	  <Route component={NoMatch} />
 	</Switch>
       <Footer/>
+      </Sidebar>
       </div>
     </Router>
   );
