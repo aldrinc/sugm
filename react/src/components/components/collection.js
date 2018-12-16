@@ -1,17 +1,19 @@
 import React from 'react'
 import ProductImg1 from '../../images/product/product-image-1.jpg';
-
+import Product from '../CatProduct';
 import {Link} from "react-router-dom";
+import { LocalStorage } from '../../helpers/LocalStorage';
  
 
 class Collection extends React.Component {
   constructor(props) {
     super(props);
-
+		this.lc = new LocalStorage()
     this.state = {
       items: [],
       visible: 8,
-      error: false
+			error: false,
+			name: ''
     };
 
     this.loadMore = this.loadMore.bind(this);
@@ -20,20 +22,27 @@ class Collection extends React.Component {
     this.setState((prev) => {
       return {visible: prev.visible + 4};
     });
-  }
-  componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/posts").then(
-      res => res.json()
-    ).then(res => {
-      this.setState({
-        items: res
-      });
-    }).catch(error => {
-      console.error(error);
-      this.setState({
-        error: true
-      });
-    });
+	}
+	
+	componentWillReceiveProps(nextProps) {
+		const handle = nextProps.match.params.collection;
+		this.setItems(handle)
+	}
+
+	componentWillMount() {
+		this.setItems(this.props.collectionId);
+	}
+
+	setItems(handle) {
+		window.scrollTo(0, 0)
+		console.info('Collectionm title: ^', handle)
+		const lcCollections = this.lc.getObject('collections');
+		console.info('ls collection :::', lcCollections)
+    if(lcCollections) {
+			const collection = lcCollections.find( collect => collect.handle === handle );
+			if(collection)
+				this.setState({items: collection.products, name: collection.title})
+		}
   }
  
  render() {
@@ -45,13 +54,13 @@ class Collection extends React.Component {
 		<div className="row">
 			<div className="col-sm-12">
 				<div className="page_title">
-					<h2>Art & More</h2>
-					<p>187 Items</p>
+					<h2>{this.state.name}</h2>
+					<p>{this.state.items.length} Items</p>
 				</div>
 			</div>
 			</div>
 		<div className="row">
-		<div className="col-sm-3">
+		{/**<div className="col-sm-3">
 			<div className="filter_nav">
 				<h2>Filters</h2>
 				<ul>
@@ -99,13 +108,17 @@ class Collection extends React.Component {
 				</ul>
 			</div>
 		</div>
-	 
-<div className="col-sm-9 coll_product__box">
+		*/}
+<div className="col-sm-12 coll_product__box">
         <div className="tiles" aria-live="polite">
+		<div className="row">
           {this.state.items.slice(0, this.state.visible).map((item, index) => {
               return ( 
-			  
-			  <div  key={index} className="col-sm-3"><div className="pro_item"><div className="pro_img"><img src={ProductImg1} alt="" /></div><div className="color_varient"><ul><li className="green active varient"></li><li className="yellow varient"></li></ul></div> <Link to="/Product">100g Wax Beads - Choose Your Scent!</Link><div className="p_price">$215</div><div className="pro_buy"><button className="quick_view"><i className="fas fa-plus"></i> Quick view</button></div></div> </div>
+					<Product
+						addVariantToCart={this.props.addVariantToCart}
+						key={item.id.toString()}
+						product={item}
+					/> 
               );
             })}
           </div>
@@ -114,6 +127,7 @@ class Collection extends React.Component {
 				<p  onClick={this.loadMore}><span>View More</span><i className="fas fa-long-arrow-alt-down"></i></p>
 			</div>
           }
+		  </div>
 		  </div>
 		  </div>
 		  </div>
