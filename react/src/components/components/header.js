@@ -19,19 +19,36 @@ class Header extends React.Component {
       products: [],
       shop: {},
 	    displayMenu: false,
-      displaySearch: false
+      popupVisible: false
     };
-	this.showSearch = this.showSearch.bind(this);
-	this.hideSearch = this.hideSearch.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+
 	
   }
+
+  handleClick() {
+    if (!this.state.popupVisible) {
+      // attach/remove event handler
+      document.addEventListener('click', this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener('click', this.handleOutsideClick, false);
+    }
+
+    this.setState(prevState => ({
+       popupVisible: !prevState.popupVisible,
+    }));
+  }
   
-  hideSearch() {
-    this.setState({ displaySearch: false }); 
+  handleOutsideClick(e) {
+    // ignore clicks on the component itself
+    if (this.node.contains(e.target)) {
+      return;
+    }
+    
+    this.handleClick();
   }
-  showSearch(event) {
-    this.setState({ displaySearch: true });
-  }
+
   render() {
     return (
 <header className="Apps__header">
@@ -42,25 +59,25 @@ class Header extends React.Component {
       <div className="col-4 header_left">
         <div className="nav-side-menu">
           <div className="toggle-button" onClick={() => this.props.sidebarOpen(true)}>
-            <Menu width={60}  />
+            <Menu width={50}  />
           </div>
         </div>
       </div>
       <div className="col-4 header_center">
         <NavLink to="/" exact={true} > <img src={logo} alt="" /> </NavLink>
       </div>
-      <div className="col-4 header_right">
+      <div className="col-4 header_right" ref={node => { this.node = node; }}>
         <ul>
           <li>
-            <div className="search_c" onClick={this.showSearch}>
-              <Search width={40}  />
+            <div className="search_c" onClick={this.handleClick}>
+              <Search width={35}  />
             </div>
-            { this.state.displaySearch ? (
+            { this.state.popupVisible ? (
             <div className="light_search_box_cnt">
               <div className="light_search_box">
                 <Search width={30} />
-                <Searchinput hideSearch={this.hideSearch}/>
-                <div className="close_search" onClick={this.hideSearch}>
+                <Searchinput hideSearch={this.handleClick}/>
+                <div className="close_search" onClick={this.handleClick}>
                   <Remove width={20}  />
                 </div>
               </div>
@@ -72,7 +89,7 @@ class Header extends React.Component {
             } </li>
           <li> {!this.state.isCartOpen &&
             <div className="cart_icon" onClick={()=> this.props.openCartSlide(true)}>
-              <ShoppingBag width={40}  />
+              <ShoppingBag width={35}  />
               {(this.props.cartCount > 0) ? <span className="cartCount">({this.props.cartCount})</span> : null }</div>
             } </li>
         </ul>

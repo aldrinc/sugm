@@ -4,6 +4,8 @@ import icon_1 from '../../images/fwc.png';
 import icon_2 from '../../images/er.png'; 
 import icon_3 from '../../images/hh.png'; 
 import icon_4 from '../../images/sc.png';  
+import SubtractCircle from "../../images/subtract-circle";
+import AddCircle from "../../images/add-circle";
 import {Link} from "react-router-dom";
 import { LocalStorage } from '../../helpers/LocalStorage';
 import VariantSelector from '../VariantSelector';
@@ -11,13 +13,23 @@ import client from '../../helpers/ShopifyClient';
 
 import SingleProduct from './singleproduct'; 
  
+ const productId = ' ';
+ export function fetchAllProducts() {
+  return new Promise((resolve, reject) => {
+    client.product.fetch(productId).then((product) => {
+    
+});
+  });
+}
+
+
 const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 class Product extends React.Component {
 
 	constructor(props) {
 		super(props);
 		this.lc = new LocalStorage();
-    this.state = { 
+     this.state = { 
       project: undefined, 
       selectedOptions: {}, 
       selectedVariantQuantity: 1
@@ -36,7 +48,7 @@ class Product extends React.Component {
     }
 
     componentWillMount() {
-      window.scrollTo(0, 0)
+      window.scrollTo(0,0)
       this.setItems(this.props.productId)
     }
 
@@ -107,6 +119,7 @@ class Product extends React.Component {
     let variantQuantity = this.state.selectedVariantQuantity || 1
     let variantSelectors = this.state.product.options.map((option) => {
       return (
+        (option.values.length > 1 || (option.values.length == 1 && option.values[0].value != 'Default Title')) ?
         <span className={`variant_txt ${option.name}Variant`} key={option.id.toString()}>
           <VariantSelector
               handleOptionChange={this.handleOptionChange}
@@ -115,6 +128,7 @@ class Product extends React.Component {
             />
           <br/>
         </span>
+        : undefined
       );
     });
     return (
@@ -128,23 +142,27 @@ class Product extends React.Component {
         <div className="pro_right_box">
           <h2>{this.state.product.title}</h2>
           <div className="pro_review"> <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>
-            <p>4.8 stars. 4169 Orders</p>
-          </div>
+            <p>4.8 stars. 4169 Orders</p>  
+          </div> 
+	 <div id="looxReviews" data-product-id={this.state.product.id} className="loox-reviews-default">{this.state.product.metafields}</div>
+	 
+	 
           <div className="price_cnt">
             <p>${variant.price}</p>
           </div>
+          {(variantSelectors.length > 0 && variantSelectors[0]) ?
           <div className="pro_type">
             <label>Type</label>
             {variantSelectors} </div>
+            : null }
           <div className="pro_qyt">
             <label className="Product__quntity"> <span>Quantity</span> </label>
 			<div className="pro_qyt_box">
-              <button className="minus_qut" onClick={this.minusQty}>-</button>
+              <button onClick={this.minusQty}><SubtractCircle /></button>
               <input min="1" type="text" value={variantQuantity} onChange={this.handleQuantityChange} />
-              <button className="plus_qut" onClick={this.plusQty}>+</button>
-			  </div>
-           
-          </div>
+              <button  onClick={this.plusQty}><AddCircle /></button>
+			  </div>  
+		   </div>
           <div className="addbuttonbox">
             <button onClick={() => this.props.addVariantToCart(variant.id, variantQuantity)}>Add to Bag</button>
           </div>
@@ -174,9 +192,7 @@ class Product extends React.Component {
               <li>
                 <div className="pro_item">
                   <div className="pro_img"><i className="fas fa-check-circle"></i><img src={ProductImg1} alt="" /></div>
-                  <Link to="/Product">
-                  100g Wax Beads - Choose Your Scent!
-                  </Link>
+                  <Link to="/Product">100g Wax Beads - Choose Your Scent!</Link>
                   <div className="setof_pro_type">
                     <select>
                       <option>Set of 12 colors</option>
@@ -220,6 +236,33 @@ class Product extends React.Component {
       </div>
     </div>
   </div>
+    <div className="add_cart_cnt">
+  <div className="row">
+  <div className="col-7">
+	{(variantSelectors.length > 0 && variantSelectors[0]) ?
+          <div className="pro_type">
+            <label>Type</label>
+            {variantSelectors} </div>
+            : null }
+			</div>
+			 <div className="col-5">
+          <div className="pro_qyt">
+            <label className="Product__quntity"> <span>Quantity</span> </label>
+			<div className="pro_qyt_box">
+              <button onClick={this.minusQty}><SubtractCircle /></button>
+			  
+              <input min="1" type="text" value={variantQuantity} onChange={this.handleQuantityChange} />
+              <button  onClick={this.plusQty}><AddCircle /></button>
+			  </div>
+			  </div>
+          </div>
+		   <div className="col-12">
+          <div className="addbuttonbox">
+            <button onClick={() => this.props.addVariantToCart(variant.id, variantQuantity)}>Add to Bag</button>
+          </div>
+          </div>
+</div>
+</div>
 </div>
 );
     } else {
