@@ -16,238 +16,68 @@ exports[`header renders correctly 1`] = `
         <div
           className="nav-side-menu"
         >
-           
           <div
             className="toggle-button"
+            onClick={[Function]}
           >
-            <img
-              alt=""
-              src="menu.png"
-            />
-          </div>
-          <div
-            className="menu-list"
-          >
-            <div
-              className="menu_list_cnt"
+            <svg
+              className="svg-icon "
+              height="100%"
+              style={Object {}}
+              viewBox="0 0 32 32"
+              width={50}
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
             >
-              <div
-                className="close_menu"
+              <g
+                fill="{fill}"
+                fill-rule="evenodd"
+                id="Page-1"
+                stroke="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                strokeWidth="1"
               >
-                <i
-                  className="fas fa-times"
-                />
-              </div>
-              <ul
-                className="menu-content"
-              >
-                <li>
-                   
-                  <a
-                    href="#"
-                  >
-                     Sale 
-                  </a>
-                   
-                </li>
-                <li
-                  className="collapsed active"
-                  data-target="#products"
-                  data-toggle="collapse"
+                <g
+                  id="navigation-menu"
+                  stroke="#000000"
+                  transform="translate(1.000000, 1.000000)"
                 >
-                   
-                  <a
-                    href="artandmore.html"
-                  >
-                    Art & More 
-                    <span
-                      className="fas fa-plus"
-                    />
-                  </a>
-                    
-                </li>
-                <ul
-                  className="sub-menu collapse"
-                  id="products"
-                >
-                  <li
-                    className="active"
-                  >
-                    <a
-                      href="#"
-                    >
-                      CSS3 Animation
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                    >
-                      General
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                    >
-                      Buttons
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                    >
-                      Tabs & Accordions
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                    >
-                      Typography
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                    >
-                      FontAwesome
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                    >
-                      Slider
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                    >
-                      Panels
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                    >
-                      Widgets
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                    >
-                      Bootstrap Model
-                    </a>
-                  </li>
-                </ul>
-                <li
-                  className="collapsed"
-                  data-target="#service"
-                  data-toggle="collapse"
-                >
-                   
-                  <a
-                    href="#"
-                  >
-                    Best Selling 
-                    <span
-                      className="fas fa-plus"
-                    />
-                  </a>
-                   
-                </li>
-                <ul
-                  className="sub-menu collapse"
-                  id="service"
-                >
-                  <li>
-                    New Service 1
-                  </li>
-                  <li>
-                    New Service 2
-                  </li>
-                  <li>
-                    New Service 3
-                  </li>
-                </ul>
-                <li
-                  className="collapsed"
-                  data-target="#new"
-                  data-toggle="collapse"
-                >
-                   
-                  <a
-                    href="#"
-                  >
-                    All Products 
-                    <span
-                      className="fas fa-plus"
-                    />
-                  </a>
-                   
-                </li>
-                <ul
-                  className="sub-menu collapse"
-                  id="new"
-                >
-                  <li>
-                    New New 1
-                  </li>
-                  <li>
-                    New New 2
-                  </li>
-                  <li>
-                    New New 3
-                  </li>
-                </ul>
-                <ul
-                  className="page_nave"
-                >
-                  <li>
-                     
-                    <a
-                      href="#"
-                    >
-                       About Us
-                    </a>
-                     
-                  </li>
-                  <li>
-                     
-                    <a
-                      href="#"
-                    >
-                       Find my Order
-                    </a>
-                     
-                  </li>
-                  <li>
-                     
-                    <a
-                      href="#"
-                    >
-                       Our Policies
-                    </a>
-                     
-                  </li>
-                </ul>
-              </ul>
-            </div>
+                  <path
+                    d="M13,0 L0,0"
+                    id="Shape"
+                  />
+                  <path
+                    d="M18,5 L0,5"
+                    id="Shape"
+                  />
+                  <path
+                    d="M13,10 L0,10"
+                    id="Shape"
+                  />
+                </g>
+              </g>
+            </svg>
           </div>
         </div>
       </div>
       <div
         className="col-4 header_center"
       >
-         
-        <img
-          alt=""
-          src="logo.png"
-        />
-         
+        <a
+          aria-current="page"
+          className="active"
+          href="/"
+          onClick={[Function]}
+          style={Object {}}
+        >
+           
+          <img
+            alt=""
+            src="logo.png"
+          />
+           
+        </a>
       </div>
       <div
         className="col-4 header_right"
@@ -256,44 +86,71 @@ exports[`header renders correctly 1`] = `
           <li>
             <div
               className="search_c"
+              onClick={[Function]}
             >
-              <i
-                className="fas fa-search"
-              />
-            </div>
-              
-            <div
-              className="light_search_box_cnt"
-            >
-              <div
-                className="light_search_box"
+              <svg
+                className="svg-icon searchicon"
+                height="100%"
+                style={Object {}}
+                viewBox="0 0 32 32"
+                width={35}
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
               >
-                <i
-                  className="fas fa-search"
+                <path
+                  d="M23.5,24c-0.134,0-0.259-0.052-0.354-0.146l-9.004-9.004C12.582,16.238,10.588,17,8.5,17C3.813,17,0,13.187,0,8.5 C0,3.813,3.813,0,8.5,0C13.187,0,17,3.813,17,8.5c0,2.088-0.762,4.082-2.151,5.642l9.004,9.004C23.948,23.241,24,23.366,24,23.5 s-0.052,0.259-0.146,0.354S23.634,24,23.5,24z M8.5,1C4.365,1,1,4.365,1,8.5S4.365,16,8.5,16S16,12.635,16,8.5S12.635,1,8.5,1z"
+                  fill="#000"
                 />
-                <input
-                  placeholder="What can we help you find?"
-                  type="text"
-                />
-                <div
-                  className="close_search"
-                >
-                  <i
-                    className="fas fa-times"
-                  />
-                </div>
-              </div>
+              </svg>
             </div>
+             
           </li>
           <li>
+             
             <div
               className="cart_icon"
+              onClick={[Function]}
             >
-              <img
-                alt=""
-                src="cart_icon.png"
-              />
+              <svg
+                className="svg-icon "
+                height="100%"
+                style={Object {}}
+                viewBox="0 0 32 32"
+                width={35}
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  id="Page-1"
+                  stroke="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  strokeWidth="1"
+                >
+                  <g
+                    id="shopping-bag-skinny"
+                    stroke="#000000"
+                    transform="translate(1.000000, 1.000000)"
+                  >
+                    <rect
+                      height="15"
+                      id="Rectangle-path"
+                      rx="1"
+                      width="13"
+                      x="0"
+                      y="7"
+                    />
+                    <path
+                      d="M3,5 L3,3.74999999 C3.00000003,1.67893217 4.5670034,-9.25185864e-17 6.5,0 C8.4329966,9.25185864e-17 9.99999997,1.67893217 10,3.74999999 L10,5"
+                      id="Shape"
+                    />
+                  </g>
+                </g>
+              </svg>
             </div>
+             
           </li>
         </ul>
       </div>
