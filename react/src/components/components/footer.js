@@ -20,19 +20,11 @@ class  Footer extends React.Component {
 		<div className="footer_menu">
 			<ul>
 				<li><Link to="#">Help</Link></li>
-				<li><Link to="#">About us</Link></li>
+				<li><Link to="#">About Us</Link></li>
 				<li><Link to="#">Returns</Link></li>
-				<li><Link to="#">Students</Link></li>
-				<li><Link to="#">Guideshop locations</Link></li>
-				<li><Link to="#">Teachers</Link></li>
-				<li><Link to="#"> Wholesale</Link></li>
-				<li><Link to="#">Military</Link></li>
-				<li><Link to="#">Bonobos</Link></li>
-				<li><Link to="#">App</Link></li>
 				<li><Link to="#">About Our Ads</Link></li>
 				<li><Link to="#">Jobs</Link></li>
 				<li><Link to="#">Privacy Policy</Link></li>
-				<li><Link to="#">Give Us Feedback</Link></li>
 				<li><Link to="#">Terms</Link></li>
 				<li><Link to="#">Email Us</Link></li>
 			</ul>
@@ -61,11 +53,9 @@ class  Footer extends React.Component {
             <h5>Customer Service</h5>
             <ul>
               <li><Link to="#">Contact Us</Link></li>
-              <li><Link to="#">Pay Bill Online</Link></li>
               <li><Link to="#">Order Status</Link></li>
               <li><Link to="#">Shipping</Link></li>
               <li><Link to="#">Returns & Exchanges</Link></li>
-              <li><Link to="#">Product Recalls</Link></li>
               <li><Link to="#">Give Us Feedback</Link></li>
             </ul>
           </div>
@@ -74,37 +64,24 @@ class  Footer extends React.Component {
             <div className="footer-title">
             <h5>About Us</h5>
             <ul>
-              <li><Link to="#">Stores & Events</Link></li>
-              <li><Link to="#">Careers</Link></li>
-              <li><Link to="#">Nordstrom Cares</Link></li>
+              <li><Link to="#">Shutupandgiftme Cares</Link></li>
               <li><Link to="#">Site Map</Link></li>
               <li><Link to="#">Get Email Updates</Link></li>
-              <li><Link to="#">Blogs + More</Link></li>
             </ul>
           </div>
           </div>
           <div className="col-sm-6 col-md-2">
             <div className="footer-title">
             <h5>Services</h5>
+              <li><Link to="#">Bulk Ordering</Link></li>
             <ul>
-              <li><Link to="#">The Nordy Club</Link></li>
-              <li><Link to="#">Apply for a Nordstrom Card</Link></li>
-              <li><Link to="#">Stylists</Link></li>
-              <li><Link to="#">Alterations & Tailoring</Link></li>
-              <li><Link to="#">Spa Nordstrom</Link></li>
-              <li><Link to="#">Nordstrom Restaurants</Link></li>
-              <li><Link to="#">Gift Cards</Link></li>
             </ul>
           </div>
           </div>
           <div className="col-sm-6 col-md-2">
             <div className="footer-title">
-            <h5>Nordstrom, Inc.</h5>
+            <h5>Shutupandgiftme, Inc.</h5>
             <ul>
-              <li><Link to="#">Nordstrom Rack</Link></li>
-              <li><Link to="#">Nordstrom Canada</Link></li>
-              <li><Link to="#">HauteLook</Link></li>
-              <li><Link to="#">Trunk Club</Link></li>
               <li><Link to="#">Investor Relations</Link></li>
               <li><Link to="#">Press Releases</Link></li>
             </ul>
@@ -112,7 +89,7 @@ class  Footer extends React.Component {
           </div>
           <div className="col-md-4">
             <div className="footer-title">
-            <h6>Get our apps</h6>
+            <h6>Get Connected!</h6>
             <ul className="social-icon-ft">
               <li><Link to="#"><i className="fab fa-instagram"></i></Link></li>
               <li><Link to="#"><i className="fab fa-pinterest-p"></i></Link></li>
@@ -128,14 +105,13 @@ class  Footer extends React.Component {
                 <li><Link to="#">Your Privacy Rights</Link></li>
                 <li><Link to="#">Term & Conditions</Link></li>
                 <li><Link to="#">Interest-Based Ads</Link></li>
-                <li><Link to="#">California Supply Chains Act</Link></li>
             
               </ul>
             </div>
           </div>
 		   <div className="col-md-6">
             <div className="footer-btm">
-           <p className="copy">© 2018 Nordstrom, Inc.</p>
+           <p className="copy">© 2018 Shutupandgiftme, Inc.</p>
         </div>
         </div>
         </div>
