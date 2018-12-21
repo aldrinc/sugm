@@ -110,7 +110,7 @@ class Product extends Component {
 			  
 			  </div>  
 			</div>*/}
-        <button className="Product__buy button" onClick={() => this.props.addVariantToCart(variant.id, variantQuantity)}>Add to Bag</button>
+        <button className="Product__buy button" onClick={() => this.props.addVariantToCart(variant.id, variantQuantity)}>+ Add to Bag</button>
       </div>
       
     );
