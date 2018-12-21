@@ -9,6 +9,7 @@ import { LocalStorage } from './helpers/LocalStorage';
 import Cart from './components/Cart';
 import Sidebar from "react-sidebar";
 import SidebarMenu from './components/components/sidebar';
+import About from './components/static/About';
  
 import {
   BrowserRouter as Router,
@@ -227,7 +228,7 @@ class Main extends React.Component {
   
   render() {
   return (
-    <Router>
+    <Router onUpdate={() => window.scrollTo(0, 0)}>
 	<div className="fullwidth"> 
   <Sidebar
     sidebar={<SidebarMenu sidebarOpen={this.onSetSidebarOpen}/>}
@@ -242,6 +243,7 @@ class Main extends React.Component {
 	  {/* <Route path="/SaleArt" component={Collection} /> */}
 	  <Redirect from="/old-match" to="/will-match" />
 	  <Route path="/will-match" component={WillMatch} />
+	  <Route path="/about" component={About} />
     <Route path="/:collection" component={this.getCollection} />
 	  <Route component={NoMatch} />
 	</Switch>
