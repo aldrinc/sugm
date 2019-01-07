@@ -73,8 +73,8 @@ class  Footer extends React.Component {
           <div className="col-sm-6 col-md-2">
             <div className="footer-title">
             <h5>Services</h5>
-              <li><Link to="#">Bulk Ordering</Link></li>
-            <ul>
+			<ul>
+              <li><Link to="/product/quickfroth">Bulk Ordering</Link></li> 
             </ul>
           </div>
           </div>
