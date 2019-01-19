@@ -22,9 +22,7 @@
     "extract-react-intl-messages": "^0.11.1",
     "react-test-renderer": "^15.6.2"
   },
-  "devDependencies": {
-
-  },
+  "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
