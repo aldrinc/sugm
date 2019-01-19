@@ -26,7 +26,7 @@ exports[`banner renders correctly 1`] = `
           The thrill of living is in the joy of giving.
         </h1>
         <a
-          href="/"
+          href="/best-selling"
           onClick={[Function]}
         >
           Shop our best sellers and more here
