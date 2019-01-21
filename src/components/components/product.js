@@ -12,15 +12,28 @@ import VariantSelector from '../VariantSelector';
 import client from '../../helpers/ShopifyClient';
 
 import SingleProduct from './singleproduct'; 
- 
+import TagManager from 'react-gtm-module';
+
+const tagManagerArgs = {
+  dataLayerName: 'AppDataLayer'
+}
+
  const productId = ' ';
  export function fetchAllProducts() {
   return new Promise((resolve, reject) => {
     client.product.fetch(productId).then((product) => {
-    
+
 });
   });
 }
+
+// export function fetchAllProducts() {
+//   return new Promise((resolve, reject) => {
+//     client.product.fetch(productId).then((product) => {
+
+// });
+//   });
+// }
 
 
 const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
@@ -111,15 +124,40 @@ class Product extends React.Component {
       selectedVariantQuantity: (this.state.selectedVariantQuantity ) ? Number(this.state.selectedVariantQuantity) + 1 : 1
     })
   }
-	
+	onATC(variant, variantQuantity) {    
+    var productObj = this.state.product
+    tagManagerArgs.dataLayer = {
+      'event': 'addToCart',
+      'ecommerce': {
+        'add': {                                // 'add' actionFieldObject measures.
+          'products': [{
+            'name': productObj.title,                      // Name or ID is required.
+            'id': productObj.id,
+            'price': variant.price,
+            'brand': productObj.vendor,
+            'variant': variant.title
+           }]
+        }
+      }
+    }
+    
+    TagManager.dataLayer(tagManagerArgs)
+
+    this.props.addVariantToCart(variant.id, variantQuantity);
+
+    console.log(this.state.product.descriptionHtml);
+
+  }
+
+
   render () {
     if(this.state.product) {
-	let variantImage = this.state.selectedVariantImage || this.state.product.images[0] || null
+	// let variantImage = this.state.selectedVariantImage || this.state.product.images[0] || null
     let variant = this.state.selectedVariant || this.state.product.variants[0]
     let variantQuantity = this.state.selectedVariantQuantity || 1
     let variantSelectors = this.state.product.options.map((option) => {
       return (
-        (option.values.length > 1 || (option.values.length == 1 && option.values[0].value != 'Default Title')) ?
+        (option.values.length > 1 || (option.values.length === 1 && option.values[0].value !== 'Default Title')) ?
         <span className={`variant_txt ${option.name}Variant`} key={option.id.toString()}>
           <VariantSelector
               handleOptionChange={this.handleOptionChange}
@@ -164,7 +202,8 @@ class Product extends React.Component {
 			  </div>  
 		   </div>
           <div className="addbuttonbox">
-            <button onClick={() => this.props.addVariantToCart(variant.id, variantQuantity)}>Add to Bag</button>
+            <button id="addToBagBtn" onClick={
+              () => this.onATC(variant, variantQuantity)}>Add to Bag</button>
           </div>
           <div className="fr_bog_tgh_cnt">
 		  
@@ -258,7 +297,7 @@ class Product extends React.Component {
           </div>
 		   <div className="col-12">
           <div className="addbuttonbox">
-            <button onClick={() => this.props.addVariantToCart(variant.id, variantQuantity)}>Add to Bag</button>
+            <button id="addToBagBtn" onClick={() => this.onATC(variant, variantQuantity)}>Add to Bag</button>
           </div>
           </div>
 </div>

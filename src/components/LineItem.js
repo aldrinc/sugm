@@ -3,7 +3,11 @@ import React, {Component} from 'react';
 import SubtractCircle from "../images/subtract-circle";
 import AddCircle from "../images/add-circle";
 import Close from "../images/close";
+import TagManager from 'react-gtm-module';
 
+const tagManagerArgs = {
+  dataLayerName: 'AppDataLayer'
+}
 
 class LineItem extends Component {
   constructor(props) {
@@ -11,9 +15,11 @@ class LineItem extends Component {
 
     this.decrementQuantity = this.decrementQuantity.bind(this);
     this.incrementQuantity = this.incrementQuantity.bind(this);
+    this.removeFromCart = this.removeFromCart.bind(this);
+
   }
 
-  decrementQuantity(lineItemId) {
+  decrementQuantity(lineItemId) { 
     const updatedQuantity = this.props.line_item.quantity - 1
     this.props.updateQuantityInCart(lineItemId, updatedQuantity);
   }
@@ -21,6 +27,28 @@ class LineItem extends Component {
   incrementQuantity(lineItemId) {
     const updatedQuantity = this.props.line_item.quantity + 1
     this.props.updateQuantityInCart(lineItemId, updatedQuantity);
+  }
+
+  removeFromCart(product) {
+    console.log("removed from Cart", product);
+    var productObj = product
+
+    tagManagerArgs.dataLayer = {
+      'event': 'removeFromCart',
+      'ecommerce': {
+        'add': {                                // 'add' actionFieldObject measures.
+          'products': [{
+            'name': productObj.title,                      // Name or ID is required.
+            'id': productObj.id,
+            'price': productObj.variant.price,
+            'variant': productObj.variant.title
+           }]
+        }
+      }
+    }
+    
+    TagManager.dataLayer(tagManagerArgs)
+    this.props.removeLineItemInCart(product.id)
   }
 
   render() {
@@ -47,7 +75,7 @@ class LineItem extends Component {
             <span className="Line-item__price">
               $ { (this.props.line_item.quantity * this.props.line_item.variant.price).toFixed(2) }
             </span>
-            <button className="Line-item__remove" onClick={()=> this.props.removeLineItemInCart(this.props.line_item.id)}><Close/></button>
+            <button className="Line-item__remove" onClick={()=> this.removeFromCart(this.props.line_item)}><Close/></button>
           </div>
         </div>
       </li>

@@ -1,31 +1,33 @@
-import React, {Component} from 'react';
-import VariantSelector from './VariantSelectorSlider';  
-import {Link} from "react-router-dom";
-import client from '../helpers/ShopifyClient';
-import SubtractCircle from "../images/subtract-circle";
-import AddCircle from "../images/add-circle";
+import React, { Component } from "react";
+import VariantSelector from "./VariantSelectorSlider";
+import client from "../helpers/ShopifyClient";
+import TagManager from "react-gtm-module";
 
+const tagManagerArgs = {
+  dataLayerName: "AppDataLayer"
+};
 
 class Product extends Component {
   constructor(props) {
     super(props);
     let defaultOptionValues = {};
-    this.props.product.options.forEach((selector) => {
+    this.props.product.options.forEach(selector => {
       defaultOptionValues[selector.name] = selector.values[0].value;
     });
     this.state = { selectedOptions: defaultOptionValues };
 
-	this.minusQty = this.minusQty.bind(this)
-    this.plusQty = this.plusQty.bind(this)
+    this.minusQty = this.minusQty.bind(this);
+    this.plusQty = this.plusQty.bind(this);
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
     this.findImage = this.findImage.bind(this);
+    this.onLinkClick = this.onLinkClick.bind(this);
   }
 
   findImage(images, variantId) {
     const primary = images[0];
 
-    const image = images.filter(function (image) {
+    const image = images.filter(function(image) {
       return image.variant_ids.includes(variantId);
     })[0];
 
@@ -33,18 +35,21 @@ class Product extends Component {
   }
 
   handleOptionChange(event) {
-    const target = event.target
-    const nameSplit = target.name.split('--')
+    const target = event.target;
+    const nameSplit = target.name.split("--");
     let selectedOptions = this.state.selectedOptions;
     selectedOptions[nameSplit[0]] = target.value;
-    const selectedVariant = client.product.helpers.variantForOptions(this.props.product, selectedOptions)
+    const selectedVariant = client.product.helpers.variantForOptions(
+      this.props.product,
+      selectedOptions
+    );
 
-    if(selectedVariant.attrs) {
+    if (selectedVariant.attrs) {
       this.setState({
         selectedVariant: selectedVariant,
         selectedVariantImage: selectedVariant.attrs.image
       });
-    } else if(selectedVariant.image){
+    } else if (selectedVariant.image) {
       this.setState({
         selectedVariant: selectedVariant,
         selectedVariantImage: selectedVariant.image
@@ -57,54 +62,103 @@ class Product extends Component {
       selectedVariantQuantity: event.target.value
     });
   }
- minusQty() {
+  minusQty() {
     this.setState({
-      selectedVariantQuantity: (this.state.selectedVariantQuantity) ? Number(this.state.selectedVariantQuantity)-1 : 1
-    })
+      selectedVariantQuantity: this.state.selectedVariantQuantity
+        ? Number(this.state.selectedVariantQuantity) - 1
+        : 1
+    });
   }
   plusQty() {
     this.setState({
-      selectedVariantQuantity: (this.state.selectedVariantQuantity ) ? Number(this.state.selectedVariantQuantity) + 1 : 1
-    })
+      selectedVariantQuantity: this.state.selectedVariantQuantity
+        ? Number(this.state.selectedVariantQuantity) + 1
+        : 1
+    });
   }
+
+  onLinkClick(e) {
+    console.log("link clicked", this.props.product);
+    var productObj = this.props.product;
+    tagManagerArgs.dataLayer = {
+      event: "productClick",
+      ecommerce: {
+        click: {
+          actionField: { list: "Homepage Products Display" }, // Optional list property.
+          products: [
+            {
+              name: productObj.title, // Name or ID is required.
+              id: productObj.id,
+              price: productObj.variants[0].price,
+              brand: productObj.vendor,
+              variant: productObj.variants[0].title
+            }
+          ]
+        }
+      },
+      eventCallback: function() {
+        document.location = productObj.onlineStoreUrl;
+      }
+    };
+
+    TagManager.dataLayer(tagManagerArgs);
+  }
+
   render() {
-	   
-    let variantImage = this.state.selectedVariantImage || this.props.product.images[0]
-    let variant = this.state.selectedVariant || this.props.product.variants[0]
-    let variantQuantity = this.state.selectedVariantQuantity || 1
-    let variantSelectors = this.props.product.options.map((option) => {
+    let variantImage =
+      this.state.selectedVariantImage || this.props.product.images[0];
+    let variant = this.state.selectedVariant || this.props.product.variants[0];
+    let variantQuantity = this.state.selectedVariantQuantity || 1;
+    let variantSelectors = this.props.product.options.map(option => {
       return (
         <span className="variant_txt" key={option.id.toString()}>
-        <VariantSelector
-          handleOptionChange={this.handleOptionChange}
-          key={option.id.toString()}
-          option={option}
-        />
-        <br/>
+          <VariantSelector
+            handleOptionChange={this.handleOptionChange}
+            key={option.id.toString()}
+            option={option}
+          />
+          <br />
         </span>
       );
     });
     return (
- 
       <div className="Product_item col-6 col-sm-4 col-md-3 col-lg-2">
-	  <div className="img_cnt">
-         <a href={`/product/${this.props.product.handle}`} >{this.props.product.images.length ? <img src={variantImage.src} alt={`${this.props.product.title} product shot`}/> : null} </a> 
-		</div>
-		
-		 <div className="varient_txt_box">
-		{variantSelectors}
+        <div className="img_cnt">
+          <a
+            href={`/product/${this.props.product.handle}`}
+            onClick={this.onLinkClick}
+          >
+            {this.props.product.images.length ? (
+              <img
+                src={variantImage.src}
+                alt={`${this.props.product.title} product shot`}
+              />
+            ) : null}{" "}
+          </a>
         </div>
-		  
-        <h5 className="Product__title">  
-        <a href={`/product/${this.props.product.handle}`} >
-          {this.props.product.title.substring(0,67)} {(this.props.product.title.length > 67) ? '...' : ''}
-        </a> 
-        </h5> 
-		<span className="Product__price">${variant.price}</span>
-			 
-        <button className="Product__buy button" onClick={() => this.props.addVariantToCart(variant.id, variantQuantity)}>Add to Bag</button>
+
+        <div className="varient_txt_box">{variantSelectors}</div>
+
+        <h5 className="Product__title">
+          <a
+            href={`/product/${this.props.product.handle}`}
+            onClick={this.onLinkClick}
+          >
+            {this.props.product.title.substring(0, 67)}{" "}
+            {this.props.product.title.length > 67 ? "..." : ""}
+          </a>
+        </h5>
+        <span className="Product__price">${variant.price}</span>
+
+        <button
+          className="Product__buy button"
+          onClick={() =>
+            this.props.addVariantToCart(variant.id, variantQuantity)
+          }
+        >
+          + Add to Bag
+        </button>
       </div>
-      
     );
   }
 }

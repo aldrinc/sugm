@@ -1,6 +1,12 @@
 import React from "react";
 import Slider from "react-slick";
- 
+import TagManager from 'react-gtm-module';
+
+const tagManagerArgs = {
+  dataLayerName: 'AppDataLayer'
+}
+
+
 class SimpleSlider extends React.Component {
 
   constructor(props) {
@@ -9,17 +15,39 @@ class SimpleSlider extends React.Component {
 		
   }
 
+  
+
   componentWillMount() {
       this.setState({images: this.props.product.images})
+
   }
 
-	componentDidMount(){
+	componentDidMount() {
     this.setState({images: this.props.product.images})
     let slickListDiv = document.getElementsByClassName('slick-list')[0]
     slickListDiv.addEventListener('wheel', event => {
       event.preventDefault()
       event.deltaY > 0 ? this.slider.slickNext() : this.slider.slickPrev()
     })
+
+    var productObj = this.props.product;
+
+    tagManagerArgs.dataLayer = {
+      'event' : 'productDetailImpression',
+      'ecommerce': {
+        'detail': {
+          'actionField': {'list': 'Product Detail Page'},    // 'detail' actions have an optional list property.
+          'products': [{
+          'name': productObj.title,                      // Name or ID is required.
+          'id': productObj.id,
+          'price': productObj.variants[0].price,
+          'brand': productObj.vendor,
+          'variant': productObj.variants[0].title
+        }]
+         }
+       }
+    }
+    TagManager.dataLayer(tagManagerArgs)
   }
 
   settings = {
@@ -68,8 +96,6 @@ class SimpleSlider extends React.Component {
    };
 
   render() {
-   console.info('props data: ', this.props)
-
     let productImages = (this.props && this.props.product) ? this.props.product.images.map((image) => {
       return (
         <div key={image.id}>

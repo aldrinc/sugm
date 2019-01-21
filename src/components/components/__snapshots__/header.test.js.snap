@@ -31,11 +31,11 @@ exports[`header renders correctly 1`] = `
             >
               <g
                 fill="{fill}"
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 id="Page-1"
                 stroke="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 strokeWidth="1"
               >
                 <g
@@ -122,11 +122,11 @@ exports[`header renders correctly 1`] = `
               >
                 <g
                   fill="none"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   id="Page-1"
                   stroke="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   strokeWidth="1"
                 >
                   <g

@@ -51,7 +51,7 @@ function Singleproduct() {
 				<label>Quantity</label>			
 				</div>
 				<div className="addbuttonbox">
-					<button>Add to Bag</button>
+					<button id="addToBagBtn">Add to Bag</button>
 				</div>
 				<div className="fr_bog_tgh_cnt">
 					<ul>

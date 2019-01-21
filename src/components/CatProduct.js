@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import VariantSelector from './VariantSelectorSlider';  
-import {Link} from "react-router-dom";
 import client from '../helpers/ShopifyClient';
-import SubtractCircle from "../images/subtract-circle";
-import AddCircle from "../images/add-circle";
+
 
 class Product extends Component {
   constructor(props) {
@@ -19,6 +17,8 @@ class Product extends Component {
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
     this.findImage = this.findImage.bind(this);
+    this.onATC = this.onATC.bind(this);
+
   }
 
   findImage(images, variantId) {
@@ -66,6 +66,13 @@ class Product extends Component {
       selectedVariantQuantity: (this.state.selectedVariantQuantity ) ? Number(this.state.selectedVariantQuantity) + 1 : 1
     })
   }
+
+  onATC(variant, variantQuantity) {
+    console.log("ATC");
+
+    this.props.addVariantToCart(variant.id, variantQuantity);
+
+  }
   render() {
 	   
     let variantImage = this.state.selectedVariantImage || this.props.product.images[0]
@@ -110,7 +117,7 @@ class Product extends Component {
 			  
 			  </div>  
 			</div>*/}
-        <button className="Product__buy button" onClick={() => this.props.addVariantToCart(variant.id, variantQuantity)}>Add to Bag</button>
+        <button className="Product__buy button" onClick={() => this.onATC(variant, variantQuantity)}>+ Add to Bag</button>
       </div>
       
     );

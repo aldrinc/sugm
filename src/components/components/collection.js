@@ -1,7 +1,5 @@
 import React from 'react'
-import ProductImg1 from '../../images/product/product-image-1.jpg';
 import Product from '../CatProduct';
-import {Link} from "react-router-dom";
 import { LocalStorage } from '../../helpers/LocalStorage';
 import Arrow from "../../images/arrow";
 

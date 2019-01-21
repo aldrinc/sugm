@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
 import LineItem from './LineItem';
+import TagManager from 'react-gtm-module';
+
+const tagManagerArgs = {
+  dataLayerName: 'AppDataLayer'
+}
+
 
 class Cart extends Component {
   constructor(props) {
@@ -9,7 +15,38 @@ class Cart extends Component {
   }
 
   openCheckout() {
-    window.open(this.props.checkout.webUrl);
+
+    var line_items = this.props.checkout.lineItems;
+    var products = [];
+    line_items.forEach(function (lineItem) {
+      products.push(
+        {
+          'name': lineItem.title,                      // Name or ID is required.
+            'id': lineItem.id,
+            'price': lineItem.variant.price,
+            'brand': lineItem.vendor,
+            'variant': lineItem.variant.title
+        }
+      )
+
+    })
+
+    tagManagerArgs.dataLayer = {
+      'event': 'checkout',
+      'ecommerce': {
+        'checkout': {
+          'actionField': {'step': 1, 'option': 'Contact'},
+          'products': products
+       }
+     },
+     'eventCallback': function() {
+        document.location = this.props.checkout.webUrl;
+     }
+    }
+    
+    TagManager.dataLayer(tagManagerArgs)
+
+    window.open(this.props.checkout.webUrl, "_self");
   }
 
   render() {

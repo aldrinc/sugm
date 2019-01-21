@@ -3,10 +3,10 @@ import React, {Component} from 'react';
 class VariantSelector extends Component {
   render() {
     return (
-      (this.props.option.name == 'Color') ? 
+      (this.props.option.name === 'Color') ? 
       <div>
       {this.props.option.values.map((value, index) => {
-        let active = { checked: (index == 0) ? 'checked="checked"' : ''}
+        // let active = { checked: (index == 0) ? 'checked="checked"' : ''}
         return(
           <label className="containerRadio" key={`${this.props.option.name}-${value.value}`} title={`${this.props.option.name} - ${value.value}`}>
             <input 

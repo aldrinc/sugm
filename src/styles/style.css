@@ -181,6 +181,10 @@ h2 {
 a:focus {
   outline: none;
 }
+strong {
+  font-family: 'Brandon Grotesque';
+  font-size: 18px;
+}
 
 .sidebar {
   background: #fff;
@@ -871,6 +875,7 @@ button:focus {
 .Product__buy.button {
   font-family: "Brandon Grotesque";
   font-weight: normal;
+  font-size: 15px;
   margin: 0px;
   padding: 0px;
   background: rgba(0, 0, 0, 0);
@@ -1022,7 +1027,7 @@ label.Product__option {
   font-size: 18px;
   line-height: 32px;
   color: #fff;
-  font-weight: 300;
+  font-weight: 400;
 }
 .app_banner_text a:hover {
   text-decoration: none;
@@ -1269,7 +1274,7 @@ span.cartCount:after {
   background: #84cfcb;
   border-radius: 50%;
   top: 7px;
-  left: -16px;
+  left: -15px;
 }
 .Cart--open {
   -webkit-transform: translateX(0) !important;
@@ -2487,7 +2492,7 @@ footer.Cart__footer {
 }
 .product_detail_cnt p {
   width: 100%;
-  margin: 0px 0 10px;
+  /* margin: 0px 0 10px; */
   padding: 0px;
   float: left;
   font-family: "Brandon Grotesque";
@@ -2504,7 +2509,9 @@ footer.Cart__footer {
 .product_detail_cnt ul {
   margin: 0px;
   padding: 0px;
-  list-style: none;
+  /* list-style: circle; */
+  list-style-position: inside;
+
 }
 .product_detail_cnt li {
   width: 100%;
@@ -2630,7 +2637,7 @@ footer.Cart__footer {
   line-height: 30px;
 }
 .morefrom {
-  display: none !important;
+  display: inline !important;
 }
 .singlepage_slider .slick-slider .slick-track,
 .singlepage_slider .slick-slider .slick-list {

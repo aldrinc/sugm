@@ -51,11 +51,11 @@ class VariantSelector extends Component {
      ]
     };
     return (
-      (this.props.option.name == 'Color') ? 
+      (this.props.option.name === 'Color') ? 
 	   <Slider {...settings}>
        
       {this.props.option.values.map((value, index) => {
-        let active = { checked: (index == 0) ? 'checked="checked"' : ''}
+        // let active = { checked: (index == 0) ? 'checked="checked"' : ''}
         return(
 		
           <label className="containerRadio colorVariant" key={`${this.props.option.name}-${value.value}`} title={`${this.props.option.name} - ${value.value}`}>
