@@ -10,9 +10,18 @@ import {Link} from "react-router-dom";
 import { LocalStorage } from '../../helpers/LocalStorage';
 import VariantSelector from '../VariantSelector';
 import client from '../../helpers/ShopifyClient';
-
+import StarRatingComponent from 'react-star-rating-component';
 import SingleProduct from './singleproduct'; 
 import TagManager from 'react-gtm-module';
+import axios from 'axios';
+
+const axiosShopifyGraphQL = axios.create({
+  baseURL: 'https://shutupandgiftmedev.myshopify.com/admin/api/graphql.json',
+  headers: {
+    "X-Shopify-Access-Token": "4ce475e429c75d9f22e34e2199738020"
+  },
+});
+
 
 const tagManagerArgs = {
   dataLayerName: 'AppDataLayer'
@@ -22,7 +31,6 @@ const tagManagerArgs = {
  export function fetchAllProducts() {
   return new Promise((resolve, reject) => {
     client.product.fetch(productId).then((product) => {
-
 });
   });
 }
@@ -45,7 +53,9 @@ class Product extends React.Component {
      this.state = { 
       project: undefined, 
       selectedOptions: {}, 
-      selectedVariantQuantity: 1
+      selectedVariantQuantity: 1,
+      rating: 0,
+      orders: 0
     };
     
     this.minusQty = this.minusQty.bind(this)
@@ -53,6 +63,8 @@ class Product extends React.Component {
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
     this.findImage = this.findImage.bind(this);
+    this.updateMetafieldData = this.updateMetafieldData.bind(this);
+
     }
 
     componentWillReceiveProps(nextProps) {
@@ -63,7 +75,58 @@ class Product extends React.Component {
     componentWillMount() {
       window.scrollTo(0,0)
       this.setItems(this.props.productId)
+      
+      
     }
+    componentDidMount() {
+      console.log(this.state.product)
+
+      const GET_METAFIELD_RATING_DATA = `
+      query {
+        product(id:"${this.state.product.id}") {
+         metafield(key:"rating", namespace:"rating") {
+          value
+        }
+        }
+      }
+      `;
+      const GET_METAFIELD_ORDER_DATA = `
+      query {
+        product(id:"${this.state.product.id}") {
+         metafield(key:"orders", namespace:"orders") {
+          value
+        }
+        }
+      }
+      `;
+          axiosShopifyGraphQL
+          .post('', { query: GET_METAFIELD_RATING_DATA })
+          .then(result => this.updateMetafieldData(result, "rating"));
+
+
+          axiosShopifyGraphQL
+          .post('', { query: GET_METAFIELD_ORDER_DATA })
+          .then(result => this.updateMetafieldData(result, "orders"));
+
+        }
+
+        updateMetafieldData(result, type) {
+          console.log(result);
+          if (result.data.data.product.metafield !== null && type == "rating") {
+             this.setState({rating: result.data.data.product.metafield.value})
+          }
+
+          if (result.data.data.product.metafield !== null && type == "orders") {
+            this.setState({orders: result.data.data.product.metafield.value})
+
+         }
+
+   
+
+        }
+        
+
+    
 
     setItems(productId) {
         const lcProducts = this.lc.getObject('products');
@@ -150,7 +213,12 @@ class Product extends React.Component {
   }
 
 
+
   render () {
+    const {rating = undefined} = this.state;
+    const {orders = undefined} = this.state;
+
+
     if(this.state.product) {
 	// let variantImage = this.state.selectedVariantImage || this.state.product.images[0] || null
     let variant = this.state.selectedVariant || this.state.product.variants[0]
@@ -179,8 +247,15 @@ class Product extends React.Component {
       <div className="col-sm-6 col-md-5">
         <div className="pro_right_box">
           <h2>{this.state.product.title}</h2>
-          <div className="pro_review"> <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>
-            <p>4.8 stars. 4169 Orders</p>  
+          <div className="pro_review"> 
+          
+          <StarRatingComponent 
+          name="rate1" 
+          starCount={5}
+          value={this.state.rating}
+        />
+
+            <p>{this.state.rating} stars. {this.state.orders} Orders</p>  
           </div> 
 	 <div id="looxReviews" data-product-id={this.state.product.id} className="loox-reviews-default">{this.state.product.metafields}</div>
 	 

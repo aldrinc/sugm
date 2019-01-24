@@ -137,6 +137,7 @@ class Main extends React.Component {
 
   componentDidMount() {
     TagManager.initialize(tagManagerArgs);
+    
   }
 
   onSetSidebarOpen(open) {

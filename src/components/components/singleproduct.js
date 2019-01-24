@@ -2,6 +2,9 @@ import React from "react";
 import Slider from "react-slick";
 import TagManager from 'react-gtm-module';
 
+
+
+
 const tagManagerArgs = {
   dataLayerName: 'AppDataLayer'
 }
@@ -24,6 +27,8 @@ class SimpleSlider extends React.Component {
 
 	componentDidMount() {
     this.setState({images: this.props.product.images})
+    console.log(this.props.product);
+
     let slickListDiv = document.getElementsByClassName('slick-list')[0]
     slickListDiv.addEventListener('wheel', event => {
       event.preventDefault()

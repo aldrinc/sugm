@@ -748,6 +748,10 @@ button:focus {
   margin-bottom: 10px;
 }
 
+.dv-star-rating {
+  font-size: 18px;
+}
+
 /* CUSTOMER AUTH
 * ============================== */
 .CustomerAuth {
@@ -853,7 +857,7 @@ button:focus {
   overflow: hidden;
   width: 100%;
   float: left;
-  height: 42px;
+  height: 22px;
 }
 .Product__title a {
   font-family: "Brandon Grotesque";
@@ -2958,7 +2962,7 @@ footer.Cart__footer {
     top: 9px;
   }
   span.cartCount:after {
-    left: -20px;
+    left: -19px;
   }
   .header_right > ul svg {
     width: 40px;
@@ -3118,6 +3122,9 @@ footer.Cart__footer {
     width: 80%;
   }
 }
+
+
+
 @media only screen and (max-width: 767px) and (min-width: 501px) {
   .app_banner_text {
     padding: 50px 15px 0;
