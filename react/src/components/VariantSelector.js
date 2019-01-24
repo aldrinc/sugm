@@ -23,25 +23,31 @@ class VariantSelector extends Component {
       }
       </div>
       :
- 
+  // <select
+      //   className="Product__option"
+      //   name={this.props.option.name}
+      //   key={this.props.option.key}
+      //   onChange={this.props.handleOptionChange}
+      // >
+      //   {this.props.option.values.map((value) => {
+      //     return (
+      //       <option value={value.value} key={`${this.props.option.name}-${value.value}`}>{`${value.value}`}</option>
+      //     )
+      //   })}
+      // </select>
       <div>
-      {this.props.option.values.map((value, index) => {
-        if(value.value !== 'Default Title') {
-          return(
-            <label className="containerRadio" key={`${this.props.option.name}-${value.value}`} title={`${this.props.option.name} - ${value.value}`}> 
-              <input 
-                type="radio" 
-                name={`${this.props.option.name}--${this.props.option.id}`}
-                value={value.value} 
-                onClick={this.props.handleOptionChange}
-              />
-              <span className="checkmark"></span>
-			   <span className="checkmarkvalue">{value.value}</span>
-            </label>
-            )
-          }
-      })
-      }
+      <select
+        className="Product__option"
+        name={this.props.option.name}
+        key={this.props.option.key}
+        onChange={this.props.handleOptionChange}
+      >
+        {this.props.option.values.map((value) => {
+          return (
+            <option value={value.value} key={`${this.props.option.name}-${value.value}`}>{`${value.value}`}</option>
+          )
+        })}
+      </select>
       </div>
     );
   }

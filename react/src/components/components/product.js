@@ -12,6 +12,7 @@ import VariantSelector from '../VariantSelector';
 import client from '../../helpers/ShopifyClient';
 
 import SingleProduct from './singleproduct'; 
+import $ from 'jquery';
  
  const productId = ' ';
  export function fetchAllProducts() {
@@ -40,7 +41,17 @@ class Product extends React.Component {
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
     this.findImage = this.findImage.bind(this);
+
+    this.handleScroll = this.handleScroll.bind(this);
     }
+
+    componentDidMount() {
+      window.addEventListener('scroll', this.handleScroll, true);
+   }
+
+   componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll, true);
+}
 
     componentWillReceiveProps(nextProps) {
       const productId = nextProps.match.params.productId;
@@ -51,6 +62,37 @@ class Product extends React.Component {
       window.scrollTo(0,0)
       this.setItems(this.props.productId)
     }
+
+    handleScroll = (event) => {
+      if(event && event.target && event.target.scrollTop) {
+        const scrollTop = event.target.scrollTop;
+        const ss = event.target.scrollHeight - event.target.clientHeight - event.target.scrollTop;
+        console.info( ss)
+        if(scrollTop > 500 && ss > 50) {
+          $('.shopBox').addClass('shopBoxFix');
+          $('.shopBox').removeClass('shopBoxFix2');
+        } else if(ss < 50) {
+          $('.shopBox').removeClass('shopBoxFix');
+          $('.shopBox').addClass('shopBoxFix2');
+        }else {
+          $('.shopBox').removeClass('shopBoxFix');
+          $('.shopBox').removeClass('shopBoxFix2');
+        }
+      }
+      // console.info(event)
+      // $(window).scroll( function() {
+        var navHeight = $( window ).height() - 70;
+        //console.info($(window).scrollTop())
+          if ($(window).scrollTop() > navHeight) {
+            //$('nav').addClass('fixed');
+            alert('ffff')
+          }
+          else {
+            //$('nav').removeClass('fixed');
+          }
+       // });
+      
+  }
 
     setItems(productId) {
         const lcProducts = this.lc.getObject('products');
@@ -140,6 +182,7 @@ class Product extends React.Component {
       </div>
       <div className="col-sm-6 col-md-5">
         <div className="pro_right_box">
+        <div className="shopBox">
           <h2>{this.state.product.title}</h2>
           <div className="pro_review"> <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>
             <p>4.8 stars. 4169 Orders</p>  
@@ -165,6 +208,7 @@ class Product extends React.Component {
 		   </div>
           <div className="addbuttonbox">
             <button onClick={() => this.props.addVariantToCart(variant.id, variantQuantity)}>Add to Bag</button>
+          </div>
           </div>
           <div className="fr_bog_tgh_cnt">
 		  

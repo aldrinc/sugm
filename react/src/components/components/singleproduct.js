@@ -72,7 +72,7 @@ class SimpleSlider extends React.Component {
 
     let productImages = (this.props && this.props.product) ? this.props.product.images.map((image) => {
       return (
-        <div key={image.id}>
+        <div key={image.id} className="sliderImage">
           <img src={image.src} alt="" />
         </div>
       );
