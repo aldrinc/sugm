@@ -4,6 +4,7 @@ class VariantSelector extends Component {
   render() {
     return (
       (this.props.option.name == 'Color') ? 
+      this.props.option.values.length < 6 ?
       <div>
       {this.props.option.values.map((value, index) => {
         let active = { checked: (index == 0) ? 'checked="checked"' : ''}
@@ -21,6 +22,22 @@ class VariantSelector extends Component {
           )
           })
       }
+      </div>
+      :
+      <div>
+      <select
+        className="Product__option"
+        style={{color: '#000'}}
+        name={this.props.option.name}
+        key={this.props.option.key}
+        onChange={this.props.handleOptionChange}
+      >
+        {this.props.option.values.map((value) => {
+          return (
+            <option value={value.value} key={`${this.props.option.name}-${value.value}`}>{`${value.value}`}</option>
+          )
+        })}
+      </select>
       </div>
       :
   // <select
