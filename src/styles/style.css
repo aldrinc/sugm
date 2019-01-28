@@ -752,6 +752,27 @@ button:focus {
   font-size: 18px;
 }
 
+.sliderImage {
+  height: 529px;
+}
+
+.shopBoxFix {
+  position: fixed;
+  /* background: #fff;  */
+  z-index: 1;
+  top: 50px;
+left: 17%;
+width: 400px;
+}
+.shopBoxFix2 {
+  position: fixed;
+  /* background: #fff;  */
+  z-index: 1;
+  bottom: 230px;
+left: 17%;
+width: 400px;
+}
+
 /* CUSTOMER AUTH
 * ============================== */
 .CustomerAuth {
@@ -985,8 +1006,11 @@ label.Product__option {
   -ms-flex-align: center;
   align-items: center;
   table-layout: fixed;
-  margin: 0 0 0px;
+  /* margin: 0 0 0px; */
   padding: 0px;
+  max-width: 1920px;
+  margin: 0 auto !important;
+  float: none !important;
 }
 
 .app_menu_icon_cnt i {
@@ -994,6 +1018,13 @@ label.Product__option {
   font-size: 16px;
   color: #808080;
 }
+
+.container-fluid {
+  max-width: 1920px;
+  margin: 0 auto !important;
+  float: none !important;
+}
+
 .app_banner_cnt {
   width: 100%;
   text-align: center;
@@ -2194,13 +2225,19 @@ footer.Cart__footer {
 }
 .price_cnt p {
   padding: 0px;
-  margin: 0px;
+  margin: 0px 0px 0px 10px;
   font-size: 20px;
   line-height: 30px;
   font-family: "Brandon Grotesque";
-  font-weight: normal;
-  color: #dd4330;
+  font-weight: bold;
+  color: #db4437;
 }
+
+.compareAtPrice {
+  text-decoration: line-through;
+  color: #050505 !important;
+}
+
 .price_cnt p del {
   color: #000;
 }
@@ -2705,6 +2742,7 @@ footer.Cart__footer {
   margin: 0 0 10px;
   padding: 0 0 10px;
   border-bottom: 1px solid #f2f2f2;
+  font-family: 'Brandon Grotesque';
 }
 .footer {
   width: 100%;
@@ -2730,6 +2768,8 @@ footer.Cart__footer {
   padding: 15px;
   float: left;
   display: none;
+  width: 100%;
+  z-index: 1;
 }
 .add_cart_cnt .addbuttonbox {
   margin: 0px;
@@ -2827,6 +2867,29 @@ footer.Cart__footer {
   box-shadow: 0 0 0 2px #999;
   border: 2px solid #ddd;
   float: left;
+}
+
+
+.summary-text {
+  font-family: 'Brandon Grotesque' !important;
+}
+
+.block.title {
+  font-family: 'Brandon Grotesque' !important;
+}
+
+.block.time {
+  font-family: 'Brandon Grotesque' !important;
+}
+
+.pre-wrap.main-text.action {
+  font-family: 'Brandon Grotesque' !important;
+}
+
+@media only screen and (min-width:768px) {
+	.slick-slider .slick-dots {
+	height: 893px;
+}
 }
 
 @media only screen and (max-width: 500px) {
@@ -3123,6 +3186,19 @@ footer.Cart__footer {
   }
 }
 
+
+@media only screen and (max-width: 3500px) and (min-width: 1920px) {
+  span.cartCount:after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background: #84cfcb;
+    border-radius: 50%;
+    top: 7px;
+    left: -16px;
+  }
+}
 
 
 @media only screen and (max-width: 767px) and (min-width: 501px) {

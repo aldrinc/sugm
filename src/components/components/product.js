@@ -14,6 +14,10 @@ import StarRatingComponent from 'react-star-rating-component';
 import SingleProduct from './singleproduct'; 
 import TagManager from 'react-gtm-module';
 import axios from 'axios';
+import Loox from "./loox";
+import FixedATC from "./fixedATC";
+
+import IntersectionVisible    from 'react-intersection-visible';
 
 const axiosShopifyGraphQL = axios.create({
   baseURL: 'https://shutupandgiftmedev.myshopify.com/admin/api/graphql.json',
@@ -43,8 +47,14 @@ const tagManagerArgs = {
 //   });
 // }
 
+// const Loox = () => (
+//   <div id="looxReviews" data-product-id="" className="loox-reviews-default"></div>
+// );
 
 const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+
+
+
 class Product extends React.Component {
 
 	constructor(props) {
@@ -55,7 +65,8 @@ class Product extends React.Component {
       selectedOptions: {}, 
       selectedVariantQuantity: 1,
       rating: 0,
-      orders: 0
+      orders: 0,
+      displayScrollingATC: false
     };
     
     this.minusQty = this.minusQty.bind(this)
@@ -64,7 +75,20 @@ class Product extends React.Component {
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
     this.findImage = this.findImage.bind(this);
     this.updateMetafieldData = this.updateMetafieldData.bind(this);
+    this.onHide = this.onHide.bind(this);
+    this.onShow = this.onShow.bind(this);
 
+
+    }
+
+    onHide() {
+      console.log('hide');
+      this.setState({displayScrollingATC: true });
+    }
+
+    onShow() {
+      console.log('hide');
+      this.setState({displayScrollingATC: false });
     }
 
     componentWillReceiveProps(nextProps) {
@@ -78,8 +102,14 @@ class Product extends React.Component {
       
       
     }
+
+
     componentDidMount() {
-      console.log(this.state.product)
+      console.log(this.state.product);
+      var url = atob(this.state.product.id);
+      var numericProductID = url.substr(url.lastIndexOf('/') + 1);
+      console.log(numericProductID);
+      this.setState({ productID: numericProductID });
 
       const GET_METAFIELD_RATING_DATA = `
       query {
@@ -187,8 +217,9 @@ class Product extends React.Component {
       selectedVariantQuantity: (this.state.selectedVariantQuantity ) ? Number(this.state.selectedVariantQuantity) + 1 : 1
     })
   }
-	onATC(variant, variantQuantity) {    
-    var productObj = this.state.product
+	onATC(variant, variantQuantity, product) {    
+    var productObj = product
+    console.log(this.state, variant, variantQuantity, product);
     tagManagerArgs.dataLayer = {
       'event': 'addToCart',
       'ecommerce': {
@@ -208,20 +239,22 @@ class Product extends React.Component {
 
     this.props.addVariantToCart(variant.id, variantQuantity);
 
-    console.log(this.state.product.descriptionHtml);
+    // console.log(this.state.product.descriptionHtml);
 
   }
-
+  
 
 
   render () {
     const {rating = undefined} = this.state;
     const {orders = undefined} = this.state;
-
+    
 
     if(this.state.product) {
 	// let variantImage = this.state.selectedVariantImage || this.state.product.images[0] || null
     let variant = this.state.selectedVariant || this.state.product.variants[0]
+    let product = this.state.product
+    let savingsPercentage = Math.round(100* (1 - (variant.price / variant.compareAtPrice)))
     let variantQuantity = this.state.selectedVariantQuantity || 1
     let variantSelectors = this.state.product.options.map((option) => {
       return (
@@ -257,11 +290,13 @@ class Product extends React.Component {
 
             <p>{this.state.rating} stars. {this.state.orders} Orders</p>  
           </div> 
-	 <div id="looxReviews" data-product-id={this.state.product.id} className="loox-reviews-default">{this.state.product.metafields}</div>
 	 
 	 
           <div className="price_cnt">
-            <p>${variant.price}</p>
+          <p className="compareAtPrice">${variant.compareAtPrice}</p>
+            <p>${variant.price} ({savingsPercentage}% off)</p>
+            <p></p>
+
           </div>
           {(variantSelectors.length > 0 && variantSelectors[0]) ?
           <div className="pro_type">
@@ -276,12 +311,14 @@ class Product extends React.Component {
               <button  onClick={this.plusQty}><AddCircle /></button>
 			  </div>  
 		   </div>
+
           <div className="addbuttonbox">
             <button id="addToBagBtn" onClick={
-              () => this.onATC(variant, variantQuantity)}>Add to Bag</button>
+              () => this.onATC(variant, variantQuantity, product)}>Add to Bag</button>
           </div>
-          <div className="fr_bog_tgh_cnt">
-		  
+  
+          {/* <div className="fr_bog_tgh_cnt">
+          
 		  <h3>Frequently Bought Togther</h3>
 		  <p>Select the items you like and press Add to Bag above or buy all with the button below !</p>
             <ul>
@@ -322,7 +359,7 @@ class Product extends React.Component {
             <div className="buyallcnt">
               <button>Buy All and Save <i className="fas fa-check-circle"></i></button>
             </div>
-          </div>
+          </div> */}
           <div className="frewidebox">
             <ul>
               <li> <img src={icon_1} alt="" />
@@ -339,6 +376,8 @@ class Product extends React.Component {
               </li>
             </ul>
           </div>
+          <IntersectionVisible onHide={ e => this.onHide( e )} onShow={ e => this.onShow( e )}>
+          </IntersectionVisible>
           {(this.state.product.descriptionHtml.trim() !== '') ?
           <div className="product_detail_cnt">
             <h3>Product Details</h3>
@@ -346,38 +385,20 @@ class Product extends React.Component {
           </div>
           : null
           }
+
+<div id="freq_bought_together"></div>
+        <Loox productID={this.state.productID}/>
+
         </div>
       </div>
     </div>
   </div>
-    <div className="add_cart_cnt">
-  <div className="row">
-  <div className="col-7">
-	{(variantSelectors.length > 0 && variantSelectors[0]) ?
-          <div className="pro_type">
-            <label>Type</label>
-            {variantSelectors} </div>
-            : null }
-			</div>
-			 <div className="col-5">
-          <div className="pro_qyt">
-            <label className="Product__quntity"> <span>Quantity</span> </label>
-			<div className="pro_qyt_box">
-              <button onClick={this.minusQty}><SubtractCircle /></button>
-			  
-              <input min="1" type="text" value={variantQuantity} onChange={this.handleQuantityChange} />
-              <button  onClick={this.plusQty}><AddCircle /></button>
-			  </div>
-			  </div>
-          </div>
-		   <div className="col-12">
-          <div className="addbuttonbox">
-            <button id="addToBagBtn" onClick={() => this.onATC(variant, variantQuantity)}>Add to Bag</button>
-          </div>
-          </div>
+  {this.state.displayScrollingATC ?
+   <FixedATC product={this.state.product} variant={variant} variantSelectors={variantSelectors} variantQuantity={variantQuantity} addVariantToCart={this.props.addVariantToCart} handleQuantityChange={this.handleQuantityChange} minusQty={this.minusQty} plusQty={this.plusQty}></FixedATC> : null}
+<IntersectionVisible onHide={ e => this.onHide( e )} onShow={ e => this.onShow( e )}>
+          </IntersectionVisible>
 </div>
-</div>
-</div>
+
 );
     } else {
       return (
