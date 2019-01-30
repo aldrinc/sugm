@@ -17,6 +17,7 @@ class Products extends Component {
       );
     });
     let artProducts = this.props.artProducts.slice(0, 6).map(artproduct => {
+      // console.log(artproduct);
       return (
         <Product
           addVariantToCart={this.props.addVariantToCart}
@@ -34,7 +35,7 @@ class Products extends Component {
             <div className="col-12">
               <div className="title">
                 <h2>Our Bestsellers</h2>
-                <Link to="/best-selling" className="see_all">
+                <Link to="/best-sellers" className="see_all">
                   <span>See All </span>
                   <Icon width={35} />
                 </Link>
@@ -43,7 +44,7 @@ class Products extends Component {
           </div>
           <div className="bestseller"> {products} </div>
           <div className="seeallcnt">
-            <Link to="/best-selling" className="see_all">
+            <Link to="/best-sellers" className="see_all">
               <span>See All</span>
               <Icon width={35} />
             </Link>
@@ -52,7 +53,7 @@ class Products extends Component {
             <div className="col-12">
               <div className="title">
                 <h2>More from our art collection</h2>
-                <Link to="/art-more" className="see_all">
+                <Link to="/all-products" className="see_all">
                   <span>See All</span>
                   <Icon width={35} />
                 </Link>
@@ -60,7 +61,7 @@ class Products extends Component {
             </div>
             <div className="bestseller"> {artProducts} </div>
             <div className="seeallcnt">
-              <Link to="/art-more" className="see_all">
+              <Link to="/all-products" className="see_all">
                 <span>See All</span>
                 <Icon width={35} />
               </Link>

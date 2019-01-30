@@ -249,7 +249,7 @@ strong {
 .pro_qyt {
   float: left;
   width: 100%;
-  margin: 0 0 20px 0;
+  margin: 0 0 0px 0;
   padding: 0px;
 }
 .pro_qyt button {
@@ -308,11 +308,11 @@ strong {
 .pro_qyt .Product__quntity span {
   display: inline-block;
   margin: 0 0px;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 30px;
   color: #050505;
   font-family: "Brandon Grotesque";
-  font-weight: normal;
+  font-weight: bold;
   padding: 0px;
   width: 100%;
 }
@@ -1050,7 +1050,7 @@ label.Product__option {
   padding: 0px;
   font-size: 32px;
   line-height: 45px;
-  color: #fff;
+  color: #000;
   font-weight: 600;
 }
 .app_banner_text a {
@@ -1061,7 +1061,7 @@ label.Product__option {
   padding: 0px;
   font-size: 18px;
   line-height: 32px;
-  color: #fff;
+  color: #000;
   font-weight: 400;
 }
 .app_banner_text a:hover {
@@ -1137,7 +1137,7 @@ label.Product__option {
   margin: 0px;
   padding: 0px;
   display: block;
-  background: url(../images/arnel-hasanovic.jpg) no-repeat;
+  background: url(../images/discount_image.jpg) no-repeat;
   background-size: cover;
   background-position: center;
   height: 100%;
@@ -1309,7 +1309,7 @@ span.cartCount:after {
   background: #84cfcb;
   border-radius: 50%;
   top: 7px;
-  left: -15px;
+  left: -17px;
 }
 .Cart--open {
   -webkit-transform: translateX(0) !important;
@@ -1330,7 +1330,7 @@ span.cartCount:after {
 .Cart {
   z-index: 999;
   overflow-y: scroll;
-  height: 100vh;
+  height: 90vh;
 }
 .Cart__checkout {
   margin-top: 0;
@@ -1752,6 +1752,10 @@ footer.Cart__footer {
   display: inline-block;
   /* width: 35%; */
   max-height: 35px;
+}
+
+.mobile_header_logo {
+  visibility: hidden;
 }
 .headder {
   padding: 20px 0 0 0;
@@ -2225,7 +2229,7 @@ footer.Cart__footer {
 }
 .price_cnt p {
   padding: 0px;
-  margin: 0px 0px 0px 10px;
+  margin: 0px 10px 0px 0px;
   font-size: 20px;
   line-height: 30px;
   font-family: "Brandon Grotesque";
@@ -2280,32 +2284,34 @@ footer.Cart__footer {
 
 .pro_type {
   width: 100%;
-  margin: 0 0 10px;
+  margin: 0 0 0px;
   padding: 0px;
   float: left;
 }
 .pro_type label {
   width: 100%;
-  margin: 0 0 10px;
+  margin: 0 0 5px;
   padding: 0px;
   float: left;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 30px;
   color: #050505;
   font-family: "Brandon Grotesque";
-  font-weight: normal;
+  font-weight: bold;
 }
 .pro_type select {
   background: #fff;
-  width: 250px;
+  width: 200px;
   margin: 0px;
-  padding: 10px;
+  padding: 5px;
   float: left;
   border: 1px solid #cccccc;
   font-size: 14px;
   font-weight: normal;
   line-height: 40px;
   color: #ccc;
+  border-radius: 3px !important;
+
 }
 
 .setof_pro_type {
@@ -2386,15 +2392,19 @@ footer.Cart__footer {
   padding: 0px;
   float: left;
 }
+
+.on_page_ATC {
+  margin-top: 20px;
+}
 .addbuttonbox button {
   margin: 0px;
-  padding: 8px 0;
+  padding: 2px 0;
   cursor: pointer;
   float: left;
   font-family: "Brandon Grotesque";
   line-height: 40px;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
   color: #fff;
   background: #333333;
   border: 0px;
@@ -2513,6 +2523,76 @@ footer.Cart__footer {
   display: inline-block;
 }
 
+.static_content {
+  width: 100%;
+  padding: 0 25px 0 25px;
+  float: left;
+  overflow: hidden;
+  font-family: "Brandon Grotesque";
+}
+.static_content h1 {
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+.static_content h3 {
+  width: 100%;
+  margin: 0px 0 10px;
+  padding: 0px;
+  float: left;
+  font-family: "Brandon Grotesque";
+  color: #000;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: bold;
+}
+
+.static_content h4 {
+  width: 100%;
+  margin: 0px 0 10px;
+  padding: 0px;
+  float: left;
+  font-family: "Brandon Grotesque";
+  color: #000;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: bold;
+}
+
+.static_content p {
+    width: 100%;
+    /* margin: 0px 0 10px; */
+    padding: 0px;
+    float: left;
+    font-family: "Brandon Grotesque";
+    color: #212121;
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+.static_content p.sep_content {
+  color: #f14d1b;
+}
+
+.static_content ul {
+  margin: 0px;
+  padding: 0px;
+  /* list-style: circle; */
+  list-style-position: inside;
+}
+
+.static_content li {
+  width: 100%;
+  margin: 0px 0 10px;
+  padding: 0px;
+  float: left;
+  font-family: "Brandon Grotesque";
+  color: #212121;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: normal;
+}
+
 .product_detail_cnt {
   width: 100%;
   margin: 5px 0;
@@ -2603,6 +2683,7 @@ footer.Cart__footer {
   margin: 0px;
   padding: 0px;
   display: inline-block;
+  max-width: 50px;
 }
 
 .footer_mobile {
@@ -2770,6 +2851,7 @@ footer.Cart__footer {
   display: none;
   width: 100%;
   z-index: 1;
+  
 }
 .add_cart_cnt .addbuttonbox {
   margin: 0px;
@@ -3025,7 +3107,7 @@ footer.Cart__footer {
     top: 9px;
   }
   span.cartCount:after {
-    left: -19px;
+    left: -20px;
   }
   .header_right > ul svg {
     width: 40px;
@@ -3060,6 +3142,20 @@ footer.Cart__footer {
   .header_right > ul li {
     margin: 0px 0 0 0px;
   }
+
+  .header_logo {
+    visibility: hidden;
+  }
+
+  .mobile_header_logo {
+    position: relative;
+    left: -20px;
+    bottom: 9px;
+    left: -50px;
+    min-width: 200px;
+    visibility: visible;
+  }
+
   .m_nopadding {
     padding: 0px !important;
   }
@@ -3177,6 +3273,15 @@ footer.Cart__footer {
     margin: 0 0 20px;
     width: 100%;
     float: left;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .mobile_header_logo {
+    min-width: 156px;
+    left: -20px;
+    bottom: 7px;
+    left: -43px;
   }
 }
 

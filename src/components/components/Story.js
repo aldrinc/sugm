@@ -17,7 +17,7 @@ class  Story extends React.Component {
       <div className="col-md-5">
         <div className="over_story_cnt">
           <h2>Our Story and Promise</h2>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&rsquo;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <p>Vincent & Bosco is a modern art brand dedicated to promoting premium art goods for artists young and old. Inspired by aspiring artists' struggles, our goal is to equip new artists with the tools they need to stand out from the crowd. In addition to supportin the arts, we're committed to operational excellence through delivering product to your door quickly and with little hassle. </p>
           <ul>
             <li> <img src={icon_1} alt="" />
               <p>Free Worldwide Shipping</p>
@@ -37,9 +37,8 @@ class  Story extends React.Component {
       <div className="col-md-7 hide_mob">
         <div className="holyday_cnt">
           <div className="holyday_text_cnt">
-            <h3>Happy Holidays!</h3>
-            <p>In the spirit of the holidays here's 15% OFF our 
-              art collection! Use code ARTSY at checkout</p>
+            <h3>Modern art meets modern discounts.</h3>
+            <p>Free shipping for customers who purchase over $35 in goods!</p>
           </div>
         </div>
       </div>

@@ -14,8 +14,8 @@ render() {
 			   <img src={Banner_img} alt="Banner_img" /> 
 			   <img src={Mobile_banner} className="mob_img" alt="Banner_img" /> 
 				<div className="app_banner_text">
-				  <h1>The thrill of living is in the joy of giving.</h1>
-				  <Link to="/best-selling">Shop our best sellers and more here</Link></div>
+				  <h1>Art Unbounded.</h1>
+				  <Link to="/best-sellers">Find novel art products here.</Link></div>
 			  
 			</div>
 			</div>

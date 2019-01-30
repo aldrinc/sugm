@@ -33,9 +33,9 @@ class Collection extends React.Component {
 
 	setItems(handle) {
 		window.scrollTo(0, 0)
-		console.info('Collectionm title: ^', handle)
+		// console.info('Collectionm title: ^', handle)
 		const lcCollections = this.lc.getObject('collections');
-		console.info('ls collection :::', lcCollections)
+		// console.info('ls collection :::', lcCollections)
     if(lcCollections) {
 			const collection = lcCollections.find( collect => collect.handle === handle );
 			if(collection)

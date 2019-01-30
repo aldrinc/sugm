@@ -30,7 +30,7 @@ class LineItem extends Component {
   }
 
   removeFromCart(product) {
-    console.log("removed from Cart", product);
+    // console.log("removed from Cart", product);
     var productObj = product
 
     tagManagerArgs.dataLayer = {

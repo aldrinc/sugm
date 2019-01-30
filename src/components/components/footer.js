@@ -1,5 +1,5 @@
 import React from 'react';
-import footer_logo from '../../images/footer_logo.jpg';
+import footer_logo from '../../images/footer_logo.png';
 import {Link} from "react-router-dom";
 
 class  Footer extends React.Component {
@@ -19,26 +19,39 @@ class  Footer extends React.Component {
       <div className="col-sm-12">
 		<div className="footer_menu">
 			<ul>
-				<li><Link to="#">Help</Link></li>
-				<li><Link to="#">About Us</Link></li>
-				<li><Link to="#">Returns</Link></li>
-				<li><Link to="#">About Our Ads</Link></li>
-				<li><Link to="#">Jobs</Link></li>
-				<li><Link to="#">Privacy Policy</Link></li>
-				<li><Link to="#">Terms</Link></li>
-				<li><Link to="#">Email Us</Link></li>
+				<li>  <Link to="/about" >
+              About Us
+              </Link></li>
+				<li onClick={() => window.scrollTo(0, 0)}><Link to="/findmyorder" >
+              Find my Order
+              </Link></li>
+				<li><Link to="/customerservice" >
+              Customer Service
+              </Link></li>
+				<li> <Link to="/returns" >
+              Returns
+              </Link></li>
+				<li> <Link to="/privacypolicy" >
+              Privacy Policy
+              </Link></li>
+				<li><Link to="/terms" >
+              Terms & Conditions
+              </Link></li>
+        <li><Link to="/contactus" >
+              Contact Us
+              </Link></li>
 			</ul>
 	  </div>
 	  <div className="emailsubscribe">
 		<h2>Be First</h2>
 		<p>Want exclusive offers and first and access to products? Sign up for email alerts.</p>
 		<div className="emailsubscrivebox">
-			<input type="text" placeholder="Your email address" />
-			<input type="submit" value="+" />
+			<input type="text" placeholder="Your best email address" />
+			<input type="submit" value="Send" />
 		</div>
 		<div className="kjkj">
 			<p>By entering your email,you agree to our</p>
-			<p><Link to="#">Terms of Service</Link>+<Link to="#">Privacy Policy</Link>,including receipt of emails and promotions. You can unsubscribe at any time. </p>
+			<p><Link to="/terms">Terms of Service</Link>+<Link to="/privacypolicy">Privacy Policy</Link>,including receipt of emails and promotions. You can unsubscribe at any time. </p>
 		</div>
 	  </div>
 	  </div>
@@ -52,11 +65,10 @@ class  Footer extends React.Component {
             <div className="footer-title">
             <h5>Customer Service</h5>
             <ul>
-              <li><Link to="#">Contact Us</Link></li>
-              <li><Link to="#">Order Status</Link></li>
-              <li><Link to="#">Shipping</Link></li>
-              <li><Link to="#">Returns & Exchanges</Link></li>
-              <li><Link to="#">Give Us Feedback</Link></li>
+              <li><Link to="/contactus">Contact Us</Link></li>
+              <li><Link to="/findmyorder">Order Status</Link></li>
+              {/* <li><Link to="/privacypolicy">Privacy Policy</Link></li> */}
+              <li><Link to="/returns">Returns</Link></li>
             </ul>
           </div>
           </div>
@@ -64,9 +76,9 @@ class  Footer extends React.Component {
             <div className="footer-title">
             <h5>About Us</h5>
             <ul>
-              <li><Link to="#">Shutupandgiftme Cares</Link></li>
-              <li><Link to="#">Site Map</Link></li>
-              <li><Link to="#">Get Email Updates</Link></li>
+              <li><Link to="/about">Vincent & Bosco Cares</Link></li>
+              <li><Link to="#"></Link></li>
+              {/* <li><Link to="#">Get Email Updates</Link></li> */}
             </ul>
           </div>
           </div>
@@ -74,16 +86,16 @@ class  Footer extends React.Component {
             <div className="footer-title">
             <h5>Services</h5>
 			<ul>
-              <li><Link to="/product/quickfroth">Bulk Ordering</Link></li> 
+              <li><Link to="/wholesale">Bulk Ordering</Link></li> 
             </ul>
           </div>
           </div>
           <div className="col-sm-6 col-md-2">
             <div className="footer-title">
-            <h5>Shutupandgiftme, Inc.</h5>
+            {/* <h5>Vincent & Bosco, Inc.</h5> */}
             <ul>
-              <li><Link to="#">Investor Relations</Link></li>
-              <li><Link to="#">Press Releases</Link></li>
+              {/* <li><Link to="#">Investor Relations</Link></li>
+              <li><Link to="#">Press Releases</Link></li> */}
             </ul>
           </div>
           </div>
@@ -102,16 +114,16 @@ class  Footer extends React.Component {
           <div className="col-md-6">
             <div className="footer-btm">
               <ul>
-                <li><Link to="#">Your Privacy Rights</Link></li>
-                <li><Link to="#">Term & Conditions</Link></li>
-                <li><Link to="#">Interest-Based Ads</Link></li>
+                <li><Link to="/privacypolicy">Your Privacy Rights</Link></li>
+                <li><Link to="/terms">Term & Conditions</Link></li>
+                {/* <li><Link to="#">Interest-Based Ads</Link></li> */}
             
               </ul>
             </div>
           </div>
 		   <div className="col-md-6">
             <div className="footer-btm">
-           <p className="copy">© 2018 Shutupandgiftme, Inc.</p>
+           <p className="copy">© 2018 Vincent & Bosco, Inc.</p>
         </div>
         </div>
         </div>

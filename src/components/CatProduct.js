@@ -68,7 +68,7 @@ class Product extends Component {
   }
 
   onATC(variant, variantQuantity) {
-    console.log("ATC");
+    // console.log("ATC");
 
     this.props.addVariantToCart(variant.id, variantQuantity);
 
@@ -78,9 +78,12 @@ class Product extends Component {
     let variantImage = this.state.selectedVariantImage || this.props.product.images[0]
     let variant = this.state.selectedVariant || this.props.product.variants[0]
     let variantQuantity = this.state.selectedVariantQuantity || 1
+    
     let variantSelectors = this.props.product.options.map((option) => {
+      // console.log(option);
       return (
         <span className="variant_txt" key={option.id.toString()}>
+        
         <VariantSelector
           handleOptionChange={this.handleOptionChange}
           key={option.id.toString()}
@@ -96,10 +99,10 @@ class Product extends Component {
 	  <div className="img_cnt">
         <a href={`/product/${this.props.product.handle}`} >{this.props.product.images.length ? <img src={variantImage.src} alt={`${this.props.product.title} product shot`}/> : null}</a>
 		</div>
-		
-		 <div className="varient_txt_box">
+		{/* {variantSelectors == null ? null: <div className="varient_txt_box">
 			{variantSelectors}
-		</div>
+		</div>} */}
+		 
         <h5 className="Product__title"> 
          
         <a href={`/product/${this.props.product.handle}`} >

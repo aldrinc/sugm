@@ -20,9 +20,9 @@ import FixedATC from "./fixedATC";
 import IntersectionVisible    from 'react-intersection-visible';
 
 const axiosShopifyGraphQL = axios.create({
-  baseURL: 'https://shutupandgiftmedev.myshopify.com/admin/api/graphql.json',
+  baseURL: 'https://vincentboscoart.myshopify.com/admin/api/graphql.json',
   headers: {
-    "X-Shopify-Access-Token": "4ce475e429c75d9f22e34e2199738020"
+    "X-Shopify-Access-Token": '0514001ab15ba1c0957c289ea70b06b5' 
   },
 });
 
@@ -31,25 +31,6 @@ const tagManagerArgs = {
   dataLayerName: 'AppDataLayer'
 }
 
- const productId = ' ';
- export function fetchAllProducts() {
-  return new Promise((resolve, reject) => {
-    client.product.fetch(productId).then((product) => {
-});
-  });
-}
-
-// export function fetchAllProducts() {
-//   return new Promise((resolve, reject) => {
-//     client.product.fetch(productId).then((product) => {
-
-// });
-//   });
-// }
-
-// const Loox = () => (
-//   <div id="looxReviews" data-product-id="" className="loox-reviews-default"></div>
-// );
 
 const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
@@ -58,7 +39,7 @@ const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInner
 class Product extends React.Component {
 
 	constructor(props) {
-		super(props);
+    super(props);
 		this.lc = new LocalStorage();
      this.state = { 
       project: undefined, 
@@ -94,21 +75,32 @@ class Product extends React.Component {
     componentWillReceiveProps(nextProps) {
       const productId = nextProps.match.params.productId;
       this.setItems(productId)
+
     }
 
     componentWillMount() {
       window.scrollTo(0,0)
       this.setItems(this.props.productId)
       
-      
     }
 
 
     componentDidMount() {
-      console.log(this.state.product);
+      // console.log(this.props.product);
+      // console.log(this.state);
+      const lcProducts = this.lc.getObject("products");
+    if (lcProducts) {
+      const currentProduct = lcProducts.find(
+        currentProduct =>
+        currentProduct.handle === ''
+      );
+        console.log(currentProduct);
+    }
       var url = atob(this.state.product.id);
+      // var url = window.location.hostname + '/product' + '/' + this.props.productId
+      // console.log(url);
       var numericProductID = url.substr(url.lastIndexOf('/') + 1);
-      console.log(numericProductID);
+      // console.log(numericProductID);
       this.setState({ productID: numericProductID });
 
       const GET_METAFIELD_RATING_DATA = `
@@ -137,6 +129,7 @@ class Product extends React.Component {
           axiosShopifyGraphQL
           .post('', { query: GET_METAFIELD_ORDER_DATA })
           .then(result => this.updateMetafieldData(result, "orders"));
+   
 
         }
 
@@ -167,7 +160,7 @@ class Product extends React.Component {
         } else {
         const product = lcProducts.find( product => product.handle === productId );
         this.setState({product: product})
-        
+
         let defaultOptionValues = {};
         if(product) {
           product.options.forEach((selector) => {
@@ -176,7 +169,7 @@ class Product extends React.Component {
         }
         this.setState({ selectedOptions: defaultOptionValues });
       }
-   
+ 
 	  }
 
 	findImage(images, variantId) {
@@ -313,8 +306,10 @@ class Product extends React.Component {
 		   </div>
 
           <div className="addbuttonbox">
+          <div className="on_page_ATC">
             <button id="addToBagBtn" onClick={
               () => this.onATC(variant, variantQuantity, product)}>Add to Bag</button>
+          </div>
           </div>
   
           {/* <div className="fr_bog_tgh_cnt">

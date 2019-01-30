@@ -20,7 +20,7 @@ class FixedATC extends Component {
     
     onATC(variant, variantQuantity, product) {    
         var productObj = product
-        console.log(this.state, variant, variantQuantity, product);
+        // console.log(this.state, variant, variantQuantity, product);
         tagManagerArgs.dataLayer = {
           'event': 'addToCart',
           'ecommerce': {
@@ -42,8 +42,11 @@ class FixedATC extends Component {
     
     
       }
+
+
       
     render() {
+      
       return ( <div className="add_cart_cnt">
       <div className="row">
       <div className="col-7">

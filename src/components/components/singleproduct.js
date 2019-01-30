@@ -27,7 +27,7 @@ class SimpleSlider extends React.Component {
 
 	componentDidMount() {
     this.setState({images: this.props.product.images})
-    console.log(this.props.product);
+    // console.log(this.props.product);
 
     let slickListDiv = document.getElementsByClassName('slick-list')[0]
     slickListDiv.addEventListener('wheel', event => {

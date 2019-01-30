@@ -10,6 +10,14 @@ import Cart from "./components/Cart";
 import Sidebar from "react-sidebar";
 import SidebarMenu from "./components/components/sidebar";
 import About from "./components/static/About";
+import Terms from "./components/static/TermsAndConditions";
+import Returns from "./components/static/Returns";
+import FindOrder from "./components/static/FindOrder";
+import CustomerService from "./components/static/CustomerService";
+import PrivacyPolicy from "./components/static/PrivacyPolicy";
+import ContactUs from "./components/static/ContactUs";
+import ScrollToTop from "./components/components/scrollToTop";
+
 import TagManager from "react-gtm-module";
 
 import {
@@ -64,7 +72,7 @@ class Main extends React.Component {
 
   componentWillMount() {
     const checkout = this.lc.getObject("checkout");
-
+    // console.log(this.lc);
     if (checkout) {
       this.setState({ checkout: checkout });
     } else {
@@ -78,6 +86,7 @@ class Main extends React.Component {
     client.collection.fetchAllWithProducts().then(collections => {
       // Do something with the collections
       this.lc.putObject("collections", collections);
+      // console.log(collections);
       this.setState({ collections });
     });
 
@@ -92,7 +101,7 @@ class Main extends React.Component {
     if (lcCollections) {
       const bestCollection = lcCollections.find(
         bestcollect =>
-          bestcollect.id === "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzg5MjE4MzUxMTkz"
+          bestcollect.id === "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzkxNDE1MzQ3Mjg4"
       );
       if (bestCollection) {
         this.setState({ bestProducts: bestCollection.products });
@@ -101,7 +110,7 @@ class Main extends React.Component {
 
       const artProducts = lcCollections.find(
         artcollect =>
-          artcollect.id === "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzg5MDI2Nzg5NDY1"
+          artcollect.id === "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzkxNDEzNjEwNTg0"
       );
       if (artProducts) {
         this.setState({ artProducts: artProducts.products });
@@ -137,7 +146,6 @@ class Main extends React.Component {
 
   componentDidMount() {
     TagManager.initialize(tagManagerArgs);
-    
   }
 
   onSetSidebarOpen(open) {
@@ -229,7 +237,7 @@ class Main extends React.Component {
     const {
       match: { params }
     } = path;
-    console.info("PARAMS: ", params);
+    // console.info("PARAMS: ", params);
     return (
       <Collection
         collectionId={params.collection}
@@ -260,10 +268,14 @@ class Main extends React.Component {
     );
   };
 
+
+
+
   render() {
     return (
       <Router onUpdate={() => window.scrollTo(0, 0)}>
         <div className="fullwidth">
+
           <Sidebar
             sidebar={<SidebarMenu sidebarOpen={this.onSetSidebarOpen} />}
             open={this.state.sidebarOpen}
@@ -281,6 +293,12 @@ class Main extends React.Component {
               <Redirect from="/old-match" to="/will-match" />
               <Route path="/will-match" component={WillMatch} />
               <Route path="/about" component={About} />
+              <Route path="/terms" component={Terms} />
+              <Route path="/findmyorder" component={FindOrder} />
+              <Route path="/customerservice" component={CustomerService} />
+              <Route path="/returns" component={Returns} />
+              <Route path="/contactus" component={ContactUs} />
+              <Route path="/privacypolicy" component={PrivacyPolicy} />
               <Route path="/:collection" component={this.getCollection} />
               <Route component={NoMatch} />
             </Switch>

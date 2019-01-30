@@ -78,7 +78,7 @@ class Product extends Component {
   }
 
   onLinkClick(e) {
-    console.log("link clicked", this.props.product);
+    // console.log("link clicked", this.props.product);
     var productObj = this.props.product;
     tagManagerArgs.dataLayer = {
       event: "productClick",
@@ -137,7 +137,7 @@ class Product extends Component {
           </a>
         </div>
 
-        <div className="varient_txt_box">{variantSelectors}</div>
+        {/* <div className="varient_txt_box">{variantSelectors}</div> */}
 
         <h5 className="Product__title">
           <a

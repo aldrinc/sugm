@@ -64,11 +64,11 @@ class Header extends React.Component {
         </div>
       </div>
       <div className="col-4 header_center">
-        <NavLink to="/" exact={true} > <img src={logo} alt="" /> </NavLink>
+        <NavLink to="/" exact={true} > <img className="header_logo" src={logo} alt="" /> <img className="mobile_header_logo" src={logo} alt="" /> </NavLink>
       </div>
       <div className="col-4 header_right" ref={node => { this.node = node; }}>
         <ul>
-          <li>
+          {/* <li>
             <div className="search_c" onClick={this.handleClick}>
               <Search width={35}  />
             </div>
@@ -86,7 +86,7 @@ class Header extends React.Component {
             (
             null
             )
-            } </li>
+            } </li> */}
           <li> {!this.state.isCartOpen &&
             <div className="cart_icon" onClick={()=> this.props.openCartSlide(true)}>
               <ShoppingBag width={35}  />

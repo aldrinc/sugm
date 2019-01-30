@@ -10,7 +10,7 @@ class SidebarMenu extends React.Component {
     this.lc = new LocalStorage();
   }
 
-  showCategories = ['all-products','art-more','best-selling', 'sale'];
+  showCategories = ['best-sellers', 'all-products', 'more-art-goods'];
 
   render() { 
     let collect = null;
@@ -39,13 +39,33 @@ class SidebarMenu extends React.Component {
               </Link>
             </li>
                 <li onClick={() => this.props.sidebarOpen(false)}>
-              <Link to="/FindmyOrder" >
+              <Link to="/findmyorder" >
               Find my Order
               </Link>
             </li>
                 <li onClick={() => this.props.sidebarOpen(false)}>
-              <Link to="/OurPolicies" >
-              Our Policies
+              <Link to="/customerservice" >
+              Customer Service
+              </Link>
+            </li> 
+            <li onClick={() => this.props.sidebarOpen(false)}>
+              <Link to="/returns" >
+              Returns
+              </Link>
+            </li> 
+            <li onClick={() => this.props.sidebarOpen(false)}>
+              <Link to="/privacypolicy" >
+              Privacy Policy
+              </Link>
+            </li> 
+            <li onClick={() => this.props.sidebarOpen(false)}>
+              <Link to="/terms" >
+              Terms & Conditions
+              </Link>
+            </li> 
+            <li onClick={() => this.props.sidebarOpen(false)}>
+              <Link to="/contactus" >
+              Contact Us
               </Link>
             </li> 
           </ul>
@@ -53,7 +73,6 @@ class SidebarMenu extends React.Component {
           <div className="cruncy_option">
             <select>
               <option>United States (USD) </option>
-              <option>India (INR) </option>
             </select>
           </div>
        
