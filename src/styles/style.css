@@ -328,6 +328,7 @@ strong {
   border: 0px;
   width: 25px;
   padding: 0px;
+  background-color: #FFF;
 }
 
 .checkmarkvalue {
@@ -533,7 +534,7 @@ button.sliderDots {
   top: 0;
   right: 0;
   height: 100%;
-  width: 350px;
+  width: 300px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -541,6 +542,30 @@ button.sliderDots {
   transform: translateX(100%);
   transition: transform 0.15s ease-in-out;
 }
+
+.cart_overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0.2;
+  z-index: 1005;
+  filter        : blur(10px);
+  -moz-filter   : blur(10px);
+  -webkit-filter: blur(10px);
+  -o-filter     : blur(10px);
+
+  transition        : all 2s linear;
+  -moz-transition   : all 2s linear;
+  -webkit-transition: all 2s linear;
+  -o-transition     : all 2s linear;
+}
+
+
+
+
 .Cart--open {
   transform: translateX(0);
 }
@@ -585,6 +610,7 @@ button.sliderDots {
 .Cart-info__small {
   font-size: 14px;
   font-weight: bold;
+  font-family: "Brandon Grotesque";
 }
 .Cart-info__pricing {
   float: right;
@@ -593,15 +619,18 @@ button.sliderDots {
   margin-left: 5px;
   font-size: 14px;
   color: #373737;
+  font-family: "Brandon Grotesque";
+
 }
 
 /* LINE ITEMS
 * ============================== */
 .Line-item {
-  margin-bottom: 20px;
-  overflow: hidden;
+  margin-bottom: 10px;
+
+  padding-bottom: 5px;
   backface-visibility: visible;
-  min-height: 65px;
+  min-height: 75px;
   position: relative;
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
@@ -660,7 +689,7 @@ button.sliderDots {
   color: #767676;
   display: block;
   float: left;
-  height: 21px;
+  height: 24px;
   line-height: 16px;
   font-family: "Brandon Grotesque";
   width: 25px;
@@ -1330,7 +1359,7 @@ span.cartCount:after {
 .Cart {
   z-index: 999;
   overflow-y: scroll;
-  height: 90vh;
+  height: 100vh - 44px;
 }
 .Cart__checkout {
   margin-top: 0;
@@ -2309,7 +2338,7 @@ footer.Cart__footer {
   font-size: 14px;
   font-weight: normal;
   line-height: 40px;
-  color: #ccc;
+  color: #000;
   border-radius: 3px !important;
 
 }
@@ -3107,7 +3136,7 @@ footer.Cart__footer {
     top: 9px;
   }
   span.cartCount:after {
-    left: -20px;
+    left: -21px;
   }
   .header_right > ul svg {
     width: 40px;
@@ -3150,8 +3179,8 @@ footer.Cart__footer {
   .mobile_header_logo {
     position: relative;
     left: -20px;
-    bottom: 9px;
-    left: -50px;
+    bottom: 10px;
+    left: -56px;
     min-width: 200px;
     visibility: visible;
   }
@@ -3301,7 +3330,7 @@ footer.Cart__footer {
     background: #84cfcb;
     border-radius: 50%;
     top: 7px;
-    left: -16px;
+    left: -17px;
   }
 }
 

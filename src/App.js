@@ -148,6 +148,21 @@ class Main extends React.Component {
     TagManager.initialize(tagManagerArgs);
   }
 
+  componentDidUpdate() {
+    if (this.state.isCartOpen == true) {
+      // console.log('Cart is:', this.state.isCartOpen);
+      // document.body.style.filter = "blur(3px)";
+      // style="position:absolute;top:0;left:0;right:0;bottom:0;background-color:white;filter: blur(3px);z-index:-1;"
+      // document.body.style.zIndex = 1000;
+    }
+
+    if (this.state.isCartOpen == false) {
+      console.log('Cart is:', this.state.isCartOpen);
+      // document.body.style.backgroundColor = "rgba(0,0,0,0)";
+    }
+
+  }
+
   onSetSidebarOpen(open) {
     this.setState({ sidebarOpen: open });
   }
@@ -209,6 +224,7 @@ class Main extends React.Component {
     this.setState({
       isCartOpen: false
     });
+
   }
 
   home = () => (

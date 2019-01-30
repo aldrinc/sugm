@@ -1,5 +1,4 @@
 import React from 'react' 
-import ProductImg1 from '../../images/product/product-image-1.jpg';
 import icon_1 from '../../images/fwc.png'; 
 import icon_2 from '../../images/er.png'; 
 import icon_3 from '../../images/hh.png'; 
@@ -55,7 +54,7 @@ class Product extends React.Component {
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
     this.findImage = this.findImage.bind(this);
-    this.updateMetafieldData = this.updateMetafieldData.bind(this);
+    // this.updateMetafieldData = this.updateMetafieldData.bind(this);
     this.onHide = this.onHide.bind(this);
     this.onShow = this.onShow.bind(this);
 
@@ -63,12 +62,12 @@ class Product extends React.Component {
     }
 
     onHide() {
-      console.log('hide');
+      // console.log('hide');
       this.setState({displayScrollingATC: true });
     }
 
     onShow() {
-      console.log('hide');
+      // console.log('hide');
       this.setState({displayScrollingATC: false });
     }
 
@@ -81,7 +80,7 @@ class Product extends React.Component {
     componentWillMount() {
       window.scrollTo(0,0)
       this.setItems(this.props.productId)
-      
+
     }
 
 
@@ -94,7 +93,7 @@ class Product extends React.Component {
         currentProduct =>
         currentProduct.handle === ''
       );
-        console.log(currentProduct);
+        // console.log(currentProduct);
     }
       var url = atob(this.state.product.id);
       // var url = window.location.hostname + '/product' + '/' + this.props.productId
@@ -102,47 +101,49 @@ class Product extends React.Component {
       var numericProductID = url.substr(url.lastIndexOf('/') + 1);
       // console.log(numericProductID);
       this.setState({ productID: numericProductID });
-
-      const GET_METAFIELD_RATING_DATA = `
-      query {
-        product(id:"${this.state.product.id}") {
-         metafield(key:"rating", namespace:"rating") {
-          value
-        }
-        }
-      }
-      `;
-      const GET_METAFIELD_ORDER_DATA = `
-      query {
-        product(id:"${this.state.product.id}") {
-         metafield(key:"orders", namespace:"orders") {
-          value
-        }
-        }
-      }
-      `;
-          axiosShopifyGraphQL
-          .post('', { query: GET_METAFIELD_RATING_DATA })
-          .then(result => this.updateMetafieldData(result, "rating"));
+      this.setState({displayScrollingATC: false });
 
 
-          axiosShopifyGraphQL
-          .post('', { query: GET_METAFIELD_ORDER_DATA })
-          .then(result => this.updateMetafieldData(result, "orders"));
+      // const GET_METAFIELD_RATING_DATA = `
+      // query {
+      //   product(id:"${this.state.product.id}") {
+      //    metafield(key:"rating", namespace:"rating") {
+      //     value
+      //   }
+      //   }
+      // }
+      // `;
+      // const GET_METAFIELD_ORDER_DATA = `
+      // query {
+      //   product(id:"${this.state.product.id}") {
+      //    metafield(key:"orders", namespace:"orders") {
+      //     value
+      //   }
+      //   }
+      // }
+      // `;
+      //     axiosShopifyGraphQL
+      //     .post('', { query: GET_METAFIELD_RATING_DATA })
+      //     .then(result => this.updateMetafieldData(result, "rating"));
+
+
+      //     axiosShopifyGraphQL
+      //     .post('', { query: GET_METAFIELD_ORDER_DATA })
+      //     .then(result => this.updateMetafieldData(result, "orders"));
    
 
-        }
+      //   }
 
-        updateMetafieldData(result, type) {
-          console.log(result);
-          if (result.data.data.product.metafield !== null && type == "rating") {
-             this.setState({rating: result.data.data.product.metafield.value})
-          }
+      //   updateMetafieldData(result, type) {
+      //     console.log(result);
+      //     if (result.data.data.product.metafield !== null && type == "rating") {
+      //        this.setState({rating: result.data.data.product.metafield.value})
+      //     }
 
-          if (result.data.data.product.metafield !== null && type == "orders") {
-            this.setState({orders: result.data.data.product.metafield.value})
+      //     if (result.data.data.product.metafield !== null && type == "orders") {
+      //       this.setState({orders: result.data.data.product.metafield.value})
 
-         }
+      //    }
 
    
 
@@ -273,7 +274,7 @@ class Product extends React.Component {
       <div className="col-sm-6 col-md-5">
         <div className="pro_right_box">
           <h2>{this.state.product.title}</h2>
-          <div className="pro_review"> 
+          {/* <div className="pro_review"> 
           
           <StarRatingComponent 
           name="rate1" 
@@ -282,7 +283,7 @@ class Product extends React.Component {
         />
 
             <p>{this.state.rating} stars. {this.state.orders} Orders</p>  
-          </div> 
+          </div>  */}
 	 
 	 
           <div className="price_cnt">
@@ -300,7 +301,7 @@ class Product extends React.Component {
             <label className="Product__quntity"> <span>Quantity</span> </label>
 			<div className="pro_qyt_box">
               <button onClick={this.minusQty}><SubtractCircle /></button>
-              <input min="1" type="text" value={variantQuantity} onChange={this.handleQuantityChange} />
+              <input min="1" type="text" value={variantQuantity} onChange={this.handleQuantityChange} disabled/>
               <button  onClick={this.plusQty}><AddCircle /></button>
 			  </div>  
 		   </div>
@@ -311,7 +312,8 @@ class Product extends React.Component {
               () => this.onATC(variant, variantQuantity, product)}>Add to Bag</button>
           </div>
           </div>
-  
+          <IntersectionVisible onHide={ e => this.onHide( e )} onShow={ e => this.onShow( e )}>
+          </IntersectionVisible>
           {/* <div className="fr_bog_tgh_cnt">
           
 		  <h3>Frequently Bought Togther</h3>
@@ -371,8 +373,7 @@ class Product extends React.Component {
               </li>
             </ul>
           </div>
-          <IntersectionVisible onHide={ e => this.onHide( e )} onShow={ e => this.onShow( e )}>
-          </IntersectionVisible>
+ 
           {(this.state.product.descriptionHtml.trim() !== '') ?
           <div className="product_detail_cnt">
             <h3>Product Details</h3>
@@ -383,14 +384,13 @@ class Product extends React.Component {
 
 <div id="freq_bought_together"></div>
         <Loox productID={this.state.productID}/>
-
         </div>
       </div>
     </div>
   </div>
   {this.state.displayScrollingATC ?
    <FixedATC product={this.state.product} variant={variant} variantSelectors={variantSelectors} variantQuantity={variantQuantity} addVariantToCart={this.props.addVariantToCart} handleQuantityChange={this.handleQuantityChange} minusQty={this.minusQty} plusQty={this.plusQty}></FixedATC> : null}
-<IntersectionVisible onHide={ e => this.onHide( e )} onShow={ e => this.onShow( e )}>
+<IntersectionVisible onShow={ e => this.onShow( e )}>
           </IntersectionVisible>
 </div>
 

@@ -62,7 +62,7 @@ class FixedATC extends Component {
                 <div className="pro_qyt_box">
                   <button onClick={this.props.minusQty}><SubtractCircle /></button>
                   
-                  <input min="1" type="text" value={this.props.variantQuantity} onChange={this.props.handleQuantityChange} />
+                  <input min="1" type="text" value={this.props.variantQuantity} onChange={this.props.handleQuantityChange} disabled/>
                   <button  onClick={this.props.plusQty}><AddCircle /></button>
                   </div>
                   </div>
