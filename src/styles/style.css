@@ -1785,6 +1785,7 @@ footer.Cart__footer {
 
 .mobile_header_logo {
   visibility: hidden;
+  display: none !important;
 }
 .headder {
   padding: 20px 0 0 0;
@@ -3188,6 +3189,7 @@ footer.Cart__footer {
     left: -56px;
     min-width: 200px;
     visibility: visible;
+    display: initial !important;
   }
 
   .m_nopadding {
