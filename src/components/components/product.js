@@ -309,7 +309,7 @@ class Product extends React.Component {
           <div className="addbuttonbox">
           <div className="on_page_ATC">
             <button id="addToBagBtn" onClick={
-              () => this.onATC(variant, variantQuantity, product)}>Add to Bag</button>
+              () => this.onATC(variant, variantQuantity, product)}>Buy Now</button>
           </div>
           </div>
           <IntersectionVisible onHide={ e => this.onHide( e )} onShow={ e => this.onShow( e )}>

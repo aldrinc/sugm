@@ -69,7 +69,7 @@ class FixedATC extends Component {
               </div>
                <div className="col-12">
               <div className="addbuttonbox">
-                <button id="addToBagBtn" onClick={() => this.onATC(this.props.variant, this.props.variantQuantity, this.props.product)}>Add to Bag</button>
+                <button id="addToBagBtn" onClick={() => this.onATC(this.props.variant, this.props.variantQuantity, this.props.product)}>Buy Now</button>
               </div>
               </div>
     </div>

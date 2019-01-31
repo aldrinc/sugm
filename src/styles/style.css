@@ -2263,7 +2263,7 @@ footer.Cart__footer {
   line-height: 30px;
   font-family: "Brandon Grotesque";
   font-weight: bold;
-  color: #db4437;
+  color: #51b769;
 }
 
 .compareAtPrice {
@@ -2424,7 +2424,10 @@ footer.Cart__footer {
 
 .on_page_ATC {
   margin-top: 20px;
+
 }
+
+
 .addbuttonbox button {
   margin: 0px;
   padding: 2px 0;
@@ -3020,6 +3023,8 @@ footer.Cart__footer {
   }
   .addbuttonbox button {
     width: 100%;
+    line-height: 50px;
+    font-size: 24px;
   }
   .Product {
     -webkit-box-flex: 0;
