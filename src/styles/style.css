@@ -765,6 +765,7 @@ button:focus {
   margin-top: 1rem;
   margin-bottom: 0.4rem;
   opacity: 0.7;
+
 }
 .Product__option {
   display: block;
@@ -907,8 +908,10 @@ width: 400px;
   overflow: hidden;
   width: 100%;
   float: left;
-  height: 22px;
+  height: auto;
 }
+
+
 .Product__title a {
   font-family: "Brandon Grotesque";
   font-weight: 400;
@@ -2058,6 +2061,7 @@ footer.Cart__footer {
   margin: 0 0 20px;
   padding: 0px;
   float: left;
+  font-family: "Brandon Grotesque";
 }
 .page_title h2 {
   margin: 0px;
@@ -2331,7 +2335,7 @@ footer.Cart__footer {
 }
 .pro_type select {
   background: #fff;
-  width: 200px;
+  width: 150x;
   margin: 0px;
   padding: 5px;
   float: left;
@@ -3182,11 +3186,15 @@ footer.Cart__footer {
     visibility: hidden;
   }
 
+  svg.svg-icon.header_logo {
+    display: none;
+}
+
   .mobile_header_logo {
     position: relative;
     left: -20px;
-    bottom: 10px;
-    left: -56px;
+    /* bottom: 10px; */
+    left: -50px;
     min-width: 200px;
     visibility: visible;
     display: initial !important;

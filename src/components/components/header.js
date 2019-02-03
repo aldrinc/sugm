@@ -6,6 +6,7 @@ import Search from "../../images/search";
 import ShoppingBag from "../../images/ShoppingBag";
 import Menu from "../../images/menu";
 import Remove from "../../images/close";
+import Logo from "../../images/logo";
 
  
 class Header extends React.Component {
@@ -64,7 +65,14 @@ class Header extends React.Component {
         </div>
       </div>
       <div className="col-4 header_center">
-        <NavLink to="/" exact={true} > <img className="header_logo" src={logo} alt="" /> <img className="mobile_header_logo" src={logo} alt="" /> </NavLink>
+        <NavLink to="/" exact={true} >         
+        <Logo className="header_logo"></Logo>
+        <Logo className="mobile_header_logo"></Logo>
+
+        {/* <img className="header_logo" src={logo} alt="">  </img> */}
+
+       {/* <img className="mobile_header_logo" src={logo} alt="" /> */}
+        </NavLink>
       </div>
       <div className="col-4 header_right" ref={node => { this.node = node; }}>
         <ul>
