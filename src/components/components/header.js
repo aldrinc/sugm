@@ -66,12 +66,12 @@ class Header extends React.Component {
       </div>
       <div className="col-4 header_center">
         <NavLink to="/" exact={true} >         
-        <Logo className="header_logo"></Logo>
-        <Logo className="mobile_header_logo"></Logo>
+        {/* <Logo className="header_logo"></Logo>
+        <Logo className="mobile_header_logo"></Logo> */}
 
-        {/* <img className="header_logo" src={logo} alt="">  </img> */}
+        <img className="header_logo" src={logo} alt=""/> 
 
-       {/* <img className="mobile_header_logo" src={logo} alt="" /> */}
+       <img className="mobile_header_logo" src={logo} alt="" />
         </NavLink>
       </div>
       <div className="col-4 header_right" ref={node => { this.node = node; }}>

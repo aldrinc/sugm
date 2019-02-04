@@ -1,22 +1,9 @@
-import React from "react";
-
-const SVG = ({
-  style = {maxHeight: "35px"},
-  fill = "#232323",
-  width = "100%",
-  className = "header_logo",
-  viewBox = "0 0 100 100"
-}) => (
-  <svg
-    width={width}
-    style={style}
-    height={width}
-    viewBox={viewBox}
-    xmlns="http://www.w3.org/2000/svg"
-    className={`svg-icon ${className || ""}` }
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-  >
-     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="467px" height="135px" viewBox="0 0 467 135" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>Clement</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Clement" transform="translate(-1.000000, 0.000000)">
             <g id="Paris" transform="translate(186.000000, 118.000000)">
                 <path d="M0.0118959108,16 L3.0929368,16 L3.0929368,9.77710387 L8.86245353,9.77710387 C11.5509294,9.77710387 16,9.77710387 16,4.92494314 C16,0.0727824109 11.5866171,0 8.86245353,0 L0,0 L0.0118959108,16 Z" id="Path" fill="#000000"></path>
@@ -41,7 +28,4 @@ const SVG = ({
             </g>
         </g>
     </g>
-  </svg>
-);
-
-export default SVG;
+</svg>

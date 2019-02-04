@@ -1,8 +1,8 @@
 import Client from 'shopify-buy';
 
 const client = Client.buildClient({
-    storefrontAccessToken: '887a3c0b9371b412d4fd0b5acb889b18' ,
-    domain: 'vincentboscoart-com.myshopify.com'
+    storefrontAccessToken: 'a6ec793947e183db8eca2d0549e3c348' ,
+    domain: 'bpoco.myshopify.com'
   });
 
 export default client;

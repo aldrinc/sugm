@@ -86,7 +86,7 @@ class Main extends React.Component {
     client.collection.fetchAllWithProducts().then(collections => {
       // Do something with the collections
       this.lc.putObject("collections", collections);
-      // console.log(collections);
+      console.log(collections);
       this.setState({ collections });
     });
 
@@ -101,7 +101,7 @@ class Main extends React.Component {
     if (lcCollections) {
       const bestCollection = lcCollections.find(
         bestcollect =>
-          bestcollect.id === "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzkxNDE1MzQ3Mjg4"
+          bestcollect.id === "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzgyMDU0NjExMDYy"
       );
       if (bestCollection) {
         this.setState({ bestProducts: bestCollection.products });
@@ -110,7 +110,7 @@ class Main extends React.Component {
 
       const artProducts = lcCollections.find(
         artcollect =>
-          artcollect.id === "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzkxNDEzNjEwNTg0"
+          artcollect.id === "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzg2NTY3MjU2MTgy"
       );
       if (artProducts) {
         this.setState({ artProducts: artProducts.products });
