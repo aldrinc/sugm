@@ -245,7 +245,7 @@ class Product extends React.Component {
     
 
     if(this.state.product) {
-	// let variantImage = this.state.selectedVariantImage || this.state.product.images[0] || null
+	let variantImage = this.state.selectedVariantImage || this.state.product.images[0] || null
     let variant = this.state.selectedVariant || this.state.product.variants[0]
     let product = this.state.product
     let savingsPercentage = Math.round(100* (1 - (variant.price / variant.compareAtPrice)))

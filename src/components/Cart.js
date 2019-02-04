@@ -14,6 +14,15 @@ class Cart extends Component {
     this.openCheckout = this.openCheckout.bind(this);
   }
 
+  // componentDidMount(){
+  //   if (this.state.isCartOpen) {
+
+  //   }
+  // }
+
+
+
+
   openCheckout() {
 
     var line_items = this.props.checkout.lineItems;
@@ -31,6 +40,8 @@ class Cart extends Component {
 
     })
 
+
+
     tagManagerArgs.dataLayer = {
       'event': 'checkout',
       'ecommerce': {
@@ -44,8 +55,13 @@ class Cart extends Component {
      }
     }
     
-    TagManager.dataLayer(tagManagerArgs)
-
+    TagManager.dataLayer(tagManagerArgs);
+    
+    // window.testGlobalBeforeReact(0);
+    // console.log(this.props.checkout.webUrl);
+    // var url = this.props.checkout.webUrl;
+    // var newUrl = url.replace("https://vincentboscoart-com.myshopify.com", "https://shop.myshopify.com");
+    // console.log(newUrl);
     window.open(this.props.checkout.webUrl, "_self");
   }
 

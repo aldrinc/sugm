@@ -75,6 +75,7 @@ class Main extends React.Component {
     // console.log(this.lc);
     if (checkout) {
       this.setState({ checkout: checkout });
+      console.log(checkout);
     } else {
       client.checkout.create().then(res => {
         this.setState({
@@ -150,14 +151,14 @@ class Main extends React.Component {
 
   componentDidUpdate() {
     if (this.state.isCartOpen == true) {
-      // console.log('Cart is:', this.state.isCartOpen);
+      console.log('Cart is:', this.state.isCartOpen);
       // document.body.style.filter = "blur(3px)";
       // style="position:absolute;top:0;left:0;right:0;bottom:0;background-color:white;filter: blur(3px);z-index:-1;"
       // document.body.style.zIndex = 1000;
     }
 
     if (this.state.isCartOpen == false) {
-      console.log('Cart is:', this.state.isCartOpen);
+      // console.log('Cart is:', this.state.isCartOpen);
       // document.body.style.backgroundColor = "rgba(0,0,0,0)";
     }
 
@@ -291,6 +292,7 @@ class Main extends React.Component {
     return (
       <Router onUpdate={() => window.scrollTo(0, 0)}>
         <div className="fullwidth">
+        <div id="overlay" style={{display: this.state.isCartOpen === true ? 'block' : 'none'}} ></div>
 
           <Sidebar
             sidebar={<SidebarMenu sidebarOpen={this.onSetSidebarOpen} />}

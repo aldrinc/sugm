@@ -142,7 +142,12 @@
     font-style: normal;
 }
 
-
+@font-face {
+  font-family: system;
+  font-style: normal;
+  font-weight: 300;
+  src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+}
 
 /* INITIALIZERS + DEFAULTS
 * ============================== */
@@ -160,7 +165,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: 400;
 }
 img {
@@ -288,7 +293,7 @@ strong {
 .pro_qyt .Product__quntity {
   width: 100%;
   float: left;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: normal;
   margin: 0 0 10px;
   padding: 0px;
@@ -305,13 +310,22 @@ strong {
   align-items: center;
   display: flex;
 }
+
+input[type="text"][disabled] {
+  /* color: black !important; */
+  fill: #000;
+  -webkit-text-fill-color: rgba(0, 0, 0, 1); 
+  -webkit-opacity: 1; background: white;
+}
+
+
 .pro_qyt .Product__quntity span {
   display: inline-block;
   margin: 0 0px;
   font-size: 16px;
   line-height: 30px;
   color: #050505;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: bold;
   padding: 0px;
   width: 100%;
@@ -322,7 +336,7 @@ strong {
   font-size: 20px;
   line-height: 30px;
   color: #050505;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: normal;
   margin: 0 5px;
   border: 0px;
@@ -541,6 +555,8 @@ button.sliderDots {
   border-left: 1px solid #e5e5e5;
   transform: translateX(100%);
   transition: transform 0.15s ease-in-out;
+  
+  /* -webkit-transform: translate3d(0,0,0); */
 }
 
 .cart_overlay {
@@ -610,7 +626,7 @@ button.sliderDots {
 .Cart-info__small {
   font-size: 14px;
   font-weight: bold;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
 }
 .Cart-info__pricing {
   float: right;
@@ -619,7 +635,7 @@ button.sliderDots {
   margin-left: 5px;
   font-size: 14px;
   color: #373737;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
 
 }
 
@@ -656,7 +672,7 @@ button.sliderDots {
   position: relative;
 }
 .Line-item__variant-title {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   float: right;
   font-weight: bold;
   font-size: 12px;
@@ -664,13 +680,13 @@ button.sliderDots {
   color: #222;
 }
 .Line-item__title {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   color: #222;
   font-size: 14px;
   font-weight: 500;
 }
 .Line-item__price {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   line-height: 23px;
   float: right;
   font-weight: normal;
@@ -691,7 +707,7 @@ button.sliderDots {
   float: left;
   height: 24px;
   line-height: 16px;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   width: 25px;
   padding: 0;
   border: none;
@@ -717,7 +733,7 @@ button.sliderDots {
   font-size: 20px;
   line-height: 30px;
   color: #050505;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: normal;
   margin: 0 5px;
   border: 0px;
@@ -877,7 +893,7 @@ width: 400px;
 }
 .App__title h1 a {
   margin: 0px;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   padding: 0px;
   color: #000;
   font-weight: normal;
@@ -886,7 +902,7 @@ width: 400px;
 .Product__price {
   float: left;
   width: 100%;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   color: #000;
   line-height: 30px;
   font-weight: 500;
@@ -897,7 +913,7 @@ width: 400px;
   padding: 0px;
 }
 .Product__title {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: normal;
   font-size: 16px;
   line-height: 20px;
@@ -913,7 +929,7 @@ width: 400px;
 
 
 .Product__title a {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: 400;
   font-size: 18px;
   line-height: 20px;
@@ -930,7 +946,7 @@ width: 400px;
   color: #000;
 }
 .Product__buy.button {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: normal;
   font-size: 15px;
   margin: 0px;
@@ -941,7 +957,7 @@ width: 400px;
 .Product__option {
   height: 40px;
   border: 1px solid #ccc;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: normal;
   margin: 0 0 10px;
   padding: 10px;
@@ -950,7 +966,7 @@ width: 400px;
 }
 .Product__option option {
   background: #fff;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: normal;
   margin: 0px;
   padding: 10px;
@@ -973,7 +989,7 @@ label.Product__option {
 .Product__quntity {
   width: 100%;
   float: left;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: normal;
   margin: 0 0 10px;
   padding: 0px;
@@ -1077,7 +1093,7 @@ label.Product__option {
   text-align: center;
 }
 .app_banner_text h1 {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   margin: 0 0 25px;
   padding: 0px;
   font-size: 32px;
@@ -1087,7 +1103,7 @@ label.Product__option {
 }
 .app_banner_text a {
   text-decoration: underline;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   /* letter-spacing: 1px; */
   margin: 0px;
   padding: 0px;
@@ -1108,7 +1124,7 @@ label.Product__option {
   box-sizing: border-box;
 }
 .over_story_cnt h2 {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   margin: 0 0 15px;
   padding: 0px;
   font-size: 24px;
@@ -1116,7 +1132,7 @@ label.Product__option {
   font-weight: 600;
 }
 .over_story_cnt p {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   display: inline-block;
   margin: 0 0 15px;
   padding: 0px;
@@ -1141,7 +1157,7 @@ label.Product__option {
   width: 100%;
 }
 .over_story_cnt ul li p {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   color: #000;
   font-size: 16px;
   line-height: 20px;
@@ -1182,7 +1198,7 @@ label.Product__option {
   width: 100%;
 }
 .holyday_cnt h3 {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   margin: 0 0 15px;
   padding: 0px;
   font-size: 34px;
@@ -1190,7 +1206,7 @@ label.Product__option {
   line-height: 34px;
 }
 .holyday_cnt p {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   margin: 15px 0 0;
   padding: 0px;
   font-size: 22px;
@@ -1234,7 +1250,7 @@ label.Product__option {
   background: #333;
 }
 .footer-title h6 {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-size: 16px;
   font-weight: 600;
   margin: 0px;
@@ -1243,7 +1259,7 @@ label.Product__option {
 .footer-title h5 {
   margin: 0px;
   padding: 0px;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-size: 16px;
   font-weight: 600;
 }
@@ -1253,7 +1269,7 @@ label.Product__option {
   margin-top: 25px;
 }
 .footer-title ul li a {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   color: #333;
   font-size: 14px;
   line-height: 28px;
@@ -1269,7 +1285,7 @@ label.Product__option {
   margin-right: 20px;
 }
 .footer-title .social-icon-ft li a {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   border: 1px solid #333;
   border-radius: 100%;
   padding: 0;
@@ -1291,7 +1307,7 @@ label.Product__option {
   font-size: 14px;
 }
 .footer-btm ul li a {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   color: #b7b7b7;
   font-size: 12px;
   text-decoration: none;
@@ -1349,7 +1365,7 @@ span.cartCount:after {
   transform: translateX(0) !important;
 }
 .Cart__header h2 {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   margin: 0;
   font-size: 20px;
   float: left;
@@ -1375,7 +1391,7 @@ span.cartCount:after {
 }
 .Cart__close {
   top: 20px;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   color: #212121;
   font-size: 14px;
 }
@@ -1392,7 +1408,7 @@ footer.Cart__footer {
   background-color: #232323;
   color: #fff;
   border: none;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-size: 16px;
   padding: 10px 17px;
   cursor: pointer;
@@ -1420,7 +1436,7 @@ footer.Cart__footer {
   text-decoration: none;
 }
 .menu-content a {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   color: #393838;
   text-decoration: none;
   font-size: 16px;
@@ -1431,11 +1447,11 @@ footer.Cart__footer {
   font-weight: bold;
 }
 .menu-page-content a span {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
 }
 .menu-page-content a {
   width: 100%;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   color: #393838;
   text-decoration: none;
   font-size: 16px;
@@ -1521,7 +1537,7 @@ footer.Cart__footer {
   background: rgba(0, 0, 0, 0);
   border: none;
   font-size: 16px;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   cursor: pointer;
   line-height: 20px;
   font-weight: 600;
@@ -1851,7 +1867,7 @@ footer.Cart__footer {
   margin-top: 40px;
 }
 .see_all {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   text-decoration: none;
   float: right;
   display: flex;
@@ -1871,7 +1887,7 @@ footer.Cart__footer {
   opacity: 0.5;
 }
 .title h2 {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   float: left;
   margin: 0px;
   padding: 0px;
@@ -1888,7 +1904,7 @@ footer.Cart__footer {
   color: #000;
 }
 .pro_item a {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   margin: 0 0 5px;
   padding: 0px;
   font-size: 18px;
@@ -2061,7 +2077,7 @@ footer.Cart__footer {
   margin: 0 0 20px;
   padding: 0px;
   float: left;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
 }
 .page_title h2 {
   margin: 0px;
@@ -2167,7 +2183,7 @@ footer.Cart__footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-size: 20px;
   line-height: 24px;
   color: #444;
@@ -2192,7 +2208,7 @@ footer.Cart__footer {
   font-size: 24px;
   line-height: 30px;
   color: #050505;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: 600;
   margin: 10px 0 10px;
   padding: 0px;
@@ -2266,9 +2282,9 @@ footer.Cart__footer {
   margin: 0px 10px 0px 0px;
   font-size: 20px;
   line-height: 30px;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: bold;
-  color: #51b769;
+  color: #FB4D46;
 }
 
 .compareAtPrice {
@@ -2299,7 +2315,7 @@ footer.Cart__footer {
   font-size: 16px;
   line-height: 30px;
   color: #050505;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: normal;
   margin: 0 0 0 5px;
   padding: 0px;
@@ -2330,22 +2346,53 @@ footer.Cart__footer {
   font-size: 16px;
   line-height: 30px;
   color: #050505;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: bold;
 }
 .pro_type select {
-  background: #fff;
-  width: 150x;
+  /* width: 150x; */
   margin: 0px;
-  padding: 5px;
+  /* padding: 5px; */
   float: left;
+
+  background: #fff;
   border: 1px solid #cccccc;
   font-size: 14px;
   font-weight: normal;
   line-height: 40px;
-  color: #000;
+  /* color: #000;
   border-radius: 3px !important;
+  background-size: 20px;
 
+  background: url(/static/media/move-expand-vertical.f04d0389.svg) no-repeat 96% px; */
+}
+
+select.Product__option {
+  border: 1px solid #ccc;
+    border-radius: 5px;
+    color: black;
+    margin: 0px;
+    padding: 0px 0 0 5px;
+    -webkit-appearance: none;
+  /* background: -webkit-linear-gradient(white, white); */
+  background-image:
+  linear-gradient(45deg, transparent 50%, black 50%),
+  linear-gradient(135deg, black 50%, transparent 50%);
+  /* linear-gradient(to right, #ccc, #ccc); */
+background-position:
+  calc(100% - 20px) calc(1em + 2px),
+  calc(100% - 15px) calc(1em + 2px),
+  calc(100% - 2.5em) 0.5em;
+background-size:
+  5px 5px,
+  5px 5px,
+  1px 1.5em;
+background-repeat: no-repeat;
+}
+
+.pro_type select:focus {
+  outline: none !important;
+  border-color: #333;
 }
 
 .setof_pro_type {
@@ -2438,7 +2485,7 @@ footer.Cart__footer {
   padding: 2px 0;
   cursor: pointer;
   float: left;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   line-height: 40px;
   font-weight: bold;
   font-size: 20px;
@@ -2464,7 +2511,7 @@ footer.Cart__footer {
   width: 100%;
 }
 .buyallcnt button {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   cursor: pointer;
   float: left;
   margin: 0px 0 0;
@@ -2493,7 +2540,7 @@ footer.Cart__footer {
   padding: 0px;
   line-height: 30px;
   color: #333333;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
 }
 .fr_bog_tgh_cnt p {
   float: left;
@@ -2504,7 +2551,7 @@ footer.Cart__footer {
   padding: 0px;
   line-height: 26px;
   color: #333333;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
 }
 .fr_bog_tgh_cnt .p_price {
   float: left;
@@ -2515,7 +2562,7 @@ footer.Cart__footer {
   padding: 0px;
   line-height: 20px;
   color: #a2a2a2;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
 }
 .fr_bog_tgh_cnt .pro_item a {
   font-size: 16px;
@@ -2546,7 +2593,7 @@ footer.Cart__footer {
   width: 100%;
 }
 .frewidebox ul li p {
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   color: #000;
   font-size: 16px;
   line-height: 1.4;
@@ -2565,7 +2612,10 @@ footer.Cart__footer {
   padding: 0 25px 0 25px;
   float: left;
   overflow: hidden;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
+  max-width: 1080px;
+  margin: 0 auto !important;
+  float: none !important;
 }
 .static_content h1 {
   padding-top: 5px;
@@ -2576,7 +2626,7 @@ footer.Cart__footer {
   margin: 0px 0 10px;
   padding: 0px;
   float: left;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   color: #000;
   font-size: 20px;
   line-height: 30px;
@@ -2588,7 +2638,7 @@ footer.Cart__footer {
   margin: 0px 0 10px;
   padding: 0px;
   float: left;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   color: #000;
   font-size: 20px;
   line-height: 30px;
@@ -2600,7 +2650,7 @@ footer.Cart__footer {
     /* margin: 0px 0 10px; */
     padding: 0px;
     float: left;
-    font-family: "Brandon Grotesque";
+    font-family: "Brandon Grotesque", "system";
     color: #212121;
     font-size: 18px;
     line-height: 1.4;
@@ -2623,7 +2673,7 @@ footer.Cart__footer {
   margin: 0px 0 10px;
   padding: 0px;
   float: left;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   color: #212121;
   font-size: 18px;
   line-height: 1.4;
@@ -2642,7 +2692,7 @@ footer.Cart__footer {
   margin: 0px 0 10px;
   padding: 0px;
   float: left;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   color: #000;
   font-size: 20px;
   line-height: 30px;
@@ -2653,7 +2703,7 @@ footer.Cart__footer {
   /* margin: 0px 0 10px; */
   padding: 0px;
   float: left;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   color: #212121;
   font-size: 18px;
   line-height: 1.4;
@@ -2676,7 +2726,7 @@ footer.Cart__footer {
   margin: 0px 0 10px;
   padding: 0px;
   float: left;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   color: #212121;
   font-size: 18px;
   line-height: 1.4;
@@ -2900,7 +2950,7 @@ footer.Cart__footer {
   font-size: 16px;
   line-height: 30px;
   color: #050505;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: normal;
   padding: 0px;
   width: 100%;
@@ -2908,7 +2958,7 @@ footer.Cart__footer {
 .Product_item .pro_qyt .Product__quntity {
   width: auto;
   float: left;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: normal;
   margin: 0 0 10px;
   padding: 0px;
@@ -2932,7 +2982,7 @@ footer.Cart__footer {
   font-size: 14px;
   line-height: 20px;
   color: #050505;
-  font-family: "Brandon Grotesque";
+  font-family: "Brandon Grotesque", "system";
   font-weight: normal;
   margin: 0 5px;
   border: 0px;
