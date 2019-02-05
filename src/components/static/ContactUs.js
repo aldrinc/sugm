@@ -9,7 +9,7 @@ class Contact extends React.Component {
 <div><strong> </strong></div>
 <div><strong>General Support</strong></div>
 <p>Chat us up with any questions or comments. We're here to help you!</p>
-<p>You can email us at support@vincentboscoart.com where our customer service team will assist you with whatever you may need.</p>
+<p>You can email us at support@shopclement.com where our customer service team will assist you with whatever you may need.</p>
 <div> </div>
 <p>All emails will be answered within 2 business days.</p>
 <div> </div>

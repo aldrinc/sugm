@@ -1340,7 +1340,7 @@ label.Product__option {
   cursor: pointer;
 }
 .header_right > ul .cart_icon svg {
-  margin: 0 2px 0 0;
+  margin: -2px 2px 0px 0;
 }
 .cart_icon .cartCount {
   position: absolute;
@@ -2490,7 +2490,7 @@ background-repeat: no-repeat;
   font-weight: bold;
   font-size: 20px;
   color: #fff;
-  background: #333333;
+  background: #000;
   border: 0px;
   width: 100%;
   border-radius: 3px;
@@ -3070,7 +3070,7 @@ background-repeat: no-repeat;
     line-height: 20px;
   }
   .app_banner_text {
-    padding: 55px 35px 0;
+    padding: 35px 35px 0;
   }
   .col-3 {
     flex: 0 0 50% !important;
@@ -3243,8 +3243,8 @@ background-repeat: no-repeat;
   .mobile_header_logo {
     position: relative;
     left: -20px;
-    /* bottom: 10px; */
-    left: -50px;
+    bottom: 3px;
+    left: -73px;
     min-width: 200px;
     visibility: visible;
     display: initial !important;
@@ -3372,10 +3372,10 @@ background-repeat: no-repeat;
 
 @media only screen and (max-width: 320px) {
   .mobile_header_logo {
-    min-width: 156px;
+    min-width: 186px;
     left: -20px;
-    bottom: 7px;
-    left: -43px;
+    bottom: 3px;
+    left: -76px;
   }
 }
 

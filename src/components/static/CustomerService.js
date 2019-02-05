@@ -7,8 +7,8 @@ class CustomerService extends React.Component {
              <meta charset="utf-8" />
 <h1>Customer Service FAQs</h1>
 <div>
-<p><strong>How can I contact Vincent & Bosco?</strong></p>
-<p>You can simply email us at support@vincentboscoart.com where our customer service team will be happy to help you with whatever you need!</p>
+<p><strong>How can I contact you?</strong></p>
+<p>You can simply email us at support@shopclement.com where our customer service team will be happy to help you with whatever you need!</p>
 <p><strong>What payment methods do you accept?</strong></p>
 <div>
 <div>

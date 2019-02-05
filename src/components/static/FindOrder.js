@@ -37,7 +37,7 @@ class FindOrder extends React.Component {
           <p>
             <span>
               We are here to help! Contact us now through our contact page, or
-              email us at support@vincentboscoart.com. 
+              email us at support@shopclement.com. 
             </span>
           </p>
           <p> </p>

@@ -72,7 +72,7 @@ class Main extends React.Component {
 
   componentWillMount() {
     const checkout = this.lc.getObject("checkout");
-    // console.log(this.lc);
+    console.log(this.lc);
     if (checkout) {
       this.setState({ checkout: checkout });
       console.log(checkout);
@@ -87,11 +87,12 @@ class Main extends React.Component {
     client.collection.fetchAllWithProducts().then(collections => {
       // Do something with the collections
       this.lc.putObject("collections", collections);
-      // console.log(collections);
+      console.log(collections);
       this.setState({ collections });
     });
 
-    client.product.fetchAll().then(res => {
+    client.product.fetchAll(50).then(res => {
+      console.log(res);
       this.lc.putObject("products", res);
       this.setState({
         products: res
@@ -102,7 +103,7 @@ class Main extends React.Component {
     if (lcCollections) {
       const bestCollection = lcCollections.find(
         bestcollect =>
-          bestcollect.id === "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzkxNDE1MzQ3Mjg4"
+          bestcollect.id === "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzg2NzA4NDg2MjYy"
       );
       if (bestCollection) {
         this.setState({ bestProducts: bestCollection.products });
@@ -111,7 +112,7 @@ class Main extends React.Component {
 
       const artProducts = lcCollections.find(
         artcollect =>
-          artcollect.id === "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzkxNDEzNjEwNTg0"
+          artcollect.id === "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzg2NzE0MDU2ODIy"
       );
       if (artProducts) {
         this.setState({ artProducts: artProducts.products });
@@ -119,7 +120,7 @@ class Main extends React.Component {
       }
     } else {
       client.collection
-        .fetchWithProducts("Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzg5MjE4MzUxMTkz")
+        .fetchWithProducts("Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzg2NzA4NDg2MjYy")
         .then(bastcollection => {
           this.lc.putObject("bestProducts", bastcollection.products);
           this.setState({
@@ -128,7 +129,7 @@ class Main extends React.Component {
         });
 
       client.collection
-        .fetchWithProducts("Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzg5MDI2Nzg5NDY1")
+        .fetchWithProducts("Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzg2NzE0MDU2ODIy")
         .then(artcollection => {
           this.lc.putObject("artProducts", artcollection.products);
           this.setState({

@@ -76,7 +76,7 @@ class  Footer extends React.Component {
             <div className="footer-title">
             <h5>About Us</h5>
             <ul>
-              <li><Link to="/about">Vincent & Bosco Cares</Link></li>
+              <li><Link to="/about">Clément Cares</Link></li>
               <li><Link to="#"></Link></li>
               {/* <li><Link to="#">Get Email Updates</Link></li> */}
             </ul>
@@ -92,7 +92,7 @@ class  Footer extends React.Component {
           </div>
           <div className="col-sm-6 col-md-2">
             <div className="footer-title">
-            {/* <h5>Vincent & Bosco, Inc.</h5> */}
+            {/* <h5>Clément, Inc.</h5> */}
             <ul>
               {/* <li><Link to="#">Investor Relations</Link></li>
               <li><Link to="#">Press Releases</Link></li> */}
@@ -123,12 +123,11 @@ class  Footer extends React.Component {
           </div>
 		   <div className="col-md-6">
             <div className="footer-btm">
-           <p className="copy">© 2018 Vincent & Bosco, Inc.</p>
+           <p className="copy">© 2018 Clément, Inc.</p>
         </div>
         </div>
         </div>
       </div>
-      
     </div>	  
 </div>
     

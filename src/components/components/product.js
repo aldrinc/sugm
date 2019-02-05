@@ -73,6 +73,7 @@ class Product extends React.Component {
 
     componentWillReceiveProps(nextProps) {
       const productId = nextProps.match.params.productId;
+      console.log(nextProps);
       this.setItems(productId)
 
     }
@@ -85,21 +86,21 @@ class Product extends React.Component {
 
 
     componentDidMount() {
-      // console.log(this.props.product);
-      // console.log(this.state);
+      console.log(this.props.product);
+      console.log(this.state);
       const lcProducts = this.lc.getObject("products");
     if (lcProducts) {
       const currentProduct = lcProducts.find(
         currentProduct =>
         currentProduct.handle === ''
       );
-        // console.log(currentProduct);
+        console.log(currentProduct);
     }
       var url = atob(this.state.product.id);
       // var url = window.location.hostname + '/product' + '/' + this.props.productId
       // console.log(url);
       var numericProductID = url.substr(url.lastIndexOf('/') + 1);
-      // console.log(numericProductID);
+      console.log(numericProductID);
       this.setState({ productID: numericProductID });
       this.setState({displayScrollingATC: false });
 
@@ -154,6 +155,7 @@ class Product extends React.Component {
 
     setItems(productId) {
         const lcProducts = this.lc.getObject('products');
+        console.log(lcProducts);
         if(!lcProducts) {
         setTimeout(() => {
           window.location.replace(`/product/${productId}`)
@@ -398,7 +400,7 @@ class Product extends React.Component {
     } else {
       return (
         <div>
-          <h2 className="text-center" style={{minHeight: '200px'}}>Loading...</h2>
+          <h2 className="text-center" style={{minHeight: '200px', fontFamily:"Brandon Grotesque"}}>Loading...</h2>
         </div>
       )
     }

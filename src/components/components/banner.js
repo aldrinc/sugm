@@ -14,8 +14,8 @@ render() {
 			   <img src={Banner_img} alt="Banner_img" /> 
 			   <img src={Mobile_banner} className="mob_img" alt="Banner_img" /> 
 				<div className="app_banner_text">
-				  <h1>Art Unbounded.</h1>
-				  <Link to="/best-sellers">Find novel art products here.</Link></div>
+				  <h1>Beauty Unbounded.</h1>
+				  <Link to="/beauty-picks">Find your favorite beauty products here.</Link></div>
 			  
 			</div>
 			</div>

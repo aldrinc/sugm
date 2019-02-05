@@ -34,8 +34,8 @@ class Products extends Component {
           <div className="row content">
             <div className="col-12">
               <div className="title">
-                <h2>Our Bestsellers</h2>
-                <Link to="/best-sellers" className="see_all">
+                <h2>Our Beauty Picks</h2>
+                <Link to="/beauty-picks" className="see_all">
                   <span>See All </span>
                   <Icon width={35} />
                 </Link>
@@ -52,8 +52,8 @@ class Products extends Component {
           <div className="row content morefrom">
             <div className="col-12">
               <div className="title">
-                <h2>More from our art collection</h2>
-                <Link to="/all-products" className="see_all">
+                <h2>More from our top collection</h2>
+                <Link to="/top-selling" className="see_all">
                   <span>See All</span>
                   <Icon width={35} />
                 </Link>

@@ -17,7 +17,7 @@ class  Story extends React.Component {
       <div className="col-md-5">
         <div className="over_story_cnt">
           <h2>Our Story and Promise</h2>
-          <p>Vincent & Bosco is a modern art brand dedicated to promoting premium art goods for artists young and old. Inspired by aspiring artists' struggles, our goal is to equip new artists with the tools they need to stand out from the crowd. In addition to supporting the arts, we're committed to operational excellence through delivering product to your door quickly and with little hassle. </p>
+          <p>Clément is a modern art brand dedicated to promoting premium beauty goods for individuals young and old. Inspired by problems we've faced ourselves finding conscious, high quality beauty products, our goal is to equip people with the tools they need to look their best. In addition to supporting high quality in our beauty products, we're committed to operational excellence through delivering product to your door quickly and with little hassle. </p>
           <ul>
             <li> <img src={icon_1} alt="" />
               <p>Free Worldwide Shipping</p>

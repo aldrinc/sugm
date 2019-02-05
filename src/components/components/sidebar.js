@@ -10,7 +10,7 @@ class SidebarMenu extends React.Component {
     this.lc = new LocalStorage();
   }
 
-  showCategories = ['best-sellers', 'all-products', 'more-art-goods'];
+  showCategories = ['beauty-picks', 'top-selling'];
 
   render() { 
     let collect = null;

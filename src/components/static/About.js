@@ -8,24 +8,24 @@ class About extends React.Component {
         <p className="content_page_cnt">
           <meta charset="utf-8" />
 
-          We founded Vincent & Bosco with a simple goal of providing high quality, novel art products to artists young and old. 
+          We founded Clément with a simple goal of providing high quality, beauty products to individuals young and old. 
           <p>
             <span>
                 <br/>
               
               <strong>
                 <em>
-                  Through our experience working with artists we've discovered a passion enabling others to create meaningful work.
+                  Through our experience working with beauticians we've discovered a passion enabling others to look their best.
                                   </em>
               </strong>     
             </span>
           </p>
           <p>
             <span>
-              Unlike other art avenues whose sole goal is commercial growth, we handpick a few innovative tools
-            perfectly suited for those who love to experiment, just like us.
+              Unlike other beauty avenues whose focus tends to be commercial growth, we handpick a few innovative tools
+            perfectly suited for those who love to experiment with the best in beauty technology.
               We do this so that you won't have to spend your valuable time searching
-              for the right tools - rather you can focus on improving your art. With that said, we're always excited by people who want to share innovative new art tech so if you have a
+              for the right tools - rather you can focus on what's important in your life. With that said, we're always excited by people who want to share innovative new art tech so if you have a
               recommendation or want to see something specific in our
               collections, drop us a line and we will see if we can share your product with others! 
             </span>
@@ -64,7 +64,7 @@ class About extends React.Component {
           <p>
             <span>
               We are here to help! Contact us now through our contact page, or
-              email us at support@vincentboscoart.com. 
+              email us at support@shopclement.com. 
             </span>
           </p>
           <p> </p>
