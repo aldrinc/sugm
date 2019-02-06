@@ -44,7 +44,7 @@ class Products extends Component {
           </div>
           <div className="bestseller"> {products} </div>
           <div className="seeallcnt">
-            <Link to="/best-sellers" className="see_all">
+            <Link to="/beauty-picks" className="see_all">
               <span>See All</span>
               <Icon width={35} />
             </Link>
@@ -61,7 +61,7 @@ class Products extends Component {
             </div>
             <div className="bestseller"> {artProducts} </div>
             <div className="seeallcnt">
-              <Link to="/all-products" className="see_all">
+              <Link to="/top-selling" className="see_all">
                 <span>See All</span>
                 <Icon width={35} />
               </Link>
