@@ -28,7 +28,7 @@ import {
 } from "react-router-dom";
 
 const tagManagerArgs = {
-  gtmId: "GTM-53KZQ5V",
+  gtmId: "GTM-KFXRRFT",
   dataLayer: {},
   dataLayerName: "AppDataLayer"
 };
