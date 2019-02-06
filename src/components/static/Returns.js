@@ -7,11 +7,11 @@ class Returns extends React.Component {
 <h1>Returns</h1>
 <h2><strong>How do I return an item?</strong></h2>
 <p>If you are not happy with your purchase and wish to return an item, please contact us within 25 days from receiving your order. <br /><br />Please provide your order number as well as the reason for your return. Our customer service team will review the return request and will send further instructions if the return is approved.</p>
-<p>Only items purchased directly from Shutupandgiftme will be accepted. For products purchased from authorized retailers, please get in touch with them directly for returns.</p>
+<p>Only items purchased directly from Clément will be accepted. For products purchased from authorized retailers, please get in touch with them directly for returns.</p>
 <p>Returned items must be in original packaging, including any accessories, manuals, and documentation.</p>
 <p>Returned items must be unused, in the same condition that we sent it to you, and in their original packaging. Stains, folded cards, broken seals/ plastic foiling broken will not be accepted. If the condition of the product shipped back to us is not in acceptable condition we reserve the right to not refund or exchange. Products that have been personalized cannot be refunded or exchanged.</p>
 <p>Non-returnable items include items purchased through retailers, incorrect products purchased, and damaged products through customer mishandling.</p>
-<p>Returns made without receipt may be refused. Shutupandgiftme reserves the right to deny any return.</p>
+<p>Returns made without receipt may be refused. Clément reserves the right to deny any return.</p>
 <p><b>Shipping</b></p>
 <p><span>You will be responsible for paying for your own shipping costs for returning your item. Shipping costs are non­refundable.</span></p>
 <h2><strong>What if the item(s) I received are defective/incorrect/damaged?</strong></h2>

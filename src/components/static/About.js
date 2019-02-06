@@ -25,7 +25,7 @@ class About extends React.Component {
               Unlike other beauty avenues whose focus tends to be commercial growth, we handpick a few innovative tools
             perfectly suited for those who love to experiment with the best in beauty technology.
               We do this so that you won't have to spend your valuable time searching
-              for the right tools - rather you can focus on what's important in your life. With that said, we're always excited by people who want to share innovative new art tech so if you have a
+              for the right tools - rather you can focus on what's important in your life. With that said, we're always excited by people who want to share innovative new beauty tech so if you have a
               recommendation or want to see something specific in our
               collections, drop us a line and we will see if we can share your product with others! 
             </span>
