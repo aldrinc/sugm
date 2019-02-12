@@ -57,7 +57,7 @@ class Product extends React.Component {
     // this.updateMetafieldData = this.updateMetafieldData.bind(this);
     this.onHide = this.onHide.bind(this);
     this.onShow = this.onShow.bind(this);
-
+    
 
     }
 
@@ -99,7 +99,7 @@ class Product extends React.Component {
       // var url = window.location.hostname + '/product' + '/' + this.props.productId
       // console.log(url);
       var numericProductID = url.substr(url.lastIndexOf('/') + 1);
-      // console.log(numericProductID);
+      console.log(this.state.product);
       this.setState({ productID: numericProductID });
       this.setState({displayScrollingATC: false });
 
@@ -236,7 +236,57 @@ class Product extends React.Component {
     // console.log(this.state.product.descriptionHtml);
 
   }
-  
+
+  // handleSubmit(event){ 
+  //   event.preventDefault();
+  //   fetch('/', {
+  //    method: 'POST',
+  //    headers: {'Content-Type':'application/json'},
+  //    body: {
+  //     "first_name": this.firstName.value
+  //    }
+  //   });
+  //  };
+
+  createMarkup() {
+//     fetch('https://shop.vincentboscoart.com/cart/add.js', {
+//   method: 'POST',
+//   headers: {
+//     'Accept': 'application/json',
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify({
+//     quantity: '2',
+//     id: 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8xOTU4OTEyMzI0NDEyMA==',
+//   })
+// })
+    // fetch("https://shop.vincentboscoart.com/products/viviva-portable-watercolor-sheets.js")
+
+    // .then(res => res.json())
+    // .then(
+    //   (result) => {
+    //     // this.setState({
+    //     //   isLoaded: true,
+    //     //   items: result.items
+    //     // });
+    //     console.log(result);
+    //   },
+    //   // Note: it's important to handle errors here
+    //   // instead of a catch() block so that we don't swallow
+    //   // exceptions from actual bugs in components.
+      
+    //   (error) => {
+    //     // this.setState({
+    //     //   isLoaded: true,
+    //     //   error
+    //     // });
+    //     console.log(error);
+
+    //   }
+    // )
+    // {__html: '<form action="/cart" method="post" id="addToCart"> <input type="hidden" name="id" value=""Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8xOTU4OTEyMzI0NDEyMA=="" /> <input type="submit" value="GO" name="checkout" style="display: none;" /><a href="#" class="add-btn">Add Product</a></form> <script type="text/javascript">$(".add-btn").on("click", function(e) {var form = $("#addToCart");e.preventDefault()$.ajax({type: "POST", url: "/cart/add.js",dataType: "json",data: form.serialize(),success: function(data) { alert("Successfully called"); document.location.href = "/cart/checkout";}, ,error: function(jqxhr, status, exception) {alert("Exception:", exception);}});})</script>'};
+    return {__html:'hello'}
+  }
 
 
   render () {
@@ -274,24 +324,28 @@ class Product extends React.Component {
       <div className="col-sm-6 col-md-5">
         <div className="pro_right_box">
           <h2>{this.state.product.title}</h2>
-          {/* <div className="pro_review"> 
+          <div className="pro_review"> 
           
           <StarRatingComponent 
           name="rate1" 
           starCount={5}
-          value={this.state.rating}
+          value="5"
         />
 
-            <p>{this.state.rating} stars. {this.state.orders} Orders</p>  
-          </div>  */}
+            {/* <p>{this.state.rating} stars. {this.state.orders} Orders</p>   */}
+             <p>4.9 stars. 3000+ Orders</p>  
+          </div> 
 	 
 	 
           <div className="price_cnt">
           <p className="compareAtPrice">${variant.compareAtPrice}</p>
-            <p>${variant.price} ({savingsPercentage}% off)</p>
-            <p></p>
+          
+            <p>${variant.price} </p>
 
-          </div>
+          </div> 
+          <div className="price_cnt_save">            
+          <p className="discount">{'You save: $' + (variant.compareAtPrice - variant.price).toFixed(2) + ' '}({savingsPercentage}% off)</p>
+</div>
           {(variantSelectors.length > 0 && variantSelectors[0]) ?
           <div className="pro_type">
             <label>Type</label>
@@ -373,7 +427,8 @@ class Product extends React.Component {
               </li>
             </ul>
           </div>
- 
+          <div dangerouslySetInnerHTML={this.createMarkup()}>
+</div>
           {(this.state.product.descriptionHtml.trim() !== '') ?
           <div className="product_detail_cnt">
             <h3>Product Details</h3>
@@ -383,6 +438,7 @@ class Product extends React.Component {
           }
 
 <div id="freq_bought_together"></div>
+
         <Loox productID={this.state.productID}/>
         </div>
       </div>

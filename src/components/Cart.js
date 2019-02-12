@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import LineItem from './LineItem';
 import TagManager from 'react-gtm-module';
+import Product from "./Product";
+import client from "../helpers/ShopifyClient";
 
 const tagManagerArgs = {
   dataLayerName: 'AppDataLayer'
@@ -76,6 +78,7 @@ class Cart extends Component {
         />
       );
     });
+ 
 
     return (
 
@@ -92,7 +95,11 @@ class Cart extends Component {
         <ul className="Cart__line-items">
           {line_items}
         </ul>
+
         <footer className="Cart__footer">
+        <div>
+          
+        </div>
           <div className="Cart-info clearfix">
             <div className="Cart-info__total Cart-info__small">Subtotal</div>
             <div className="Cart-info__pricing">
