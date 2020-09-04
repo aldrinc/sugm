@@ -6272,9 +6272,9 @@ lodash.merge@^4.6.1:
   integrity sha512-AOYza4+Hf5z1/0Hztxpm2/xiPZgi/cjMqdnKTUWTBSKchJlxXXuUSxCCl8rJlf4g6yww/j6mA8nC8Hw/EZWxKQ==
 
 lodash.mergewith@^4.6.1:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.1.tgz#639057e726c3afbdb3e7d42741caa8d6e4335927"
-  integrity sha512-eWw5r+PYICtEBgrBE5hhlT6aAa75f411bgDz/ZL2KZqYV03USvucsxcHUIlGTDTECs1eunpI7HOV7U+WLDvNdQ==
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.2.tgz#617121f89ac55f59047c7aec1ccd6654c6590f55"
+  integrity sha512-GK3g5RPZWTRSeLSpgP8Xhra+pnjBC56q9FZYe1d5RN3TJ35dbkGy3YqBSMbyCrlbi+CM9Z3Jk5yTL7RCsqboyQ==
 
 lodash.pick@^4.4.0:
   version "4.4.0"
@@ -8464,6 +8464,11 @@ react-error-overlay@^5.1.0:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.0.tgz#c516995a5652e7bfbed8b497910d5280df74a7e8"
   integrity sha512-akMy/BQT5m1J3iJIHkSb4qycq2wzllWsmmolaaFVnb+LPV9cIJ/nTud40ZsiiT0H3P+/wXIdbjx2fzF61OaeOQ==
 
+react-gtm-module@^2.0.2:
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/react-gtm-module/-/react-gtm-module-2.0.10.tgz#462296c3d622b82413d0917d430bec557a586237"
+  integrity sha512-7fRxphVxbJVCNWDQyegugZOrOw97vqwzbTSZlHM2n+otg2iBQvKa0SzFxwcLi9monXADjWGX6xQER6IOl75FPw==
+
 react-intl@^2.7.2:
   version "2.7.2"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-2.7.2.tgz#efe97e3fc0e99b4e88a6e6150854d3d1852a4381"
@@ -8584,6 +8589,14 @@ react-slider@^0.11.2:
   version "0.11.2"
   resolved "https://registry.yarnpkg.com/react-slider/-/react-slider-0.11.2.tgz#ae014e1454c3cdd5f28b5c2495b2a08abd9971e6"
   integrity sha512-y49ZwJJ7OcPdihgt71xYI8GRdAzpFuSLQR8b+cKotutxqf8MAEPEtqvWKlg+3ZQRe5PMN6oWbIb7wEYDF8XhNQ==
+
+react-test-renderer@^15.6.2:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.6.2.tgz#d0333434fc2c438092696ca770da5ed48037efa8"
+  integrity sha1-0DM0NPwsQ4CSaWyncNpe1IA376g=
+  dependencies:
+    fbjs "^0.8.9"
+    object-assign "^4.1.0"
 
 react@^15.6.2:
   version "15.6.2"
