@@ -3670,10 +3670,10 @@ etag@~1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
-eventemitter3@1.x.x:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-1.2.0.tgz#1c86991d816ad1e504750e73874224ecf3bec508"
-  integrity sha1-HIaZHYFq0eUEdQ5zh0Ik7PO+xQg=
+eventemitter3@^4.0.0:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
+  integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
 
 events@^1.0.0:
   version "1.1.1"
@@ -4121,6 +4121,11 @@ flush-write-stream@^1.0.0:
   dependencies:
     inherits "^2.0.1"
     readable-stream "^2.0.4"
+
+follow-redirects@^1.0.0:
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
+  integrity sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==
 
 for-in@^0.1.3:
   version "0.1.8"
@@ -4796,12 +4801,13 @@ http-proxy-middleware@~0.18.0:
     micromatch "^3.1.9"
 
 http-proxy@^1.16.2:
-  version "1.16.2"
-  resolved "https://registry.yarnpkg.com/http-proxy/-/http-proxy-1.16.2.tgz#06dff292952bf64dbe8471fa9df73066d4f37742"
-  integrity sha1-Bt/ykpUr9k2+hHH6nfcwZtTzd0I=
+  version "1.18.1"
+  resolved "https://registry.yarnpkg.com/http-proxy/-/http-proxy-1.18.1.tgz#401541f0534884bbf95260334e72f88ee3976549"
+  integrity sha512-7mz/721AbnJwIVbnaSv1Cz3Am0ZLT/UBwkC92VlxhXv/k/BBQfM2fXElQNC27BVGr0uwUpplYPQM9LnaBMR5NQ==
   dependencies:
-    eventemitter3 "1.x.x"
-    requires-port "1.x.x"
+    eventemitter3 "^4.0.0"
+    follow-redirects "^1.0.0"
+    requires-port "^1.0.0"
 
 http-signature@~1.2.0:
   version "1.2.0"
@@ -8464,6 +8470,11 @@ react-error-overlay@^5.1.0:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.0.tgz#c516995a5652e7bfbed8b497910d5280df74a7e8"
   integrity sha512-akMy/BQT5m1J3iJIHkSb4qycq2wzllWsmmolaaFVnb+LPV9cIJ/nTud40ZsiiT0H3P+/wXIdbjx2fzF61OaeOQ==
 
+react-gtm-module@^2.0.2:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/react-gtm-module/-/react-gtm-module-2.0.11.tgz#14484dac8257acd93614e347c32da9c5ac524206"
+  integrity sha512-8gyj4TTxeP7eEyc2QKawEuQoAZdjKvMY4pgWfycGmqGByhs17fR+zEBs0JUDq4US/l+vbTl+6zvUIx27iDo/Vw==
+
 react-intl@^2.7.2:
   version "2.7.2"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-2.7.2.tgz#efe97e3fc0e99b4e88a6e6150854d3d1852a4381"
@@ -8584,6 +8595,14 @@ react-slider@^0.11.2:
   version "0.11.2"
   resolved "https://registry.yarnpkg.com/react-slider/-/react-slider-0.11.2.tgz#ae014e1454c3cdd5f28b5c2495b2a08abd9971e6"
   integrity sha512-y49ZwJJ7OcPdihgt71xYI8GRdAzpFuSLQR8b+cKotutxqf8MAEPEtqvWKlg+3ZQRe5PMN6oWbIb7wEYDF8XhNQ==
+
+react-test-renderer@^15.6.2:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.6.2.tgz#d0333434fc2c438092696ca770da5ed48037efa8"
+  integrity sha1-0DM0NPwsQ4CSaWyncNpe1IA376g=
+  dependencies:
+    fbjs "^0.8.9"
+    object-assign "^4.1.0"
 
 react@^15.6.2:
   version "15.6.2"
@@ -8931,7 +8950,7 @@ require-uncached@^1.0.3:
     caller-path "^0.1.0"
     resolve-from "^1.0.0"
 
-requires-port@1.0.x, requires-port@1.x.x, requires-port@^1.0.0:
+requires-port@1.0.x, requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
