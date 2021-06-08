@@ -5109,12 +5109,7 @@ is-binary-path@^1.0.0:
   dependencies:
     binary-extensions "^1.0.0"
 
-is-buffer@^1.0.2:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.5.tgz#1f3b26ef613b214b88cbca23cc6c01d87961eecc"
-  integrity sha1-Hzsm72E7IUuIy8ojzGwB2Hlh7sw=
-
-is-buffer@^1.1.5:
+is-buffer@^1.0.2, is-buffer@^1.1.5:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
   integrity sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==
@@ -6081,14 +6076,7 @@ kind-of@^2.0.1:
   dependencies:
     is-buffer "^1.0.2"
 
-kind-of@^3.0.2:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.1.0.tgz#475d698a5e49ff5e53d14e3e732429dc8bf4cf47"
-  integrity sha1-R11pil5J/15T0U4+cyQp3Iv0z0c=
-  dependencies:
-    is-buffer "^1.0.2"
-
-kind-of@^3.0.3, kind-of@^3.2.0:
+kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
   integrity sha1-MeohpzS6ubuw8yRm2JOupR5KPGQ=
@@ -6481,9 +6469,9 @@ meow@^5.0.0:
     yargs-parser "^10.0.0"
 
 merge-deep@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/merge-deep/-/merge-deep-3.0.2.tgz#f39fa100a4f1bd34ff29f7d2bf4508fbb8d83ad2"
-  integrity sha512-T7qC8kg4Zoti1cFd8Cr0M+qaZfOwjlPDEdZIIPPB2JZctjaPM4fX+i7HOId69tAti2fvO6X5ldfYUONDODsrkA==
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/merge-deep/-/merge-deep-3.0.3.tgz#1a2b2ae926da8b2ae93a0ac15d90cd1922766003"
+  integrity sha512-qtmzAS6t6grwEkNrunqTBdn0qKwFgNWvlxUbAV8es9M7Ot1EbyApytCnvE0jALPa46ZpKDUo527kKiaWplmlFA==
   dependencies:
     arr-union "^3.1.0"
     clone-deep "^0.2.4"
@@ -8464,6 +8452,11 @@ react-error-overlay@^5.1.0:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.0.tgz#c516995a5652e7bfbed8b497910d5280df74a7e8"
   integrity sha512-akMy/BQT5m1J3iJIHkSb4qycq2wzllWsmmolaaFVnb+LPV9cIJ/nTud40ZsiiT0H3P+/wXIdbjx2fzF61OaeOQ==
 
+react-gtm-module@^2.0.2:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/react-gtm-module/-/react-gtm-module-2.0.11.tgz#14484dac8257acd93614e347c32da9c5ac524206"
+  integrity sha512-8gyj4TTxeP7eEyc2QKawEuQoAZdjKvMY4pgWfycGmqGByhs17fR+zEBs0JUDq4US/l+vbTl+6zvUIx27iDo/Vw==
+
 react-intl@^2.7.2:
   version "2.7.2"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-2.7.2.tgz#efe97e3fc0e99b4e88a6e6150854d3d1852a4381"
@@ -8584,6 +8577,14 @@ react-slider@^0.11.2:
   version "0.11.2"
   resolved "https://registry.yarnpkg.com/react-slider/-/react-slider-0.11.2.tgz#ae014e1454c3cdd5f28b5c2495b2a08abd9971e6"
   integrity sha512-y49ZwJJ7OcPdihgt71xYI8GRdAzpFuSLQR8b+cKotutxqf8MAEPEtqvWKlg+3ZQRe5PMN6oWbIb7wEYDF8XhNQ==
+
+react-test-renderer@^15.6.2:
+  version "15.7.0"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.7.0.tgz#d52a29b175706ff7ea49c98058ebaafa39321812"
+  integrity sha512-sRkDsQA9AhmRZFmpnhYnm7C9h3f7m/KhVhAGQWQfER8AF6ANNsmGINf+7AXBNbDd0DKxSit6VFTO/gsjRwT5lg==
+  dependencies:
+    fbjs "^0.8.9"
+    object-assign "^4.1.0"
 
 react@^15.6.2:
   version "15.6.2"
